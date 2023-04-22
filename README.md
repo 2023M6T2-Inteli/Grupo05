@@ -50,7 +50,7 @@ Meu projeto é um exemplo de como utilizar o github.
 
 <p  align="center">
 
-<img  src="../docs/img/robo.jpg"  alt="Robô">
+<img  src="docs/img/robo.jpg"  alt="Robô">
 
 </p>
 
