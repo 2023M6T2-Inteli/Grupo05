@@ -28,13 +28,13 @@
 
 ## Integrantes:
 
-<a href="https://www.linkedin.com/in/alysson-cordeiro-0684a8236">Alysson Cordeiro</a>
-<a href="https://www.linkedin.com/in/brunomleao">Bruno Leão</a>
-<a href="https://www.linkedin.com/in/caio-m1849">Caio Martins</a>
-<a href="https://www.linkedin.com/in/filipi-enzo-siqueira-kikuchi-1811a9213">Filipi Kikuchi</a>
-<a href="https://www.linkedin.com/in/kil-matheus-gomes-teixeira-78257020a">Kil Matheus</a>
-<a href="https://www.linkedin.com/in/paulo-evangelista">Paulo Evangelista</a>
-<a href="https://www.linkedin.com/in/kil-matheus-gomes-teixeira-78257020a">Henrique Schilder</a>
+<a href="https://www.linkedin.com/in/alysson-cordeiro-0684a8236">Alysson Cordeiro</a><br>
+<a href="https://www.linkedin.com/in/brunomleao">Bruno Leão</a><br>
+<a href="https://www.linkedin.com/in/caio-m1849">Caio Martins</a><br>
+<a href="https://www.linkedin.com/in/filipi-enzo-siqueira-kikuchi-1811a9213">Filipi Kikuchi</a><br>
+<a href="https://www.linkedin.com/in/kil-matheus-gomes-teixeira-78257020a">Kil Matheus</a><br>
+<a href="https://www.linkedin.com/in/paulo-evangelista">Paulo Evangelista</a><br>
+<a href="https://www.linkedin.com/in/kil-matheus-gomes-teixeira-78257020a">Henrique Schilder</a><br>
 
 ## Descrição
 
