@@ -21,8 +21,12 @@
 
 <font  size="+12"><center>
 
-Simulação de Robôs para aplicações Diversas
+---
+---
+SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
+---
+---
 </center></font>
 
   
@@ -60,14 +64,15 @@ Simulação de Robôs para aplicações Diversas
   - [Descrição dos Subsistemas](#descrição-dos-subsistemas)
     - [Requisitos de software](#requisitos-de-software)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [UX e UI Design](#ux-e-ui-design)
 - [METADESIGN.](#metadesign)
   - [FATORES MERCADOLÓGICO:](#fatores-mercadológico)
       - [**CENÁRIO DO MERCADO.**](#cenário-do-mercado)
       - [**VISÃO.**](#visão)
+  - [SISTEMA PRODUTO/DESIGN:](#sistema-produtodesign)
+      - [**MISSÃO.**](#missão)
+      - [**DESIGN.**](#design)
   - [SUSTENTABILIDADE AMBIENTAL:](#sustentabilidade-ambiental)
-  - [SISTEMAS PRODUTO/DESIGN:](#sistemas-produtodesign)
-  - [Referências:](#referências)
+  - [*Referências:*](#referências)
   - [Wireframe + Storyboard](#wireframe--storyboard)
   - [Design de Interface - Guia de Estilos](#design-de-interface---guia-de-estilos)
 - [Projeto de Banco de Dados](#projeto-de-banco-de-dados)
@@ -249,10 +254,6 @@ Alunos do grupo 5 GER-bROS - Instituto de Tecnologia e Liderança - INTELI
 
 ## Tecnologias Utilizadas
 
-  
-  
-
-# UX e UI Design
 
 ---
 
@@ -270,7 +271,7 @@ Vale ressaltar também que a custo do produto é resultante do serviço gerado p
 ---
 #### **CENÁRIO DO MERCADO.**
 ---
-O projeto está inserido no mercado de controle e automação, cujo cenário está em constante crescimento em todo o mundo. Com a crescente demanda por eficiência e produtividade, empresas de diversos setores estão investindo em soluções de automação e controle para otimizar seus processos produtivos e reduzir custos. Segundo relatório da MarketsandMarkets, a indústria global de automação e controle deve crescer de US$ 171,5 bilhões em 2019 para US$ 229,3 bilhões até 2024, com uma taxa de crescimento anual composta (CAGR) de 6,1% durante o período. Os principais fatores impulsionando esse crescimento incluem a crescente demanda por soluções de automação e controle em diversos setores, como manufatura, energia, saúde e transporte, além da evolução das tecnologias de automação e controle, como a Internet das Coisas (IoT) e a inteligência artificial. Fonte[1]
+O projeto está inserido no mercado de controle e automação, cujo cenário está em constante crescimento em todo o mundo. Com a crescente demanda por eficiência e produtividade, empresas de diversos setores estão investindo em soluções de automação e controle para otimizar seus processos produtivos e reduzir custos. Segundo relatório da MarketsandMarkets, a indústria global de automação e controle deve crescer de US$ 171,5 bilhões em 2019 para US$ 229,3 bilhões até 2024, com uma taxa de crescimento anual composta (CAGR) de 6,1% durante o período. Os principais fatores impulsionando esse crescimento incluem a crescente demanda por soluções de automação e controle em diversos setores, como manufatura, energia, saúde e transporte, além da evolução das tecnologias de automação e controle, como a Internet das Coisas (IoT) e a inteligência artificial. Fonte [ [1](#referências) ]
 
 No Brasil, apesar dos avanços em robótica e automação, tecnologias destinadas para espaços confinados ainda não é muito popular, especialmente em pequenas e médias empresas. No entanto, há um aumento na demanda por soluções tecnológicas para aprimorar a segurança e eficiência das operações em ambientes confinados, e algumas empresas já estão investindo em tecnologias nesse sentido, como a Gerdau S. A. em parceria com o Instituto de Tecnologia de Liderança. Além disso, vale ressaltar que a legislação brasileira tem se tornado cada vez mais rigorosa em relação à segurança em ambientes confinados, o que pode aumentar a necessidade de soluções tecnológicas nessa área. Portanto, é possível que a tecnologia de controle e automação em espaços confinados tenha um potencial de crescimento no Brasil nos próximos anos.
 
@@ -302,22 +303,17 @@ O serviço do projeto poderá trazer benefícios significativos em termos de eco
 - **Redução de desperdício**: A detecção precoce de vazamentos também pode ajudar a reduzir o desperdício de gás. Em vez de desperdiçar gás em vazamentos não detectados, o gás pode ser utilizado de forma mais eficiente.
 - **Melhoria da segurança**: eficiencia e melhoraria na segurança dos trabalhadores que trabalham com gás. A detecção precoce de vazamentos poderia ajudar a prevenir acidentes e a reduzir o risco de explosões, se por ventura for inflamável.
 - **Redução de custos**: A detecção precoce de vazamentos também pode ajudar a reduzir os custos de manutenção, já que as tubulações podem ser reparadas mais rapidamente antes que os problemas se agravem.
-- **Consumo de energia elétrica**: O robô TurtleBot 3, utilizado no projeto, é conhecido por ser eficiente em termos de energia, o que reduziria o consumo de energia elétrica em comparação com outros equipamentos utilizados para inspeção em espaços confinados. Fonte[2]
+- **Consumo de energia elétrica**: O robô TurtleBot 3, utilizado no projeto, é conhecido por ser eficiente em termos de energia, o que reduziria o consumo de energia elétrica em comparação com outros equipamentos utilizados para inspeção em espaços confinados. Fonte [ [2](#referências) ]
 - **Algoritmo Verde**: Contribui para a ecoeficiência através do uso de tecnologias verdes e da aplicação de algoritmos eficientes que reduzem o impacto ambiental, aumentam a eficiência energética e otimizam o uso de recursos naturais, onde a utilização desse algoritmos também pode proporcionar uma redução nos custos de operação e manutenção do produto, tornando-o mais competitivo no mercado e aumentando sua viabilidade econômica.
----
----
-## SISTEMAS PRODUTO/DESIGN:
----
-
-## Referências:
-[1] (https://www.marketsandmarkets.com/automation-control-market-research-6.html)
-
-[2] Consumo de energia elétrica: (https://wiki.nps.edu/display/RC/TutleBot3+Batteries)
-
-
-
   
+## *Referências:* 
+[1] *(https://www.marketsandmarkets.com/automation-control-market-research-6.html)*
 
+[2] *Consumo de energia elétrica: (https://wiki.nps.edu/display/RC/TutleBot3+Batteries)*
+
+
+---
+---
 ## Wireframe + Storyboard
 
   
