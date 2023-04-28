@@ -280,8 +280,20 @@ No Brasil, apesar dos avanços em robótica e automação, tecnologias destinada
 A visão do projeto proposto é de oferecer um serviço inovador e sustentável para a detecção de problemas em espaços confinados, aliando tecnologia avançada a uma abordagem em segurança de trabalho. O projeto busca atender às demandas do mercado atual, que valoriza cada vez mais soluções tecnológicas eficientes e que também estejam alinhadas às questões ambientais. Ademais,  projeto visa facilitar o trabalho de técnicos que operam em ambientes confinados, oferecendo segurança e praticidade na detecção de problemas e contribuindo para aumentar a eficiência e produtividade desses profissionais. Vale acentuar também que o projeto tem potencial para atender a um amplo mercado, considerando as diversas áreas que demandam a detecção de problemas em espaços confinados, como a indústria petroquímica, a mineração, a construção civil, entre outras.
 
 ---
+## SISTEMA PRODUTO/DESIGN:
+---
+#### **MISSÃO.**
+---
+A missão do projeto proposto é antecipar a segurança de ambientes confinados para a locomoção humana futura, assegurando a saúde e o bem-estar das pessoas que irão transitar nesses espaços. Essa missão está alinhada à visão institucional da Gerdau, que coloca a segurança como um valor fundamental norteando as decisões cotidianas em busca da construção de um ambiente seguro em todas as suas operações.
+
+---
+#### **DESIGN.**
 ---
 
+A mensagem que se deseja transmitir é sobre a importância da segurança dos colaboradores em atividades de risco, especialmente em ambientes de espaço confinado. Para alcançar esse objetivo, é crucial que o design do robô seja cuidadosamente pensado, a fim de evidenciar sua função principal de coletar dados em ambientes perigosos e contribuir para a segurança dos colaboradores. Uma forma eficaz de fazer isso é por meio de uma aparência amigável e confiável, que transmita segurança e confiança aos usuários.
+Além disso, é essencial que a forma de divulgação e venda do produto esteja alinhada com a mensagem a ser transmitida, destacando seus benefícios em relação à segurança dos colaboradores e à eficiência operacional da empresa. Isso pode ser feito por meio de campanhas publicitárias e de marketing que enfatizem os diferenciais do produto, como a capacidade de coletar dados precisos em ambientes perigosos, reduzindo o risco de acidentes e melhorando a tomada de decisão em situações críticas. Dessa forma, será possível transmitir uma mensagem clara e efetiva sobre a importância da segurança no ambiente de trabalho, ao mesmo tempo em que se promove um produto de qualidade e eficiente.
+
+---
 ## SUSTENTABILIDADE AMBIENTAL:
 ---
 O serviço do projeto poderá trazer benefícios significativos em termos de ecoeficiência, ajudando a reduizr alguns impactos ambientais, melhorar a segurança e reduzir os custos, como, por exemplo:
