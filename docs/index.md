@@ -30,7 +30,6 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
 </center></font>
 
-
 > _Observação 1: A estrutura inicial deste documento é só um exemplo. O seu grupo deverá alterar esta estrutura de acordo com o que está sendo solicitado nos artefatos._
 
 > _Observação 2: O índice abaixo não precisa ser editado se você utilizar o Visual Studio Code com a extensão **Markdown All in One**. Essa extensão atualiza o índice automaticamente quando o arquivo é salvo._
@@ -158,7 +157,7 @@ Os AGVs, ou Automatic Guided Vehicles, são veículos guiados automaticamente qu
 
 Os AGVs estão se tornando cada vez mais populares devido aos benefícios que oferecem, como aumento da eficiência e produtividade, redução de custos operacionais, maior segurança no ambiente de trabalho e melhoria na qualidade do produto final. Além disso, eles são altamente personalizáveis e podem ser projetados para atender às necessidades específicas de uma empresa.
 
-Em relação às aplicações para operações em espaços confinados, como indicado na norma NR33, os AGVs podem ser utilizados para transportar materiais em ambientes com espaço limitado, como túneis, galerias, minas, entre outros. Eles podem ser equipados com sensores de proximidade para detectar obstáculos e garantir que o veículo não colida com paredes, tetos ou outros objetos no caminho. 
+Em relação às aplicações para operações em espaços confinados, como indicado na norma NR33, os AGVs podem ser utilizados para transportar materiais em ambientes com espaço limitado, como túneis, galerias, minas, entre outros. Eles podem ser equipados com sensores de proximidade para detectar obstáculos e garantir que o veículo não colida com paredes, tetos ou outros objetos no caminho.
 
 Com isso em mente, o projeto busca construir um protótipo que sirva como uma PoC (Proof of Concept) para estruturar uma base sólida para a futura implementação de modelos definitivos.
 
@@ -275,12 +274,14 @@ Os requisitos de um sistema são as especificações das funcionalidades e carac
 Os requisitos funcionais descrevem o que o sistema deve fazer e quais são as suas funcionalidades. Eles estão relacionados às atividades que o sistema deve realizar e às tarefas que os usuários devem ser capazes de realizar com ele. Por outro lado, os requisitos não funcionais são as características que o sistema deve ter para satisfazer os critérios de qualidade e desempenho. Eles incluem aspectos como usabilidade, segurança, desempenho, escalabilidade e disponibilidade. Esses requisitos são tão importantes quanto os funcionais, pois garantem que o sistema funcione de forma adequada e segura.
 
 - Requisitos funcionais:
+
 * O robô deve ser capaz de se mover em ambientes de espaço confinado de forma segura e eficiente.
 * O robô deve ser equipado com sensores para coletar dados da atmosfera, incluindo a concentração de oxigênio e outros gases.
 * O robô deve ser capaz de transmitir esses dados em tempo real para os operadores que estão fora do espaço confinado.
 * O robô deve ser capaz de realizar inspeções prévias da estrutura usando filmagens.
 
 - Requisitos não funcionais:
+
 * O robô deve ser projetado e construído de acordo com as normas regulamentadoras (NR33).
 * O robô deve ser seguro para ser usado em espaços confinados e não apresentar riscos adicionais à saúde dos operadores.
 * O robô deve ser fácil de operar e manter, com uma interface amigável para o usuário.
@@ -302,6 +303,12 @@ A solução desenvolvida tem como foco de assegurar que as condições atmosfér
 
 ## Jornada do Usuário
 
+<p  align="center">
+
+<img  src="img/jornada-do-usuario.jpg"  alt="Jornada do usuário">
+
+</p>
+
 1. Problema: Douglas encontra-se em dificuldade para analisar com precisão as condições atmosféricas em ambientes configurados como espaço confinado. Ele precisa documentar todos os riscos envolvidos e as possíveis consequências para os colaboradores expostos a essas situações, mas tem dificuldade em obter resultados confiáveis.
 
 2. Descoberta: Douglas pesquisa tecnologias e ferramentas que possam ajudá-lo a realizar essas análises com mais eficiência e precisão. Ele descobre equipamentos e softwares específicos para verificação de condições atmosféricas em espaços confinados e percebe que eles podem ajudá-lo a aprimorar seu trabalho.
@@ -322,7 +329,6 @@ Segundo a entrevista com a empresa Gerdau, foi concluído como requisitos do sis
 • Eu, Douglas, Técnico de Segurança, quero no Robô, um sensor de gás, a fim de medir as condições atmosféricas do ambiente.<br>
 • Eu Douglas, Técnico de Segurança, quero poder ver no Dashboard em tempo real, quais são os valores capturados pelos sensores que fazem a leitura das condições atmosféricas, para poder documentar e validar se o local está seguro para continuar com a ordem de serviço.<br>
 • Eu Douglas, Técnico de Segurança, quero ver no Dashboard, se o robô está pareado com o mesmo, a fim de observar a funcionalidade dos sensores.<br>
-
 
 # Arquitetura do Sistema
 
