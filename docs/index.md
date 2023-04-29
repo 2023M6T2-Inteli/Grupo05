@@ -52,6 +52,12 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
   - [Partes interessadas](#partes-interessadas)
 - [Análise do Problema](#análise-do-problema)
   - [Análise da área de atuação](#análise-da-área-de-atuação)
+  - [Matriz de Oceano Azul](#matriz-de-oceano-azul)
+    - [**Eliminar**](#eliminar)
+    - [**Reduzir**](#reduzir)
+    - [**Criar**](#criar)
+    - [**Elevar**](#elevar)
+    - [**Avaliação de valor**](#avaliação-de-valor)
   - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
@@ -59,6 +65,9 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
   - [Personas](#personas)
   - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
+  - [**FrontEnd**](#frontend)
+  - [**Backend**](#backend)
+  - [**Sistema Embarcado**](#sistema-embarcado)
   - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
   - [Descrição dos Subsistemas](#descrição-dos-subsistemas)
     - [Requisitos de software](#requisitos-de-software)
@@ -184,7 +193,7 @@ Para realizar a matriz de oceano azul, forma identificados os pontos que a empre
 
 <p  align="center">
 
-<img  src="docs\img\Matriz de Oceano azul.jpg"  alt="Matriz-oceano-azul">
+<img  src="img/Matriz de Oceano azul.jpg"  alt="Matriz-oceano-azul">
 
 </p>
 
@@ -205,7 +214,7 @@ Seguindo a ideia da matriz de oceano azul, foi feita uma avaliação de valor da
 
 <p  align="center">
 
-<img  src="docs\img\Matriz de Avaliação de Valor.jpg"  alt="Avaliacao-de-valor">
+<img  src="img/Matriz de Avaliação de Valor.jpg"  alt="Avaliacao-de-valor">
 
 </p>
 
@@ -281,7 +290,7 @@ A arquitetura do sistema foi feito de forma particionada, separando o sistema op
 
 <p  align="center">
 
-<img  src="docs\img\Arquitetura do Sistema.jpg"  alt="Arquitetura">
+<img  src="img/Arquitetura do Sistema.jpg"  alt="Arquitetura">
 
 </p>
 
