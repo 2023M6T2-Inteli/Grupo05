@@ -62,6 +62,7 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
     - [ROI - Return Over Investment](#roi---return-over-investment)
 - [Requisitos do Sistema](#requisitos-do-sistema)
   - [Personas](#personas)
+  - [Jornada do Usuário](#jornada-do-usuário)
   - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
   - [**FrontEnd**](#frontend)
@@ -141,11 +142,25 @@ Alunos do grupo 5 GER-bROS - Instituto de Tecnologia e Liderança - INTELI
 
 # Análise do Problema
 
-_Descrição_da_análise_do_problema_
+A Gerdau é uma das maiores produtoras de aço no Brasil, com presença em diversos países ao redor do mundo. A empresa possui uma cultura organizacional baseada no princípio de "Segurança em Primeiro Lugar", que norteia a construção de ambientes seguros para as operações e tem como objetivo alcançar o "Acidente Zero".
+
+A empresa tem uma preocupação especial em relação aos Espaços Confinados, locais que apresentam riscos significativos à saúde e à segurança dos trabalhadores. Para mitigar esses riscos, as operações nesses espaços seguem normas de segurança rigorosas, como a NR-33. Além disso, verificações periódicas e rotinas de inspeção são realizadas externamente aos ambientes, e o acesso a eles é planejado e monitorado.
+
+A utilização de robôs pode ser uma solução eficaz para mitigar os riscos associados aos Espaços Confinados. O robô proposto pela Gerdau seria capaz de se mover em ambientes confinados, coletar dados da atmosfera e realizar inspeções prévias da estrutura, minimizando o risco de acidentes.
+
+Como ideia norteadora da Gerdau, a adoção do princípio de "Segurança em Primeiro Lugar" é fundamental para a construção de ambientes seguros para operações "Acidente Zero". Embora essa abordagem seja de uso interno e possa não gerar retornos financeiros diretos, sua implementação é viável e resulta em índices de segurança mais elevados, o que é fundamental para preservar a saúde e a integridade física dos trabalhadores e para garantir a continuidade das operações empresariais de forma sustentável.
 
 ## Análise da área de atuação
 
-_Descrição*da_análise_da*área_de_atuação_
+No contexto do projeto, a área de atuação seria a de segurança no âmbito industrial e todos os processos que envolvem atividades em Espaços Confinados. Para tanto, houve uma necessidade do entendimento das tecnologias utilizadas para suprir as necessidades dessa área. Dessa forma, chegou-se na conjuntura de AGVs.
+
+Os AGVs, ou Automatic Guided Vehicles, são veículos guiados automaticamente que são utilizados para transportar materiais em uma variedade de ambientes industriais. Esses veículos são equipados com sensores, sistemas de controle e computadores para navegar em um ambiente sem a necessidade de um motorista humano. Eles são usados em diversas indústrias, incluindo logística, manufatura, automotiva e farmacêutica.
+
+Os AGVs estão se tornando cada vez mais populares devido aos benefícios que oferecem, como aumento da eficiência e produtividade, redução de custos operacionais, maior segurança no ambiente de trabalho e melhoria na qualidade do produto final. Além disso, eles são altamente personalizáveis e podem ser projetados para atender às necessidades específicas de uma empresa.
+
+Em relação às aplicações para operações em espaços confinados, como indicado na norma NR33, os AGVs podem ser utilizados para transportar materiais em ambientes com espaço limitado, como túneis, galerias, minas, entre outros. Eles podem ser equipados com sensores de proximidade para detectar obstáculos e garantir que o veículo não colida com paredes, tetos ou outros objetos no caminho. 
+
+Com isso em mente, o projeto busca construir um protótipo que sirva como uma PoC (Proof of Concept) para estruturar uma base sólida para a futura implementação de modelos definitivos.
 
 ## Matriz de Oceano Azul
 
@@ -255,11 +270,38 @@ Analisando os gastos atuais e os custos com equipamento, pode-se acompanhar os c
 
 # Requisitos do Sistema
 
-_Descrição_dos_requisitos_
+Os requisitos de um sistema são as especificações das funcionalidades e características que o sistema deve ter para atender às necessidades do usuário e dos stakeholders. Existem dois tipos de requisitos: os funcionais e os não funcionais.
+
+Os requisitos funcionais descrevem o que o sistema deve fazer e quais são as suas funcionalidades. Eles estão relacionados às atividades que o sistema deve realizar e às tarefas que os usuários devem ser capazes de realizar com ele. Por outro lado, os requisitos não funcionais são as características que o sistema deve ter para satisfazer os critérios de qualidade e desempenho. Eles incluem aspectos como usabilidade, segurança, desempenho, escalabilidade e disponibilidade. Esses requisitos são tão importantes quanto os funcionais, pois garantem que o sistema funcione de forma adequada e segura.
+
+- Requisitos funcionais:
+* O robô deve ser capaz de se mover em ambientes de espaço confinado de forma segura e eficiente.
+* O robô deve ser equipado com sensores para coletar dados da atmosfera, incluindo a concentração de oxigênio e outros gases.
+* O robô deve ser capaz de transmitir esses dados em tempo real para os operadores que estão fora do espaço confinado.
+* O robô deve ser capaz de realizar inspeções prévias da estrutura usando filmagens.
+
+- Requisitos não funcionais:
+* O robô deve ser projetado e construído de acordo com as normas regulamentadoras (NR33).
+* O robô deve ser seguro para ser usado em espaços confinados e não apresentar riscos adicionais à saúde dos operadores.
+* O robô deve ser fácil de operar e manter, com uma interface amigável para o usuário.
+* O robô deve ser capaz de operar em condições adversas, como pouca iluminação, alta umidade e eventuais probelmas de conexão.
+* O robô deve ser capaz de operar continuamente por um período mínimo de tempo, garantindo a cobertura completa do ambiente.
+* O robô deve ser capaz de se comunicar com outros sistemas de segurança da empresa para uma resposta rápida em caso de emergência.
 
 ## Personas
 
-_Descrição_das_personas_
+
+## Jornada do Usuário
+
+1. Problema: Douglas encontra-se em dificuldade para analisar com precisão as condições atmosféricas em ambientes configurados como espaço confinado. Ele precisa documentar todos os riscos envolvidos e as possíveis consequências para os colaboradores expostos a essas situações, mas tem dificuldade em obter resultados confiáveis.
+
+2. Descoberta: Douglas pesquisa tecnologias e ferramentas que possam ajudá-lo a realizar essas análises com mais eficiência e precisão. Ele descobre equipamentos e softwares específicos para verificação de condições atmosféricas em espaços confinados e percebe que eles podem ajudá-lo a aprimorar seu trabalho.
+
+3. Consideração: Douglas leva em consideração o custo-benefício dessas tecnologias, avaliando os recursos necessários para adquirir e implementar essas ferramentas. Ele também considera a necessidade de treinamentos e atualizações para garantir que possa utilizar essas tecnologias adequadamente.
+
+4. Decisão: Com base na análise de custo-benefício, Douglas decide apresentar à gerência da empresa os benefícios dessas tecnologias e solicita recursos para adquiri-las. Ele convence a gerência de que essas tecnologias são fundamentais para garantir a segurança dos colaboradores e minimizar os riscos de exposição a condições perigosas em espaços confinados.
+
+5. Implementação: Com os recursos obtidos, Douglas realiza treinamentos para aprender a utilizar os equipamentos e softwares adequadamente. Ele começa a utilizar essas tecnologias em seu trabalho, verificando as condições atmosféricas com maior eficiência e precisão e documentando potenciais riscos de forma mais rápida e eficaz. Com a utilização dessas tecnologias, ele consegue minimizar a probabilidade e a gravidade das exposições aos colaboradores da empresa, garantindo maior segurança no ambiente de trabalho.
 
 ## Histórias dos usuários (user stories)
 
