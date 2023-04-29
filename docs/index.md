@@ -317,11 +317,11 @@ A solução desenvolvida tem como foco de assegurar que as condições atmosfér
 As User Stories tem como objetivo mostrar para os desenvolvedores quais são as funcionalidades (Requisitos dos Sistema) que o usuário final deseja na solução. São pequenas histórias que ajudam no desenvolvimento com a finalidade de não perder o foco das necessidades do cliente.
 Segundo a entrevista com a empresa Gerdau, foi concluído como requisitos do sistema os seguinte User Stories:
 
-• Eu, Douglas, Técnico de Segurança, quero ter um Dashboard, para que consiga ter acesso as informações vinda do robô que se encontra no ambiente de espaço confinado.
-• Eu Douglas, Técnico de Segurança, quero poder ver pelo Dashboard em tempo real, a câmera do Robô, para ter uma prévia da situação atual do ambiente.
-• Eu, Douglas, Técnico de Segurança, quero no Robô, um sensor de gás, a fim de medir as condições atmosféricas do ambiente.
-• Eu Douglas, Técnico de Segurança, quero poder ver no Dashboard em tempo real, quais são os valores capturados pelos sensores que fazem a leitura das condições atmosféricas, para poder documentar e validar se o local está seguro para continuar com a ordem de serviço.
-• Eu Douglas, Técnico de Segurança, quero ver no Dashboard, se o robô está pareado com o mesmo, a fim de observar a funcionalidade dos sensores.
+• Eu, Douglas, Técnico de Segurança, quero ter um Dashboard, para que consiga ter acesso as informações vinda do robô que se encontra no ambiente de espaço confinado.<br>
+• Eu Douglas, Técnico de Segurança, quero poder ver pelo Dashboard em tempo real, a câmera do Robô, para ter uma prévia da situação atual do ambiente.<br>
+• Eu, Douglas, Técnico de Segurança, quero no Robô, um sensor de gás, a fim de medir as condições atmosféricas do ambiente.<br>
+• Eu Douglas, Técnico de Segurança, quero poder ver no Dashboard em tempo real, quais são os valores capturados pelos sensores que fazem a leitura das condições atmosféricas, para poder documentar e validar se o local está seguro para continuar com a ordem de serviço.<br>
+• Eu Douglas, Técnico de Segurança, quero ver no Dashboard, se o robô está pareado com o mesmo, a fim de observar a funcionalidade dos sensores.<br>
 
 
 # Arquitetura do Sistema
