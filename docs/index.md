@@ -202,11 +202,20 @@ Alunos do grupo 5 GER-bROS - Instituto de Tecnologia e Liderança - INTELI
 
 ## Matriz de Risco
 
-  
 
-*Matriz_de_risco*
+<img  src="img/Matriz de risco - ameacas.png"  alt="Matriz de risco - ameacas">
+<img  src="img/Matriz de risco - oportunidades.png"  alt="Matriz de risco - oportunidades">
 
-  
+Para garantir o sucesso de um projeto, é importante identificar e mitigar todos os riscos envolvidos no processo. No caso do projeto em questão, foram identificados alguns riscos. Abaixo, apresentamos maneiras de mitigar riscos mapeados
+
+Risco 1: Equipar o robô com sensores de contaminação que possam detectar produtos químicos ou outros contaminantes presentes no espaço confinado. Além disso, o robô poderia ser equipado com revestimentos especiais que protejam seus componentes e sensores desses produtos/contaminantes.
+
+Risco 2 e 3: Verificação da qualidade dos sensores e equipamentos utilizados no robô, com testes regulares para garantir o seu bom funcionamento e minimizar a possibilidade de falhas.
+
+Risco 4: É importante que a equipe responsável pela operação do robô tenha conhecimento sobre as fontes de interferência e como evitá-las.
+
+Risco 5: Garantir que o sistema de comunicação utilizado seja confiável e possua redundância. É recomendável que seja feita uma avaliação prévia do ambiente de espaço confinado para identificar possíveis obstáculos à transmissão de dados. Além disso, uma maneira que se é possível de se imaginar para mitigar o risco em questão é construção de um sistema de controle que possua capacidade de armazenamento de dados, para que, em caso de falhas na transmissão, os dados coletados pelo robô possam ser recuperados posteriormente.
+
   
 
 # Requisitos do Sistema
