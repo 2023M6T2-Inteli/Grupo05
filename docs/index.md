@@ -116,13 +116,13 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
 ## Empresa
 
-Presente em mais de 10 países, a GERDAU é a maior empresa Brasileira produtora de aço e uma das principais fornecedoras de aços longos nas Américas e de aços especiais no mundo. No Brasil, tambem produz aços planos e minério de ferro. É uma pioneira nesse setor e na implantação de iniciativas de inovação digital, alem de ser uma das maiores recicladoras da América Latina, reclicando milhões de toneladas de sucato em aço, reforçando seu compromisso com o desenvolviemtno sustentável das regiões onde atua.
+Presente em mais de 10 países, a GERDAU é a maior empresa Brasileira produtora de aço e uma das principais fornecedoras de aços longos nas Américas e de aços especiais no mundo. No Brasil, tambem produz aços planos e minério de ferro. É uma pioneira nesse setor e na implantação de iniciativas de inovação digital, além de ser uma das maiores recicladoras da América Latina, reciclando milhões de toneladas de sucato em aço, reforçando seu compromisso com o desenvolvimento sustentável das regiões onde atua.
 
 ## O Problema
 
 Um dos valores que a GERDAU mais preza é a segurança e a construção de um ambiente seguro em suas operações. Isso ligado a um grande desafio: acidente zero.
 
-Um dos seus maiores riscos críticos já mapeados está relacionado a operações de colaboradores em Espaços Confinados, locais onde não foram projetados para ocupação humana contínua. Esses lugares podem apresentar um risco a integridade e a saúde dos mesmos sem a capacitação e equipamento adequados como exigem as normas regulamentadoras (NR33). Além disso, espaços confinados apresentam meios limitados de entrada e saída, uma ventilação insuficiente para remover contaminantes e tambem podendo contem uma deficiência (< 19,5%) ou enrequecimento (< 23%) de oxigênio
+Um dos seus maiores riscos críticos já mapeados está relacionado a operações de colaboradores em Espaços Confinados, locais onde não foram projetados para ocupação humana contínua. Esses lugares podem apresentar um risco a integridade e a saúde dos mesmos sem a capacitação e equipamento adequados como exigem as normas regulamentadoras (NR33). Além disso, espaços confinados apresentam meios limitados de entrada e saída, uma ventilação insuficiente para remover contaminantes e tambem podendo contem uma deficiência (< 19,5%) ou enriquecimento (< 23%) de oxigênio
 
 ## Objetivos
 
@@ -182,15 +182,15 @@ Os pontos de redução elencados na matriz supramencionada estão correlacionado
 
 ### **Criar**
 
-Para a realização das tarefas acima elencadas, a Gerdau pretende criar, ou que se crie neste caso, um veículo guiado automatizado de modo que seja possível fazer a visualização dos espaços confinados sem a necessidade da ação humana. Para que seja possível auferir as medições, será criado um software que possa ler dados de sensores e decidir o curso de ação para as tarefas que julgarem cabíveis. Outrossim, dashboard será criado, com os dados coletados, e será distribuído para os técnicos resposáveis de modo que eles possam visualizá-los facilmente em um dashboard, trazendo mais segurança para a equipe de forma geral e permitindo um registro histórico das operações que foram realizadas e em quais condições ocorreram.
+Para a realização das tarefas acima elencadas, a Gerdau pretende criar, ou que se crie neste caso, um veículo guiado automatizado de modo que seja possível fazer a visualização dos espaços confinados sem a necessidade da ação humana. Para que seja possível auferir as medições, será criado um software que possa ler dados de sensores e decidir o curso de ação para as tarefas que julgarem cabíveis. Outrossim, dashboard será criado, com os dados coletados, e será distribuído para os técnicos responsáveis de modo que eles possam visualizá-los facilmente em um dashboard, trazendo mais segurança para a equipe de forma geral e permitindo um registro histórico das operações que foram realizadas e em quais condições ocorreram.
 
 ### **Elevar**
 
-Para o quesito elevar, seguindo as boas práticas de segurança que a empresa tem e se baseando em sua cultura da segurança no trabalho, a solução até então proposta eleva a qualidade da segurança para os colaboradores, ao ponto de que permite conhecimento mais preciso das condições em que eles irão realizar suas tarefas no cotidiano e, por outra ótica, permite também a promover um plano de melhor capicatação para os funcionários, pensando na modernização industrial que ocorre atualmente e a política de inovação da empresa, nada mais necessário do que ter colaboradores que consigam manter-se atualizados no mercado de trabalho que cada vez mais migra para soluções automatizadas.
+Para o quesito elevar, seguindo as boas práticas de segurança que a empresa tem e se baseando em sua cultura da segurança no trabalho, a solução até então proposta eleva a qualidade da segurança para os colaboradores, ao ponto de que permite conhecimento mais preciso das condições em que eles irão realizar suas tarefas no cotidiano e, por outra ótica, permite também a promover um plano de melhor capacitação para os funcionários, pensando na modernização industrial que ocorre atualmente e a política de inovação da empresa, nada mais necessário do que ter colaboradores que consigam manter-se atualizados no mercado de trabalho que cada vez mais migra para soluções automatizadas.
 
 ### **Avaliação de valor**
 
-Seguindo a ideia da matriz de oceano azul, foi feita uma avaliação de valor da solução em comparação com outras já disponíves no mercado e pode-se depreender, em certo aspecto, como a solução da equipe Ger_bROS se destaca quando comparada as soluções generalistas que não lidam com alguns dos problemas da indústria de siderurgia e metalurgia como um todo.
+Seguindo a ideia da matriz de oceano azul, foi feita uma avaliação de valor da solução em comparação com outras já disponíveis no mercado e pode-se depreender, em certo aspecto, como a solução da equipe Ger_bROS se destaca quando comparada as soluções generalistas que não lidam com alguns dos problemas da indústria de siderurgia e metalurgia como um todo.
 
 <p  align="center">
 
@@ -206,7 +206,7 @@ _Matriz_SWOT_
 
 ## Proposta de Valor: Value Proposition Canvas
 
-O Canvas é uma ferramente utilizada para guiar os desenvolvedores em relação qual é o real problema encontrado, para conseguir alinha a solução (produto e/ou serviço) para que atenda as necessidades e que agregue valor a empresa.
+O Canvas é uma ferramenta utilizada para guiar os desenvolvedores em relação qual é o real problema encontrado, para conseguir alinha a solução (produto e/ou serviço) para que atenda as necessidades e que agregue valor a empresa.
 Logo a baixo segue o desenvolvimento do <b>Value Proposition Canvas</b>
 
   <p  align="center">
@@ -284,12 +284,21 @@ Os requisitos funcionais descrevem o que o sistema deve fazer e quais são as su
 * O robô deve ser projetado e construído de acordo com as normas regulamentadoras (NR33).
 * O robô deve ser seguro para ser usado em espaços confinados e não apresentar riscos adicionais à saúde dos operadores.
 * O robô deve ser fácil de operar e manter, com uma interface amigável para o usuário.
-* O robô deve ser capaz de operar em condições adversas, como pouca iluminação, alta umidade e eventuais probelmas de conexão.
+* O robô deve ser capaz de operar em condições adversas, como pouca iluminação, alta umidade e eventuais problemas de conexão.
 * O robô deve ser capaz de operar continuamente por um período mínimo de tempo, garantindo a cobertura completa do ambiente.
 * O robô deve ser capaz de se comunicar com outros sistemas de segurança da empresa para uma resposta rápida em caso de emergência.
 
 ## Personas
 
+As Personas são representações de usuários ideais que visa entender melhor as características, necessidades e o comportamento de um público alvo. Ela é utilizada para ajuda os desenvolvedores há não desviarem o foco para quem será destinada a utilização do produto final.
+
+A solução desenvolvida tem como foco de assegurar que as condições atmosféricas de um ambiente que se configura como espaço confinado, esteja dentro dos limites de autorização permito nas Normas Regulamentadoras a fim de ser possível a ocupação humana temporária para um serviço de manutenção. Sendo assim, foi desenvolvido a seguinte persona:
+
+<p  align="center">
+
+<img  src="img/Persona.jpg"  alt="Persona">
+
+</p>
 
 ## Jornada do Usuário
 
@@ -305,7 +314,15 @@ Os requisitos funcionais descrevem o que o sistema deve fazer e quais são as su
 
 ## Histórias dos usuários (user stories)
 
-_Descrição_das_histórias_dos_usuários_
+As User Stories tem como objetivo mostrar para os desenvolvedores quais são as funcionalidades (Requisitos dos Sistema) que o usuário final deseja na solução. São pequenas histórias que ajudam no desenvolvimento com a finalidade de não perder o foco das necessidades do cliente.
+Segundo a entrevista com a empresa Gerdau, foi concluído como requisitos do sistema os seguinte User Stories:
+
+• Eu, Douglas, Técnico de Segurança, quero ter um Dashboard, para que consiga ter acesso as informações vinda do robô que se encontra no ambiente de espaço confinado.
+• Eu Douglas, Técnico de Segurança, quero poder ver pelo Dashboard em tempo real, a câmera do Robô, para ter uma prévia da situação atual do ambiente.
+• Eu, Douglas, Técnico de Segurança, quero no Robô, um sensor de gás, a fim de medir as condições atmosféricas do ambiente.
+• Eu Douglas, Técnico de Segurança, quero poder ver no Dashboard em tempo real, quais são os valores capturados pelos sensores que fazem a leitura das condições atmosféricas, para poder documentar e validar se o local está seguro para continuar com a ordem de serviço.
+• Eu Douglas, Técnico de Segurança, quero ver no Dashboard, se o robô está pareado com o mesmo, a fim de observar a funcionalidade dos sensores.
+
 
 # Arquitetura do Sistema
 
