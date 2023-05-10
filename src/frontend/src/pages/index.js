@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
       <div className='absolute w-full h-full left-0 right-0 bg-white'>
+        testing
       <div className='absolute w-1/4 h-4/5 left-8 top-8 rounded-xl   bg-blue-500'>
          <Nav variant="tabs">
           <Nav.Item>
