@@ -1,5 +1,3 @@
-#
-
 import math
 import matplotlib.pyplot as plt
 show_animation = True
@@ -9,7 +7,6 @@ class AStarPlanner:
 
     def __init__(self, ox, oy, resolution, rr):
         
-
         self.resolution = resolution
         self.rr = rr
         self.min_x, self.min_y = 0, 0
@@ -21,8 +18,8 @@ class AStarPlanner:
 
     class Node:
         def __init__(self, x, y, cost, parent_index):
-            self.x = x  # index of grid
-            self.y = y  # index of grid
+            self.x = x  # index do plano cartesiano
+            self.y = y  # index do plano cartesiano
             self.cost = cost
             self.parent_index = parent_index
 
@@ -65,11 +62,11 @@ class AStarPlanner:
                                                                         o]))
             current = open_set[c_id]
 
-            # show graph
-            if show_animation:  # pragma: no cover
+            
+            if show_animation: 
                 plt.plot(self.calc_grid_position(current.x, self.min_x),
                         self.calc_grid_position(current.y, self.min_y), "xc")
-                # for stopping simulation with the esc key.
+
                 plt.gcf().canvas.mpl_connect('key_release_event',
                                             lambda event: [exit(
                                                 0) if event.key == 'escape' else None])
@@ -82,20 +79,20 @@ class AStarPlanner:
                 goal_node.cost = current.cost
                 break
 
-            # Remove the item from the open set
+            
             del open_set[c_id]
 
-            # Add it to the closed set
+            
             closed_set[c_id] = current
 
-            # expand_grid search grid based on motion model
+            
             for i, _ in enumerate(self.motion):
                 node = self.Node(current.x + self.motion[i][0],
                                 current.y + self.motion[i][1],
                                 current.cost + self.motion[i][2], c_id)
                 n_id = self.calc_grid_index(node)
 
-                # If the node is not safe, do nothing
+                
                 if not self.verify_node(node):
                     continue
 
@@ -103,10 +100,10 @@ class AStarPlanner:
                     continue
 
                 if n_id not in open_set:
-                    open_set[n_id] = node  # discovered a new node
+                    open_set[n_id] = node  
                 else:
                     if open_set[n_id].cost > node.cost:
-                        # This path is the best until now. record it
+                        
                         open_set[n_id] = node
 
         rx, ry = self.calc_final_path(goal_node, closed_set)
@@ -114,7 +111,7 @@ class AStarPlanner:
         return rx, ry
 
     def calc_final_path(self, goal_node, closed_set):
-        # generate final course
+        
         rx, ry = [self.calc_grid_position(goal_node.x, self.min_x)], [
             self.calc_grid_position(goal_node.y, self.min_y)]
         parent_index = goal_node.parent_index
@@ -213,7 +210,7 @@ class AStarPlanner:
 
 
 def main():
-    print(__file__ + " start!!")
+    print(__file__ + " começou!!")
 
     # start and goal position
     sx = 10.0  # [m]
@@ -244,7 +241,7 @@ def main():
         ox.append(40.0)
         oy.append(60.0 - i)
 
-    if show_animation:  # pragma: no cover
+    if show_animation:  
         plt.plot(ox, oy, ".k")
         plt.plot(sx, sy, "og")
         plt.plot(gx, gy, "xb")
@@ -254,7 +251,7 @@ def main():
     a_star = AStarPlanner(ox, oy, grid_size, robot_radius)
     rx, ry = a_star.planning(sx, sy, gx, gy)
 
-    if show_animation:  # pragma: no cover
+    if show_animation:  
         plt.plot(rx, ry, "-r")
         plt.pause(0.001)
         plt.show()
