@@ -71,7 +71,7 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
     - [Análise de Requisitos](#análise-de-requisitos)
       - [Requisitos de Software](#requisitos-de-software)
       - [Requisitos Físicos](#requisitos-físicos)
-    - [Viabilidade Técnica](#requisitos-de-software)
+    - [Viabilidade Técnica](#viabilidade-técnica)
     - [Diagrama de Implementação do Sistema](#diagrama-de-implementação-do-sistema)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [METADESIGN.](#metadesign)
@@ -395,11 +395,24 @@ A desenvolvimento desta solução é viável mediante a contratação de uma equ
 
 ![Diagrama_do_sistema](https://github.com/2023M6T2-Inteli/Grupo05/assets/99201276/22b3a0f1-ee6d-40f2-a86b-e9535a99f321)
 
-## Descrição dos Subsistemas
-
-### Requisitos de software
-
 ## Tecnologias Utilizadas
+### Linguagens 
+| Linguagem | Utilização | Ícone |
+|----------|----------|----------|
+| Python    | Backend, Sistema Embarcado  | ![Icon](https://skills.thijs.gg/icons?i=python) |
+| Next.js   | FrontEnd  | ![Icon](https://skills.thijs.gg/icons?i=nextjs)  |
+| TailWind    | FrontEnd  | ![Icon](https://skills.thijs.gg/icons?i=tailwind)  |
+
+### Database
+| Nome | Utilização | Tipo |
+|----------|----------|----------|
+| MySQL  | Dados: Sensores e Relatórios  | Relacional |
+| Neo4j  | Dados: Grafos  | Não Relacional |
+
+### Frameworks
+| Nome | Utilização | Linguagem |
+|----------|----------|----------|
+| FastAPI  | API  | Python | 
 
 ---
 
