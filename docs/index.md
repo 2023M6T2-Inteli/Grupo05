@@ -67,6 +67,10 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
   - [**FrontEnd**](#frontend)
   - [**Backend**](#backend)
   - [**Sistema Embarcado**](#sistema-embarcado)
+  - [Controle da Plataforma Robótica](#controle-da-plataforma-robótica)
+    - [Algoritmo de otimização de Rota](#algoritmo-de-otimização-de-rota)
+    - [Arquitetura do Sistema de Simulação](#arquitetura-do-sistema-de-simulação)
+    - [Integração](#integração)
   - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
     - [Análise de Requisitos](#análise-de-requisitos)
       - [Requisitos de Software](#requisitos-de-software)
@@ -356,6 +360,45 @@ Como pode-se ver, a arquitetura do backend estará responsável por processar as
 Como pode-se ver, a arquitetura pensada para o sistema embarcado está sumariamente atrelada ao Robot Operating System, o ROS, através do qual, fundamentado-so na estrutura de Nodes, nós, de comunicação, faremos a conexão do robô com o servidor e desta forma poderemos operá-lo ou captar as informações solicitadas como padrão pelo backend.
 
 > _Observação: Assim como indagado pelo parceiro de negócios, o módulo de conectividade a ser utilizado ainda não está definido, cabendo ao desenvolvimento posterior definir qual tipo de conexão será utilizado para uma boa utilização da ferramenta._
+
+# Controle da Plataforma Robótica
+
+O controle da Plataforma Robótica será feita pelo código em Python que será requisitado no Backend da solução. O usuário vai colocar pelo front as informações de coordenadas que o Robô vai percorrer, e na programação esses valores serão transformados em requisições que serão enviados para o Robô.
+
+## Algoritmo de otimização de Rota
+
+O algoritmo de otimização de rota A* é uma técnica utilizada para encontrar o caminho mais curto entre dois pontos em um grafo ponderado, considerando a distância percorrida e uma estimativa heurística da distância restante. Ele é amplamente utilizado em aplicações que envolvem problemas de planejamento de rotas, como sistemas de navegação por GPS, jogos eletrônicos e robótica.
+
+A escolha desse modelo A* foi devido ele combinar a eficiência do algoritmo de busca em largura com a precisão do algoritmo de busca em profundidade, tornando-o uma opção poderosa e eficaz para solucionar problemas de otimização de rota.
+
+Segue a baixo, um exemplo de seu funcionamento:
+
+
+<p  align="center">
+<img  src="img/a_algoritmo.gif"  alt="Arquitetura">
+</p>
+
+## Arquitetura do Sistema de Simulação
+
+A simulação do sistema é feita na plataforma Gazebo 3D, ela é simulada no ambiente do Linux instalada no Windows em conjunto com programas de renderização. É baseada no TurtleSim onde o sistema funciona na base de pacotes ROS2 (Robot Operating System). Ele permite a simulação de movimentos de uma tartaruga em um ambiente virtual bidimensional, onde é possível controlar a tartaruga através de comandos de movimento, como girar e avançar em uma direção específica. A tartaruga representa o robô, logo o esperado que se aconteça na simulação, seja replicado na realidade.
+
+<p  align="center">
+<img  src="img/gazebo.png"  alt="Gazebo">
+</p>
+
+<p>Fonte: Ambiente Gazebo com TurtleBot, https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/</p>
+
+Para fazer o Robô andar, um script Python é necessário rodar durante a simulação contendo todas as informações de Publisher e de Subscribe, que significa enviar as coordenadas para o Robô e receber o status de progresso.
+O programa está montado de forma que o usuário dirá para o robô para qual coordenada ele deve ir, e o mesmo corresponder.
+
+## Integração
+
+Essa integração será feita da seguinte forma, o backend irá servi o frontend que é a página para o usuário que vai utilizar, mostrando informações de status do Robô, condições atmosféricas, vai poder gerar relatórios e tambem conseguir ver que ele está fazendo. Em conjunto, ele vai rodar um script Python já otimizado com o algoritmo de otimização de rota A*. A simulação, como foi dito anteriormente, ela é uma demonstração de como o Robô vai se comportar em um ambiente controlado, quando a simulação atender as necessidades de trajetória, o mesmo código que foi utilizado no Gazebo, será utilizado na solução real, fechando assim a integração.
+
+<p  align="center">
+<img  src="img/frontend.png"  alt="frontend">
+</p>
+<p>Fonte: Figma, Autoria Própria</p>
 
 # Módulos do Sistema e Visão Geral (Big Picture)
 
