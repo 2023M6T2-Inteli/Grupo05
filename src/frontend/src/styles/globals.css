@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind pages;
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -26,54 +27,84 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-/* .App{
+.Gerbros{
   position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0px;
-  top: 0px;
-  background: #d9e6fe;
-  }
+  top: 2%;
+  left: 60%;
+}
+
+
+.nav-link-custom:hover {
+  background-color: #F49F1C !important;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 20px 18px 0 0 !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: scale(1.01);
+  transition: all 0.1s ease-in-out;
   
-  .retangule{
-    flex-wrap: nowrap;
+}
+.nav-fill{
+  border-radius: 19px 19px 0 0 !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.button-nav{
+  background: #E8F1F2 !important ;
+  color: black !important;
+  display: inline-block;
+  border-radius: 40px 40px 40px 40px !important;
+  padding: 10px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.button-nav:hover{
+  background-color: #F49F1C !important;
+  transform: scale(1.05);
+  transition: all 0.1s ease-in-out;
+}
+.loading {
   position: absolute;
-  width: 23%;
-  height: 80%;
-  left: 10%;
-  top: 10%;
-  background: #044290;
-  border-radius: 20px;
-  }
+  top: 41%;
+  left: 55%;
   
-  .aba {
-    background-color: #eee;
-    color: #444;
-    display: inline-block;
-    border-radius: 10px 10px 0 0;
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  .aba:last-child {
-    margin-right: 0;
-  }
-  
-  .aba:hover {
-    background-color: #ddd;
-  }
-  
-  
-  .button-O2{
+}
+
+.button-tela{
   position: absolute;
-  width: 118px;
-  height: 29px;
-  left: 55px;
-  top: 121px;
+  top: 85%;
+  left: 45%;
   
-  background: #E8F1F2;
-  border-radius: 25px;
-  } */
+  
+}
+.iniciar-rotina{
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.iniciar-rotina:hover{
+  background-color: #F49F1C !important;
+  transform: scale(1.02);
+  transition: all 0.1s ease-in-out;
+}
+
+
+.forca-parada{
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.forca-parada:hover{
+  background-color: #F49F1C !important;
+  transform: scale(1.02);
+  transition: all 0.1s ease-in-out;
+}
+
+
+.gerar-relatorio{
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.gerar-relatorio:hover{
+  background-color: #F49F1C !important;
+  transform: scale(1.02);
+  transition: all 0.1s ease-in-out;
+}
+
+
+
