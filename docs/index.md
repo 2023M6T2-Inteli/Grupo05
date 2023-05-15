@@ -65,6 +65,7 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
   - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
   - [**FrontEnd**](#frontend)
+    - [Versão 1.0](#versão-10)
   - [**Backend**](#backend)
   - [**Sistema Embarcado**](#sistema-embarcado)
   - [Controle da Plataforma Robótica](#controle-da-plataforma-robótica)
@@ -349,7 +350,16 @@ A arquitetura do sistema foi feito de forma particionada, separando o sistema op
 
 ## **FrontEnd**
 
-Como pode-se ver, pensando na arquitetura do Frontend, foram pensadas 3 telas distintas, sendo uma delas para a visualização das informações captadas pela câmera acoplada ao Turtlebot3, uma tela para visualização dos dados processados pelos sensores em um dashboard, de modo a facilitar a operação do usuário final e uma tela para a simulação da rotina de inspeção que o robô estará encarregado de realizar, sendo esta responsável por verificar a execução correta dos procedimentos necessários a atividade realizada.
+Durante o planejamento e processo de design da interface do usuário, foram levadas em consideração as necessidades dos clientes e os requisitos do sistema elencados. Para validação desses elementos, fizemos validações com os parceiros e se esses atendiam às user stories.
+
+Pensando na arquitetura do Frontend, foram pensadas 3 telas distintas, sendo uma delas para a visualização das informações captadas pela câmera acoplada ao Turtlebot3, uma tela para visualização dos dados processados pelos sensores em um dashboard, de modo a facilitar a operação do usuário final e uma tela para a simulação da rotina de inspeção que o robô estará encarregado de realizar, sendo esta responsável por verificar a execução correta dos procedimentos necessários a atividade realizada. Assim, o sistema retorna feedbacks de dados relevantes para o controle das atividades do robô, o que permite o acompanhamento em tempo real das rotinas. Ao final, projetou-se uma interface mais enxuta que resolvesse as necessidades do cliente.
+
+### Versão 1.0
+<p  align="center">
+<img  src="img/frontend-v1.png"  alt="Primeira versão do Frontend">
+<p>Primeira versão da solução implementada</p>
+</p>
+
 
 ## **Backend**
 
@@ -393,7 +403,7 @@ O programa está montado de forma que o usuário dirá para o robô para qual co
 
 ## Integração
 
-Essa integração será feita da seguinte forma, o backend irá servi o frontend que é a página para o usuário que vai utilizar, mostrando informações de status do Robô, condições atmosféricas, vai poder gerar relatórios e tambem conseguir ver que ele está fazendo. Em conjunto, ele vai rodar um script Python já otimizado com o algoritmo de otimização de rota A*. A simulação, como foi dito anteriormente, ela é uma demonstração de como o Robô vai se comportar em um ambiente controlado, quando a simulação atender as necessidades de trajetória, o mesmo código que foi utilizado no Gazebo, será utilizado na solução real, fechando assim a integração.
+Essa integração será feita da seguinte forma, o backend irá servi o frontend que é a página para o usuário que vai utilizar, mostrando informações de status do Robô, condições atmosféricas, vai poder gerar relatórios e tambem conseguir ver que ele está fazendo. Em conjunto, ele vai rodar um script Python já otimizado com o algoritmo de otimização de rota A*. A simulação, como foi dito anteriormente, é uma demonstração de como o Robô vai se comportar em um ambiente controlado, quando a simulação atender as necessidades de trajetória, o mesmo código que foi utilizado no Gazebo será utilizado na solução real, fechando assim a integração.
 
 <p  align="center">
 <img  src="img/frontend.png"  alt="frontend">
@@ -537,6 +547,24 @@ O serviço do projeto poderá trazer benefícios significativos em termos de eco
 
 ## Wireframe + Storyboard
 
+Para o desenvolvimento do Wireframe, optamos pela utilização da ferramenta Figma para prototipação das telas. A princípio, optamos por manter a simplicidade de visualização com a implementação de três componentes principais: O menu, a janela de visualização e os botões de controle. O design final segue abaixo:
+
+<p align="center">
+  <img src="img/Wireframe.png" alt="Wireframe do projeto"/>
+</p>
+
+### Componentes
+
+<p align="center">
+  <img src="img/wireframe-estrutura.png" alt="Estrutura do Wireframe - Componentes principais"/>
+</p>
+
+1. Menu: É responsável por mostrar os elementos de controle de cada aba (Dados, Câmera, Virtual)
+2. Botões de controle: Esses componentes são responsáveis pelo controle do robô durante a rotina e a geração do relatório.
+3. Janela de visualização: Esse componente é responsável por exibir dashboards, vídeos e simulação dependendo da função escolhida.
+
+
+[Link para o Figma do projeto](https://www.figma.com/file/NT74VsB5HdgBSnPgJt1ZLa/Mockup-Gerbros?type=design&node-id=0%3A1&t=Di1Dg68gJrnNrs9I-1)
 ## Design de Interface - Guia de Estilos
 
 # Projeto de Banco de Dados
