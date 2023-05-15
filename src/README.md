@@ -11,3 +11,4 @@
 # Organização do diretório de arquivos fonte
 
 Este diretório é destinado para o armazenamento e versionamento dos arquivos fonte relacionados à aplicação desenvolvida pelos alunos. Preencha aqui explicando como está organizado seu diretório e resumindo o que faz cada um dos arquivos principais.
+"

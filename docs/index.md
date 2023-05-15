@@ -129,29 +129,21 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
 
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
-
-- [**FrontEnd**](#frontend)
-
-- [**Backend**](#backend)
-
-- [**Sistema Embarcado**](#sistema-embarcado)
-
-- [Controle da Plataforma Robótica](#controle-da-plataforma-robótica)
-
-- [Algoritmo de otimização de Rota](#algoritmo-de-otimização-de-rota)
-
-- [Arquitetura do Sistema de Simulação](#arquitetura-do-sistema-de-simulação)
-
-- [Integração](#integração)
-
-- [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
-
-- [Descrição dos Subsistemas](#descrição-dos-subsistemas)
-
-- [Requisitos de software](#requisitos-de-software)
-
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-
+  - [**FrontEnd**](#frontend)
+    - [Versão 1.0](#versão-10)
+  - [**Backend**](#backend)
+  - [**Sistema Embarcado**](#sistema-embarcado)
+  - [Controle da Plataforma Robótica](#controle-da-plataforma-robótica)
+    - [Algoritmo de otimização de Rota](#algoritmo-de-otimização-de-rota)
+    - [Arquitetura do Sistema de Simulação](#arquitetura-do-sistema-de-simulação)
+    - [Integração](#integração)
+  - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
+    - [Análise de Requisitos](#análise-de-requisitos)
+      - [Requisitos de Software](#requisitos-de-software)
+      - [Requisitos Físicos](#requisitos-físicos)
+    - [Viabilidade Técnica](#viabilidade-técnica)
+    - [Diagrama de Implementação do Sistema](#diagrama-de-implementação-do-sistema)
+  - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [METADESIGN.](#metadesign)
 
 - [FATORES MERCADOLÓGICO:](#fatores-mercadológico)
@@ -692,9 +684,16 @@ A arquitetura do sistema foi feito de forma particionada, separando o sistema op
 
 ## **FrontEnd**
 
-  
 
-Como pode-se ver, pensando na arquitetura do Frontend, foram pensadas 3 telas distintas, sendo uma delas para a visualização das informações captadas pela câmera acoplada ao Turtlebot3, uma tela para visualização dos dados processados pelos sensores em um dashboard, de modo a facilitar a operação do usuário final e uma tela para a simulação da rotina de inspeção que o robô estará encarregado de realizar, sendo esta responsável por verificar a execução correta dos procedimentos necessários a atividade realizada.
+Durante o planejamento e processo de design da interface do usuário, foram levadas em consideração as necessidades dos clientes e os requisitos do sistema elencados. Para validação desses elementos, fizemos validações com os parceiros e se esses atendiam às user stories.
+
+Pensando na arquitetura do Frontend, foram pensadas 3 telas distintas, sendo uma delas para a visualização das informações captadas pela câmera acoplada ao Turtlebot3, uma tela para visualização dos dados processados pelos sensores em um dashboard, de modo a facilitar a operação do usuário final e uma tela para a simulação da rotina de inspeção que o robô estará encarregado de realizar, sendo esta responsável por verificar a execução correta dos procedimentos necessários a atividade realizada. Assim, o sistema retorna feedbacks de dados relevantes para o controle das atividades do robô, o que permite o acompanhamento em tempo real das rotinas. Ao final, projetou-se uma interface mais enxuta que resolvesse as necessidades do cliente.
+
+### Versão 1.0
+<p  align="center">
+<img  src="img/frontend-v1.png"  alt="Primeira versão do Frontend">
+<p>Primeira versão da solução implementada</p>
+</p>
 
   
 
@@ -757,19 +756,104 @@ Essa integração será feita da seguinte forma, o backend irá servi o frontend
 <p>Fonte: Figma, Autoria Própria</p>
   
 
-## Módulos do Sistema e Visão Geral (Big Picture)
+# Controle da Plataforma Robótica
 
-  
+O controle da Plataforma Robótica será feita pelo código em Python que será requisitado no Backend da solução. O usuário vai colocar pelo front as informações de coordenadas que o Robô vai percorrer, e na programação esses valores serão transformados em requisições que serão enviados para o Robô.
 
-## Descrição dos Subsistemas
+## Algoritmo de otimização de Rota
 
-  
+O algoritmo de otimização de rota A* é uma técnica utilizada para encontrar o caminho mais curto entre dois pontos em um grafo ponderado, considerando a distância percorrida e uma estimativa heurística da distância restante. Ele é amplamente utilizado em aplicações que envolvem problemas de planejamento de rotas, como sistemas de navegação por GPS, jogos eletrônicos e robótica.
 
-### Requisitos de software
+A escolha desse modelo A* foi devido ele combinar a eficiência do algoritmo de busca em largura com a precisão do algoritmo de busca em profundidade, tornando-o uma opção poderosa e eficaz para solucionar problemas de otimização de rota.
+
+Segue a baixo, um exemplo de seu funcionamento:
+
+
+<p  align="center">
+<img  src="img/a_algoritmo.gif"  alt="Arquitetura">
+</p>
+
+## Arquitetura do Sistema de Simulação
+
+A simulação do sistema é feita na plataforma Gazebo 3D, ela é simulada no ambiente do Linux instalada no Windows em conjunto com programas de renderização. É baseada no TurtleSim onde o sistema funciona na base de pacotes ROS2 (Robot Operating System). Ele permite a simulação de movimentos de uma tartaruga em um ambiente virtual bidimensional, onde é possível controlar a tartaruga através de comandos de movimento, como girar e avançar em uma direção específica. A tartaruga representa o robô, logo o esperado que se aconteça na simulação, seja replicado na realidade.
+
+<p  align="center">
+<img  src="img/gazebo.png"  alt="Gazebo">
+</p>
+
+<p>Fonte: Ambiente Gazebo com TurtleBot, https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/</p>
+
+Para fazer o Robô andar, um script Python é necessário rodar durante a simulação contendo todas as informações de Publisher e de Subscribe, que significa enviar as coordenadas para o Robô e receber o status de progresso.
+O programa está montado de forma que o usuário dirá para o robô para qual coordenada ele deve ir, e o mesmo corresponder.
+
+## Integração
+
+Essa integração será feita da seguinte forma, o backend irá servi o frontend que é a página para o usuário que vai utilizar, mostrando informações de status do Robô, condições atmosféricas, vai poder gerar relatórios e tambem conseguir ver que ele está fazendo. Em conjunto, ele vai rodar um script Python já otimizado com o algoritmo de otimização de rota A*. A simulação, como foi dito anteriormente, é uma demonstração de como o Robô vai se comportar em um ambiente controlado, quando a simulação atender as necessidades de trajetória, o mesmo código que foi utilizado no Gazebo será utilizado na solução real, fechando assim a integração.
+
+<p  align="center">
+<img  src="img/frontend.png"  alt="frontend">
+</p>
+<p>Fonte: Figma, Autoria Própria</p>
+
+# Módulos do Sistema e Visão Geral (Big Picture)
+
+## Análise de Requisitos 
+Para o funcionamento correto do sistema que se pretende implementar pode-se enumerar alguns elementos, sendo estes requisitos mínimos e ideais: 
+
+## Requisitos de Software:
+
+1. O código depende da instalação e configuração corretas do ROS 2 e das bibliotecas Python necessárias, como rclpy, geometry_msgs, nav_msgs e tf_transformations.
+
+2. O ambiente ROS 2 precisa estar configurado corretamente antes de executar o código. Isso pode necessitar da configuração de variáveis de ambiente, como ROS_DOMAIN_ID e ROS_MASTER_URI, para garantir a comunicação correta com outros nós e tópicos.
+
+3. Os tópicos utilizados, 'odom' e cmd_vel', precisam estar corretamente configurados no sistema ROS 2 para sua correta utilização, de modo que as informações recebidas e enviadas possam ser lidas sem problemas. O nó deve ser capaz de se inscrever no tópico "odom" para receber atualizações de odometria e publicar no tópico "cmd_vel" para enviar comandos de velocidade.
+
+4. O código depende de receber mensagens de odometria contendo a pose atual do robô. Verifição se o sistema está publicando as mensagens de odometria corretamente no tópico "odom" e se os dados estão no formato esperado pela função position_callback.
+
+5. O código utiliza um 'timer' para chamar a função 'updated_vertex_callback' em intervalos regulares. Verificar se o valor do timer está adequado para a taxa de atualização desejada e que o sistema seja capaz de executar as operações.
+
+6. Verifição das mensagens sendo publicadas e assinadas pelo nó estão no formato correto, conforme especificado pelos tipos de mensagem importados, odometria e de velocidade. 
+
+7. O sistema deve ser capaz de realizar uma conexão via websocket através do Raspberry Pi 4, de forma a enviar as informações dos sensores, da câmera e do robô para uma API conectada ao frontend, trazendo desta forma a possibilidade de visualização em tempo real das imagens e transmissão dos dados.
+
+## Requisitos Físicos:
+
+1. Módulo de conectividade wifi, ou 5G, fazendo cobertura da planta do local de implementação. Tendo em vista a necessidade de visualização dos espaços através de uma câmera acoplada no equipamento, esta transmissão de dados necessita de conexão contínua para que possa ser realizada. Este requisito é mínimo no que tange a operabilidade à distância do equipamento e ideal para a utilizar a câmera do robô.
+
+2. Planta baixa do local de inserção do equipamento previamente tratada via software. Este requisito é um requisito mínimo para realizar a operação com o equipamento de forma devida, é necessário cálcular as melhores rotas para a movimentação do veículo anteriormente a sua operação, pois apenas com o conhecimento ou estimativa dos pontos do em uma matriz podemos movimentá-lo corretamente e fazer correções ao nos depararmos com situações imprevistas, tal como obstáculos. 
+
+3. Sensores de alta precisão para assegurar as medição correta dos níveis de oxigênio dentro dos espaços confinados e produzir um mapa calor referente à concetração deste, de modo a facilitar a visualização pelo operador local que realizará uma manutenção ou vistoria. Este requisito é mínimo no que tange o uso efetivo da solução proposta, imprecisões nas medições podem gerar distorções nos relatórios sobre o espaço e gerar risco de vida para os colaboradores da Gerdau. 
+
+4. Avaliação dos níveis de bateria do equipamento em tempo real ou em intervalos pré-definidos. Este requisito é essencial para o funcionamento do equipamento, pois há o risco do equipamento ficar inoperável por falta de alimentação caso seja utilizado para uma operação com baixos níveis de bateria. 
+
+## Viabilidade Técnica
+A desenvolvimento desta solução é viável mediante a contratação de uma equipe técnica com expertise no setor de AGV's, ainda que os custos de pesquisa se demonstrem altos, tendo em vista a complexidade de se analisar os ambientes em que o equipamento estará inserido e a precisão na qualidade das medidas realizadas. Contudo, cabe um adendo a capacidade física do equipamento, tendo em vista que o robô não apresenta uma capacidade alimentação alta nem uma velocidade de locomoção alta, seria de suma importância averiguar com atencedência se é possível fazê-lo navegar em espaços longos ou realizar rotas que necessitem de um tempo de operação alto, tal como verificar diversas regiões dentro de uma única operação. 
+
+## Diagrama de Implementação do Sistema
+
+![Diagrama_do_sistema](https://github.com/2023M6T2-Inteli/Grupo05/assets/99201276/22b3a0f1-ee6d-40f2-a86b-e9535a99f321)
+
 
   
 
 ## Tecnologias Utilizadas
+### Linguagens 
+| Linguagem | Utilização | Ícone |
+|----------|----------|----------|
+| Python    | Backend, Sistema Embarcado  | ![Icon](https://skills.thijs.gg/icons?i=python) |
+| Next.js   | FrontEnd  | ![Icon](https://skills.thijs.gg/icons?i=nextjs)  |
+| TailWind    | FrontEnd  | ![Icon](https://skills.thijs.gg/icons?i=tailwind)  |
+
+### Database
+| Nome | Utilização | Tipo |
+|----------|----------|----------|
+| MySQL  | Dados: Sensores e Relatórios  | Relacional |
+| Neo4j  | Dados: Grafos  | Não Relacional |
+
+### Frameworks
+| Nome | Utilização | Linguagem |
+|----------|----------|----------|
+| FastAPI  | API  | Python | 
 
   
 
@@ -931,7 +1015,24 @@ O serviço do projeto poderá trazer benefícios significativos em termos de eco
 
 ## Wireframe + Storyboard
 
-  
+Para o desenvolvimento do Wireframe, optamos pela utilização da ferramenta Figma para prototipação das telas. A princípio, optamos por manter a simplicidade de visualização com a implementação de três componentes principais: O menu, a janela de visualização e os botões de controle. O design final segue abaixo:
+
+<p align="center">
+  <img src="img/Wireframe.png" alt="Wireframe do projeto"/>
+</p>
+
+### Componentes
+
+<p align="center">
+  <img src="img/wireframe-estrutura.png" alt="Estrutura do Wireframe - Componentes principais"/>
+</p>
+
+1. Menu: É responsável por mostrar os elementos de controle de cada aba (Dados, Câmera, Virtual)
+2. Botões de controle: Esses componentes são responsáveis pelo controle do robô durante a rotina e a geração do relatório.
+3. Janela de visualização: Esse componente é responsável por exibir dashboards, vídeos e simulação dependendo da função escolhida.
+
+
+[Link para o Figma do projeto](https://www.figma.com/file/NT74VsB5HdgBSnPgJt1ZLa/Mockup-Gerbros?type=design&node-id=0%3A1&t=Di1Dg68gJrnNrs9I-1)
 
 ## Design de Interface - Guia de Estilos
 
