@@ -32,8 +32,7 @@ class TargetPathFinding(Node):
         
         self.current_pose_ = []
         self.target_pose_ = None
-        
-        self.angle_set_ = False
+       
 
     def vertex_callback(self):
         if self.target_pose_ is None:
