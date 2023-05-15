@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind pages;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.Gerbros{
+  position: absolute;
+  top: 2%;
+  left: 60%;
+}
+
+
+.nav-link-custom:hover {
+  background-color: #F49F1C !important;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 20px 18px 0 0 !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: scale(1.01);
+  transition: all 0.1s ease-in-out;
+  
+}
+.nav-fill{
+  border-radius: 19px 19px 0 0 !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.button-nav{
+  background: #E8F1F2 !important ;
+  color: black !important;
+  display: inline-block;
+  border-radius: 40px 40px 40px 40px !important;
+  padding: 10px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.button-nav:hover{
+  background-color: #F49F1C !important;
+  transform: scale(1.05);
+  transition: all 0.1s ease-in-out;
+}
+.loading {
+  position: absolute;
+  top: 41%;
+  left: 55%;
+  
+}
+
+.button-tela{
+  position: absolute;
+  top: 85%;
+  left: 45%;
+  
+  
+}
+.iniciar-rotina{
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.iniciar-rotina:hover{
+  background-color: #F49F1C !important;
+  transform: scale(1.02);
+  transition: all 0.1s ease-in-out;
+}
+
+
+.forca-parada{
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.forca-parada:hover{
+  background-color: #F49F1C !important;
+  transform: scale(1.02);
+  transition: all 0.1s ease-in-out;
+}
+
+
+.gerar-relatorio{
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.gerar-relatorio:hover{
+  background-color: #F49F1C !important;
+  transform: scale(1.02);
+  transition: all 0.1s ease-in-out;
+}
+
+
+
