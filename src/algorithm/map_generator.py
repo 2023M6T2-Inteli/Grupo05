@@ -89,6 +89,9 @@ for row in range(DIV):
         print(Map[column][row], end=' ')
     print('')
 
+Map = np.array(Map)
+
+np.savetxt('map.txt', Map, fmt='%d')
 
 cv.waitKey(0)
 cv.destroyAllWindows()
