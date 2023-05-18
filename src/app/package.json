@@ -9,7 +9,7 @@
     "dev": "nextron",
     "build": "nextron build",
     "postinstall": "electron-builder install-app-deps",
-    "server": "cd server && node app.ts"
+    "server": "cd server && node main.js"
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
