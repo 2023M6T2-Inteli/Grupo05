@@ -13,16 +13,19 @@ if (isProd) {
 
 (async () => {
   await app.whenReady();
+
   console.log("estamos prontos!");
   const spawnProcess = spawn('node', ['./server/main.js'])
   spawnProcess.stdout.on('data', (data) => {
-    console.log(`stdout: ${data}`);
+    console.log(`[SERVER]: ${data}`);
   });
+
   spawnProcess.stderr.on('data', (data) => {
-    console.error(`stderr: ${data}`);
+    console.error(`[SERVER_ERR]: ${data}`);
   });
+
   spawnProcess.on('close', (code) => {
-    console.log(`child process exited with code ${code}`);
+    console.log(`[SERVER] exited with code ${code}`);
   });
   const mainWindow = createWindow('main', {
     width: 1000,
