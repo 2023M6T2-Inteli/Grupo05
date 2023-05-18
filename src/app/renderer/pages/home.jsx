@@ -1,4 +1,3 @@
-import { Inter } from 'next/font/google'
 import { useState } from 'react'
 import { Nav, Button, Spinner} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
