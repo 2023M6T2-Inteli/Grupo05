@@ -1,6 +1,7 @@
 import { app } from 'electron';
 import serve from 'electron-serve';
 import { createWindow } from './helpers';
+import { spawn } from 'child_process';
 
 const isProd: boolean = process.env.NODE_ENV === 'production';
 
@@ -12,8 +13,17 @@ if (isProd) {
 
 (async () => {
   await app.whenReady();
-  console.log("estamos prontos!")
-
+  console.log("estamos prontos!");
+  const spawnProcess = spawn('node', ['./server/main.js'])
+  spawnProcess.stdout.on('data', (data) => {
+    console.log(`stdout: ${data}`);
+  });
+  spawnProcess.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`);
+  });
+  spawnProcess.on('close', (code) => {
+    console.log(`child process exited with code ${code}`);
+  });
   const mainWindow = createWindow('main', {
     width: 1000,
     height: 600,
