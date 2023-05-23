@@ -11,11 +11,13 @@ if (isProd) {
   app.setPath('userData', `${app.getPath('userData')} (development)`);
 }
 
+let spawnProcess
+
 (async () => {
   await app.whenReady();
 
   console.log("estamos prontos!");
-  const spawnProcess = spawn('node', ['./server/main.js'])
+  spawnProcess = spawn('node', ['./server/main.js'])
   spawnProcess.stdout.on('data', (data) => {
     console.log(`[SERVER]: ${data}`);
   });
@@ -41,6 +43,14 @@ if (isProd) {
   }
 })();
 
+
+app.on("will-quit", () => {
+  console.log("gracefully shutting down")
+  spawnProcess.kill();
+})
+
 app.on('window-all-closed', () => {
   app.quit();
+  spawnProcess.kill();
+
 });
