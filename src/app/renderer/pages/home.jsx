@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Nav, Button, Spinner} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Link from 'next/link'
 
 
 
@@ -31,7 +32,7 @@ function Home() {
   return (
     <div className="p-4 text-white">
       <div className="flex flex-wrap justify-center">
-        <Button variant="secondary" className="button-nav w-full mb-4 md:mr-2 py-3">Concentração de O2</Button>
+        <Button variant="secondary" className="button-nav w-full mb-4 md:mr-2 py-3"><Link href="/login"><a>Concentração de O2</a></Link></Button>
         <Button variant="secondary" className="button-nav w-full mb-4 md:mr-2 py-3">Temperatura</Button>
         <Button variant="secondary" className="button-nav w-full mb-4 md:mr-2 py-3">Iluminação</Button>
         <Button variant="secondary" className="button-nav w-full mb-4 md:mr-2 py-3">Pressão</Button>
