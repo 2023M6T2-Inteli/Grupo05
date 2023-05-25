@@ -20,7 +20,8 @@
     "electron-serve": "^1.1.0",
     "electron-store": "^8.1.0",
     "framer-motion": "^10.12.12",
-    "react-bootstrap": "^2.7.4"
+    "react-bootstrap": "^2.7.4",
+    "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
