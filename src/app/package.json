@@ -23,7 +23,8 @@
     "jimp": "^0.22.8",
     "npm-check": "^6.0.1",
     "pkg-config": "^1.1.1",
-    "react-bootstrap": "^2.7.4"
+    "react-bootstrap": "^2.7.4",
+    "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",

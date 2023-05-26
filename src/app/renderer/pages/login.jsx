@@ -33,10 +33,10 @@ function Login() {
 
           <div>
             <FormControl variant="standard">
-              <InputLabel htmlFor="component-helper">User</InputLabel>
+              <InputLabel htmlFor="component-helper">Profiler</InputLabel>
               <Input id="component-helper" aria-describedby="component-helper-text" />
               <FormHelperText id="component-helper-text">
-                Não compartilhe seus dados de Login com ninguém.
+                Não compartilhe seus dados com ninguém.
               </FormHelperText>
             </FormControl>
             <br />
