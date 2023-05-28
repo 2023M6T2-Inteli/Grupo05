@@ -192,6 +192,13 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
 - - [Eficiência e Benefícios](#eficiência-e-benefícios)
 
+  - [Sistemas de segurança](#sistemas-de-segurança)
+
+    - [Implementação do sistema anticolisão](#implementação-do-sistema-anticolisão)
+    - [Dispositivos de segurança](#dispositivos-de-segurança)
+    - [Implementação do sistema de proteção contra comandos indesejados](#implementação-do-sistema-de-proteção-contra-comandos-indesejados)
+    - [Validação da eficácia dos sistemas de segurança](#validação-da-eficácia-dos-sistemas-de-segurança)
+
 - [Integração](#integração)
 
 - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
@@ -849,8 +856,6 @@ Segue a baixo, um exemplo de seu funcionamento:
 
 ## Arquitetura do Sistema de Simulação
 
-  
-
 A simulação do sistema é feita na plataforma Gazebo 3D, ela é simulada no ambiente do Linux instalada no Windows em conjunto com programas de renderização. É baseada no TurtleSim onde o sistema funciona na base de pacotes ROS2 (Robot Operating System). Ele permite a simulação de movimentos de uma tartaruga em um ambiente virtual bidimensional, onde é possível controlar a tartaruga através de comandos de movimento, como girar e avançar em uma direção específica. A tartaruga representa o robô, logo o esperado que se aconteça na simulação, seja replicado na realidade.
 
   
@@ -896,12 +901,28 @@ O vídeo com os frames destacando as rachaduras ou outras deformidades será arm
 
 - **Registro visual**: O sistema grava um vídeo com os frames onde foram detectadas rachaduras. Esse registro visual facilita a análise posterior e fornece uma documentação visual das inspeções realizadas. O vídeo pode ser revisado no aplicativo desktop desenvolvido com Electron, permitindo que o usuário tenha acesso aos resultados das inspeções de forma conveniente.
 
+## Sistemas de segurança
+Para garantir que a solução alcance seu propósito efetivo de contribuir com a segurança tanto dos colaboradores quando de sua própria, medidas cautelares foram implementadas.
 
+### Implementação do sistema anticolisão
+O sistema de anticolisão utiliza as leituras sensor LIDAR juntamente com as indicações na matriz que representa o mapa para evitar que o robô colida com algum objeto.
+
+### Dispositivos de segurança
+- Sensor LIDAR: O sensor LIDAR é um dispositivo que usa feixes de luz laser para medir distâncias e criar representações tridimensionais de objetos e ambientes. No contexto do robô, ele é usado para determinar a proximidade do robô em relação aos objetos ao seu redor e verificar a rota sugerida pelo algoritmo A*.
+
+- Sensores para detecção de gases: No caso da detecção de gases em espaços confinados, considerou-se o uso de sensores específicos, como o MQ-9 ou MQ-7, para realizar as medições necessárias. Esses sensores auxiliariam na garantia da segurança da área, fornecendo dados para os relatórios.
+### Implementação do sistema de proteção contra comandos indesejados
+Graças à capacidade de otimização de rota do algoritmo A*, o robô é capaz de navegar de forma autônoma até o local desejado para realizar inspeções. Com a integração de outros sistemas que garantem a autonomia de navegação, são necessários apenas alguns comandos, o que reduz significativamente a possibilidade de introdução de comandos indesejados. Para simplificar ainda mais as instruções enviadas ao robô, decidiu-se limitar o escopo das instruções apenas à indicação das localidades que precisam ser visitadas.
+
+A fim de evitar o envio de instruções inválidas ao robô, as solicitações só serão concluídas se as coordenadas estiverem acessíveis pelo robô e estiverem contidas no mapa designado. Caso contrário, o comando não será direcionado ao robô.
+
+### Validação da eficácia dos sistemas de segurança
+Ainda não foram feitos testes quantitativos em relação à eficiência dos sistemas de segurança.
 ## Integração
 
-  
+A integração será realizada da seguinte maneira: o backend irá fornecer o frontend, que é a página que será utilizada pelo usuário. Essa página exibirá informações sobre o status do Robô, as condições atmosféricas, permitirá a geração de relatórios e fornecerá uma visualização em tempo real do que o Robô está fazendo. Além disso, o backend executará um script Python otimizado com o algoritmo de otimização de rota A*.
 
-Essa integração será feita da seguinte forma, o backend irá servi o frontend que é a página para o usuário que vai utilizar, mostrando informações de status do Robô, condições atmosféricas, vai poder gerar relatórios e tambem conseguir ver que ele está fazendo. Em conjunto, ele vai rodar um script Python já otimizado com o algoritmo de otimização de rota A*. A simulação, como foi dito anteriormente, ela é uma demonstração de como o Robô vai se comportar em um ambiente controlado, quando a simulação atender as necessidades de trajetória, o mesmo código que foi utilizado no Gazebo, será utilizado na solução real, fechando assim a integração.
+A simulação, como mencionado anteriormente, servirá como uma demonstração do comportamento do Robô em um ambiente controlado. Quando a simulação atender às necessidades de trajetória, o mesmo código que foi utilizado no ambiente de simulação (Gazebo) será utilizado na solução real, concluindo assim a integração.
 
   
 
@@ -912,85 +933,6 @@ Essa integração será feita da seguinte forma, o backend irá servi o frontend
 </p>
 
 <p>Fonte: Figma, Autoria Própria</p>
-
-  
-
-# Controle da Plataforma Robótica
-
-  
-
-O controle da Plataforma Robótica será feita pelo código em Python que será requisitado no Backend da solução. O usuário vai colocar pelo front as informações de coordenadas que o Robô vai percorrer, e na programação esses valores serão transformados em requisições que serão enviados para o Robô.
-
-  
-
-## Algoritmo de otimização de Rota
-
-  
-
-O algoritmo de otimização de rota A* é uma técnica utilizada para encontrar o caminho mais curto entre dois pontos em um grafo ponderado, considerando a distância percorrida e uma estimativa heurística da distância restante. Ele é amplamente utilizado em aplicações que envolvem problemas de planejamento de rotas, como sistemas de navegação por GPS, jogos eletrônicos e robótica.
-
-  
-
-A escolha desse modelo A* foi devido ele combinar a eficiência do algoritmo de busca em largura com a precisão do algoritmo de busca em profundidade, tornando-o uma opção poderosa e eficaz para solucionar problemas de otimização de rota.
-
-  
-
-Segue a baixo, um exemplo de seu funcionamento:
-
-  
-  
-
-<p  align="center">
-
-<img  src="img/a_algoritmo.gif"  alt="Arquitetura">
-
-</p>
-
-  
-
-## Arquitetura do Sistema de Simulação
-
-  
-
-A simulação do sistema é feita na plataforma Gazebo 3D, ela é simulada no ambiente do Linux instalada no Windows em conjunto com programas de renderização. É baseada no TurtleSim onde o sistema funciona na base de pacotes ROS2 (Robot Operating System). Ele permite a simulação de movimentos de uma tartaruga em um ambiente virtual bidimensional, onde é possível controlar a tartaruga através de comandos de movimento, como girar e avançar em uma direção específica. A tartaruga representa o robô, logo o esperado que se aconteça na simulação, seja replicado na realidade.
-
-  
-
-<p  align="center">
-
-<img  src="img/gazebo.png"  alt="Gazebo">
-
-</p>
-
-  
-
-<p>Fonte: Ambiente Gazebo com TurtleBot, https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/</p>
-
-  
-
-Para fazer o Robô andar, um script Python é necessário rodar durante a simulação contendo todas as informações de Publisher e de Subscribe, que significa enviar as coordenadas para o Robô e receber o status de progresso.
-
-O programa está montado de forma que o usuário dirá para o robô para qual coordenada ele deve ir, e o mesmo corresponder.
-
-  
-
-## Integração
-
-  
-
-Essa integração será feita da seguinte forma, o backend irá servi o frontend que é a página para o usuário que vai utilizar, mostrando informações de status do Robô, condições atmosféricas, vai poder gerar relatórios e tambem conseguir ver que ele está fazendo. Em conjunto, ele vai rodar um script Python já otimizado com o algoritmo de otimização de rota A*. A simulação, como foi dito anteriormente, é uma demonstração de como o Robô vai se comportar em um ambiente controlado, quando a simulação atender as necessidades de trajetória, o mesmo código que foi utilizado no Gazebo será utilizado na solução real, fechando assim a integração.
-
-  
-
-<p  align="center">
-
-<img  src="img/frontend.png"  alt="frontend">
-
-</p>
-
-<p>Fonte: Figma, Autoria Própria</p>
-
-  
 
 # Módulos do Sistema e Visão Geral (Big Picture)
 
