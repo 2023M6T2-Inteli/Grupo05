@@ -110,11 +110,21 @@ class RobotController(Node):
             qos_profile=10 
         ) 
 
+<<<<<<< Updated upstream
         self.publisher_ = self.create_publisher( 
             msg_type=Twist, 
             topic='cmd_vel', 
             qos_profile=10 
         ) 
+=======
+import math
+import rclpy
+import numpy as np 
+from rclpy.node import Node
+from geometry_msgs.msg import Twist
+from nav_msgs.msg import Odometry
+from tf_transformations import euler_from_quaternion
+>>>>>>> Stashed changes
 
         self.current_position = [] 
          
@@ -188,6 +198,7 @@ class RobotController(Node):
             self.currentTarget += 1
 
         self.publisher_.publish(self.twist_msg_)
+<<<<<<< Updated upstream
  
 def main(): 
     rclpy.init() 
@@ -204,3 +215,30 @@ def main():
  
 if __name__ == '__main__': 
     main()
+=======
+
+    def rotate(self, angular_velocity):
+        self.twist_msg_.angular.z = angular_velocity
+        self.publisher_.publish(self.twist_msg_)
+
+    def move_forward(self, linear_velocity):
+        self.twist_msg_.linear.x = linear_velocity
+        self.publisher_.publish(self.twist_msg_)
+
+
+def main():
+    rclpy.init()
+    robot_controller = RobotController()
+
+    target_position = (7, 6)
+    robot_controller.set_target_position(target_position)
+
+    while rclpy.ok() and not robot_controller.reached_target:
+        rclpy.spin_once(robot_controller)
+
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+>>>>>>> Stashed changes
