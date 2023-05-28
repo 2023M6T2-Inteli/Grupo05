@@ -166,11 +166,11 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
 
+- - [Versão 1.0](#versão-1.0)
+
+- - [Versão 2.0](#versão-2.0)
+
 - [**Interface do Usuário**](#interface-do-usuário)
-
-- [Versão 1.0](#versão-1.0)
-
-- [Versão 2.0](#versão-2.0)
 
 - [**Backend**](#backend)
 
@@ -181,6 +181,16 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 - [Algoritmo de otimização de Rota](#algoritmo-de-otimização-de-rota)
 
 - [Arquitetura do Sistema de Simulação](#arquitetura-do-sistema-de-simulação)
+
+- [Módulo de Visão Computacional](#módulo-de-visão-computacional)
+
+- - [Rede Neural YOLO para Detecção de Objetos](#rede-neural-yolo-para-detecção-de-objetos)
+
+- - [Integração de uma Câmera ao Robô Turtlebot3](#integração-de-uma-câmera-ao-robô-turtlebot3)
+
+- - [Gravação de Vídeo com Detecção de Rachaduras](#gravação-de-vídeo-com-detecção-de-rachaduras)
+
+- - [Eficiência e Benefícios](#eficiência-e-benefícios)
 
 - [Integração](#integração)
 
