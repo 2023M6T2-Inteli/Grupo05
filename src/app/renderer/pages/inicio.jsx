@@ -13,6 +13,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
 import Navbar from './components/Navbar';
+import Image from 'next/image';
 
 
 function ResponsiveAppBar() {
@@ -57,9 +58,9 @@ function ResponsiveAppBar() {
   }, []);
  
   return (
-    <div className='bg-white'>
+    <div className='bg-white h-screen'>
 
-      <Navbar />
+     <Navbar />
 
         <div className='flex flex-row p-4'>
             <div className='flex flex-col w-60 space-y-5 p-4'>
@@ -113,7 +114,8 @@ function ResponsiveAppBar() {
             </Box>
             </div>
 
-        <div className='flex flex-col w-full border h-screen border-gray-800 justify-center items-center bg-white rounded-lg shadow-md'>
+        <div className='flex flex-col w-full border border-gray-800 justify-center items-center bg-white rounded-lg shadow-md'>
+          <Image src='/image/exemplo_mc.png' width={1200} height={600}></Image>
         </div>
         </div>
     </div>
