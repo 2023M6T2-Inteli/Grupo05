@@ -697,9 +697,11 @@ A arquitetura do sistema foi feito de forma particionada, separando o sistema op
 
 <p  align="center">
 
-
+## Versão 1.0
 <img  src="img/Arquitetura do Sistema.jpg"  alt="Arquitetura">
 
+## Versão 2.0 
+<img  src="img/Arquiteturav2.png"  alt="Arquitetura">
 
 </p>
 
@@ -859,7 +861,31 @@ Para fazer o Robô andar, um script Python é necessário rodar durante a simula
 
 O programa está montado de forma que o usuário dirá para o robô para qual coordenada ele deve ir, e o mesmo corresponder.
 
-  
+# Módulo de Visão Computacional
+Como pretendido pelo projeto em sua conjuntura, foi desenvolvido um módulo de visão computacional com objetivo de fazer detecção de eventuais rachaduras na estrutura, de forma a indicar para o operador quais regiões necessitam de manutenção. Desta forma, segue a explicação sobre implementação do módulo e seu funcionamento. 
+
+## Rede Neural YOLO para Detecção de Objetos
+O sistema utiliza um modelo de rede neural chamado YOLO (You Only Look Once), que é uma técnica popular para detecção de objetos em tempo real. O modelo foi treinado usando um conjunto de dados de rachaduras disponibilizado pela plataforma Roboflow. Através do treinamento, o modelo aprendeu a reconhecer e localizar rachaduras em imagens e vídeos.
+
+O sistema utiliza o YOLO para identificar e destacar as rachaduras em tempo real, fornecendo informações valiosas para análise e tomada de decisões.
+
+## Integração de uma Câmera ao Robô Turtlebot3
+O sistema é projetado para ser utilizado em conjunto com um robô chamado Turtlebot3, que possui uma câmera acoplada. A câmera do robô é responsável por capturar os frames dos espaços e transmiti-los para o sistema de detecção de rachaduras.
+
+Ao acoplar a câmera ao Turtlebot3, é possível obter uma visão em tempo real do ambiente e executar a detecção de rachaduras de forma automatizada. Isso permite uma inspeção mais eficiente e abrangente, sem a necessidade de intervenção manual.
+
+## Gravação de Vídeo com Detecção de Rachaduras
+O sistema possui a capacidade de gravar um vídeo contendo os frames onde foram detectadas rachaduras. Além disso, futuramente, o sistema poderá ser configurado para detectar e registrar outras deformidades, como massas refratárias defeituosas, conforme solicitado pelo cliente (Gerdau).
+
+O vídeo com os frames destacando as rachaduras ou outras deformidades será armazenado em um arquivo de vídeo no formato MP4. Isso permite que o usuário tenha acesso a um registro visual das inspeções realizadas pelo sistema. O vídeo gravado estará disponível para visualização no aplicativo desktop que está sendo desenvolvido usando a tecnologia Electron.
+
+## Eficiência e Benefícios 
+- **Precisão**: O modelo YOLO foi treinado especificamente para identificar rachaduras, o que resulta em uma alta precisão na detecção dessas imperfeições. Isso permite uma inspeção mais confiável e precisa das estruturas.
+
+- **Automatização**: A integração com o robô Turtlebot3 permite a automatização do processo de inspeção. O robô pode percorrer o ambiente de forma autônoma, capturando os frames da câmera e executando a detecção de rachaduras sem a necessidade de intervenção manual constante.
+
+- **Registro visual**: O sistema grava um vídeo com os frames onde foram detectadas rachaduras. Esse registro visual facilita a análise posterior e fornece uma documentação visual das inspeções realizadas. O vídeo pode ser revisado no aplicativo desktop desenvolvido com Electron, permitindo que o usuário tenha acesso aos resultados das inspeções de forma conveniente.
+
 
 ## Integração
 
@@ -996,7 +1022,7 @@ Para o funcionamento correto do sistema que se pretende implementar pode-se enum
 
 7. O sistema deve ser capaz de realizar uma conexão via websocket através do Raspberry Pi 4, de forma a enviar as informações dos sensores, da câmera e do robô para uma API conectada ao frontend, trazendo desta forma a possibilidade de visualização em tempo real das imagens e transmissão dos dados.
 
-  
+8. O sistema deve ser capaz de fazer a filmagem do espaço que está percorrendo, de modo a salvar um arquivo no formato **`mp4`** para que o operador possa realizar a análise da inspeção realizada e possa tomar decisões sobre a manutenção que será realizada 
 
 ## Requisitos Físicos:
 
@@ -1016,7 +1042,7 @@ Para o funcionamento correto do sistema que se pretende implementar pode-se enum
 
 4. Avaliação dos níveis de bateria do equipamento em tempo real ou em intervalos pré-definidos. Este requisito é essencial para o funcionamento do equipamento, pois há o risco do equipamento ficar inoperável por falta de alimentação caso seja utilizado para uma operação com baixos níveis de bateria.
 
-  
+5. Dispositivo de vídeo, câmera, webcam, etc, capaz de fazer o registro das imagens referentes a rotina de inspeção do robô 
 
 ## Viabilidade Técnica
 
