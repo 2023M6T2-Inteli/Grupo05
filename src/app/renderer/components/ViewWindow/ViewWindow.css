@@ -1,0 +1,17 @@
+.wrapper {
+    width: 60vw;
+    height: 90vh;
+    border: 1px solid black;
+    text-align: center;
+    position: relative;
+    margin: 50px 0px 0px 500px;
+    border-radius: 10px;
+}
+
+.content{
+    height: 100%;
+    width: 100%;
+    display: flexbox;
+    align-items: stretch;
+    border-radius: 10px;
+}
