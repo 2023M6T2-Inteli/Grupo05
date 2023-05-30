@@ -20,6 +20,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import Toolbar from '@mui/material/Toolbar';
 import AppBar from '@mui/material/AppBar';
+import ViewWindow from './components/ViewWindow';
 
 function ResponsiveAppBar() {
   const pages = ['Mapas', 'Dados', 'Câmeras'];
@@ -361,7 +362,9 @@ function ResponsiveAppBar() {
       )}
       
 
-        <div className='flex flex-col w-full border h-screen border-gray-800 justify-center items-center bg-black rounded-lg shadow-md'></div> 
+        <div className='flex flex-col w-full h-full border h-screen border-gray-800 justify-center items-center bg-black rounded-lg shadow-md'>
+          <ViewWindow className='w-full h-full'></ViewWindow>
+        </div> 
       </div>
   </div>
 
