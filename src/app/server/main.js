@@ -2,17 +2,66 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const jimp = require('jimp');
+const multer = require('multer');
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const diretorioDestino = './imagens/';
+const diretorioDestino_imagens = './imagens/';
+const diretorioDestino_videos = './videos/';
 
-if (!fs.existsSync(diretorioDestino)) {
-  fs.mkdirSync(diretorioDestino);
+if (!fs.existsSync(diretorioDestino_imagens)) {
+  fs.mkdirSync(diretorioDestino_imagens);
 }
+
+if (!fs.existsSync(diretorioDestino_videos)) {
+  fs.mkdirSync(diretorioDestino_videos);
+}
+
+const storage = multer.diskStorage({
+  destination: diretorioDestino_videos,
+  filename: (req, file, cb) => {
+    const nomeArquivo = `video_${Date.now()}.${getFileExtension(
+      file.originalname
+    )}`;
+    cb(null, nomeArquivo);
+  },
+});
+
+const upload = multer({ storage });
+
+const getFileExtension = (filename) => {
+  const ext = path.extname(filename);
+  return ext.toLowerCase().replace('.', '');
+};
+
+app.post('/upload-video', upload.single('video'), (req, res) => {
+  try {
+    if (!req.file) {
+      res.status(400).json({ error: 'Nenhum arquivo enviado' });
+      return;
+    }
+
+    console.log('Vídeo salvo com sucesso:', req.file.filename);
+    res.status(200).json({ message: 'Vídeo salvo com sucesso' });
+  } catch (err) {
+    console.log('Erro ao salvar o vídeo:', err);
+    res.status(500).json({ error: 'Erro ao salvar o vídeo' });
+  }
+});
+
+app.get('/video/:nomeArquivo', (req, res) => {
+  const nomeArquivo = req.params.nomeArquivo;
+  const caminhoCompleto = path.join(diretorioDestino_videos, nomeArquivo);
+
+  if (fs.existsSync(caminhoCompleto)) {
+    res.status(200).json({ path: caminhoCompleto });
+  } else {
+    res.status(404).json({ error: 'Vídeo não encontrado' });
+  }
+});
 
 app.post('/salvar-imagem', async (req, res) => {
   try {
@@ -23,7 +72,7 @@ app.post('/salvar-imagem', async (req, res) => {
 
     const image = await jimp.read(imagemBuffer);
 
-    const caminhoCompleto = path.join(diretorioDestino, nomeArquivo);
+    const caminhoCompleto = path.join(diretorioDestino_imagens, nomeArquivo);
 
     await image.writeAsync(caminhoCompleto);
 
@@ -37,7 +86,7 @@ app.post('/salvar-imagem', async (req, res) => {
 
 app.get('/imagem/:nomeArquivo', (req, res) => {
   const nomeArquivo = req.params.nomeArquivo;
-  const caminhoCompleto = path.join(diretorioDestino, nomeArquivo);
+  const caminhoCompleto = path.join(diretorioDestino_imagens, nomeArquivo);
 
   if (fs.existsSync(caminhoCompleto)) {
     res.setHeader('Content-Type', 'image/jpeg');
