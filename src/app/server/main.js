@@ -52,7 +52,7 @@ app.post('/upload-video', upload.single('video'), (req, res) => {
   }
 });
 
-app.get('/video/:nomeArquivo', (req, res) => {
+app.get('/video-caminho/:nomeArquivo', (req, res) => {
   const nomeArquivo = req.params.nomeArquivo;
   const caminhoCompleto = path.join(diretorioDestino_videos, nomeArquivo);
 
@@ -60,6 +60,17 @@ app.get('/video/:nomeArquivo', (req, res) => {
     res.status(200).json({ path: caminhoCompleto });
   } else {
     res.status(404).json({ error: 'Vídeo não encontrado' });
+  }
+});
+
+app.get('/imagem-caminho/:nomeArquivo', (req, res) => {
+  const nomeArquivo = req.params.nomeArquivo;
+  const caminhoCompleto = path.join(diretorioDestino_imagens, nomeArquivo);
+
+  if (fs.existsSync(caminhoCompleto)) {
+    res.status(200).json({ path: caminhoCompleto });
+  } else {
+    res.status(404).json({ error: 'Imagem não encontrada' });
   }
 });
 
@@ -84,7 +95,7 @@ app.post('/salvar-imagem', async (req, res) => {
   }
 });
 
-app.get('/imagem/:nomeArquivo', (req, res) => {
+app.get('/image-mostrar/:nomeArquivo', (req, res) => {
   const nomeArquivo = req.params.nomeArquivo;
   const caminhoCompleto = path.join(diretorioDestino_imagens, nomeArquivo);
 
