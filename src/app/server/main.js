@@ -3,11 +3,14 @@ const fs = require('fs');
 const path = require('path');
 const jimp = require('jimp');
 const multer = require('multer');
+const cors = require('cors');
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cors());
 
 const diretorioDestino_imagens = './imagens/';
 const diretorioDestino_videos = './videos/';

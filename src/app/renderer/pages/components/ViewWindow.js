@@ -4,9 +4,9 @@ function ImageDisplay(){
     const [imgURL, setImgURL] = useState('')
 
     useEffect(() => {
-        fetch('https://picsum.photos/1000/600')
-        .then(response => response.url)
-        .then(data => setImgURL(data))
+        fetch('http://localhost:3000/imagem-caminho/mapa-30-05-2023-164403.jpg')
+        .then(response => response.json())
+        .then(data => {setImgURL(data.path)})
         .catch(error => console.log(error));
     }, []);
 
