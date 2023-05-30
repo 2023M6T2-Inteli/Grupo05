@@ -1,6 +1,7 @@
 import cv2 as cv
 import numpy as np
 import os
+from datetime import datetime
 
 cur_path = os.path.dirname(__file__)
 new_path = os.path.join(cur_path, '..\..\docs\img\Mesa.jpg')
@@ -82,7 +83,10 @@ for i in range(DIV):
 
 masked_map = cv.bitwise_and(resize, resize, mask=final_mask)
 
-cv.imshow('Map div', masked_map)
+# cv.imshow('Map div', masked_map)
+filename = os.path.join(cur_path, '..', 'app', 'imagens', 'mapa-' + datetime.now().strftime(r"%d-%m-%Y-%H%M%S") + '.jpg')
+print(filename)
+cv.imwrite(filename, masked_map)
 
 for row in range(DIV):
     for column in range(DIV):
