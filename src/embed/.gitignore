@@ -9,3 +9,5 @@ interfaces/log
 gerbros/install
 gerbros/build
 gerbros/log
+
+__pycache__
