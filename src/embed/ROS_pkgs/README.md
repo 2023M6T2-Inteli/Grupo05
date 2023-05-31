@@ -5,6 +5,7 @@
 
 ### Instalando o pacote:
 Na pasta ROS_pkgs, execute `colcon build --packages-up-to gerbros interfaces --symlink-install` para buildar os pacotes
+
 instale-os com `source install/setup.sh` (`setup.zsh` caso use ZSH)
 
 ### rodando os pacotes
