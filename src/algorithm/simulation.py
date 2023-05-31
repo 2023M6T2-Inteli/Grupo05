@@ -112,6 +112,8 @@ class RobotController(Node):
 
         self.twist_msg_ = Twist()
 
+        self.origin = (0,0)
+
     def odometry_callback(self, msg):
         x = msg.pose.pose.position.x
         y = msg.pose.pose.position.y
@@ -143,6 +145,7 @@ class RobotController(Node):
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ]
 
+
         if (
             self.target_positions[0][0] < 0 or
             self.target_positions[0][0] >= len(maze) or
@@ -159,7 +162,7 @@ class RobotController(Node):
         ):
             raise ValueError('Invalid final position')
 
-        astar = AStar(maze, self.target_positions[0], self.target_positions[-1])
+        astar = AStar(maze, self.origin, self.target_positions[-1])
         path = astar.find_path()
 
         if path is None:
@@ -209,7 +212,7 @@ def main():
     robot_controller = RobotController()
 
     try:
-        target_positions = [(5,5),(6,5),(0,0)]
+        target_positions = [(3,3),(2,2),(3,1), robot_controller.origin]
         robot_controller.set_target_positions(target_positions)
 
         rclpy.spin(robot_controller)
