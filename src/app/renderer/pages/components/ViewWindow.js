@@ -1,12 +1,20 @@
 import React, {useState, useEffect} from "react";
 
 function ImageDisplay(){
-    const [imgURL, setImgURL] = useState('')
+    const [imgURL, setImgURL] = useState('');
+    const filename = 'mapa-30-05-2023-164403.jpg';
 
     useEffect(() => {
-        fetch('http://localhost:3000/imagem-caminho/mapa-30-05-2023-164403.jpg')
-        .then(response => response.json())
-        .then(data => {setImgURL(data.path)})
+        fetch('http://localhost:3000/image-mostrar/' + filename)
+        .then(response => response.blob())
+        .then(blob => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setImgURL(reader.result);
+            };
+
+            reader.readAsDataURL(blob);
+        })
         .catch(error => console.log(error));
     }, []);
 
