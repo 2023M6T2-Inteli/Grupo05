@@ -17,6 +17,11 @@
   <depend>flask</depend>
   <depend>flask_cors</depend>
   <depend>flask_socketio</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>tf_transformations</depend>
+  <depend>interfaces</depend>
+  <depend>simple-websocket</depend>
 
   <export>
     <build_type>ament_python</build_type>

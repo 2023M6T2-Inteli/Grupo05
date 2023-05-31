@@ -121,10 +121,6 @@ class RobotController(Node):
 
         self.twist_msg_ = Twist()
 
-        self.maze = np.loadtxt()
-
-        self.origin = (0,0)
-
     def odometry_callback(self, msg):
         x = msg.pose.pose.position.x
         y = msg.pose.pose.position.y
@@ -141,7 +137,7 @@ class RobotController(Node):
         maze = msg.maze
         points = msg.points 
 
-        print(origin, maze, points)
+        self.get_logger().info(f" maze: {maze}\n\n points: {points}\n\n origin: {origin}")
 
     def set_target_positions(self, positions):
         self.target_positions = positions
@@ -149,21 +145,8 @@ class RobotController(Node):
         self.reached_target = False
         self.calculate_path()
 
-    def calculate_path(self):
-        maze = [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ]
-
-
+    def calculate_path(self, maze):
+        maze = maze
         if (
             self.target_positions[0][0] < 0 or
             self.target_positions[0][0] >= len(maze) or
@@ -228,17 +211,17 @@ def main():
     rclpy.init()
 
     robot_controller = RobotController()
+    rclpy.spin(robot_controller)
+    # try:
+    #     target_positions = [(3,3),(2,2),(3,1), robot_controller.origin]
+    #     robot_controller.set_target_positions(target_positions)
 
-    try:
-        target_positions = [(3,3),(2,2),(3,1), robot_controller.origin]
-        robot_controller.set_target_positions(target_positions)
-
-        rclpy.spin(robot_controller)
-    except KeyboardInterrupt:
-        pass
+    #     rclpy.spin(robot_controller)
+    # except KeyboardInterrupt:
+    #     pass
 
     robot_controller.destroy_node()
     rclpy.shutdown()
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

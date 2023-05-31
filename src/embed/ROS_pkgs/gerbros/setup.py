@@ -26,6 +26,7 @@ setup(
         'console_scripts': [
             
             "server = gerbros.server:main",
+            "simulation = gerbros.simulation:main"
         ],
     },
 )
