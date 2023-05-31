@@ -23,4 +23,21 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+find_package(rosidl_default_generators REQUIRED)
+
+
+ # ----------- COLOCAR AQUI AS MENSAGENS E SERVIÇOS CRIADOS ---------------
+set(msg_files
+  "msg/RouteInfo.msg"
+)
+set(srv_files
+)
+
+
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${msg_files}
+  ${srv_files}
+)
+
 ament_package()
