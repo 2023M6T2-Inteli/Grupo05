@@ -21,6 +21,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Toolbar from '@mui/material/Toolbar';
 import AppBar from '@mui/material/AppBar';
 import ViewWindow from './components/ViewWindow';
+import PostButton from './components/PostButton';
 
 function ResponsiveAppBar() {
   const pages = ['Mapas', 'Dados', 'Câmeras'];
@@ -279,7 +280,11 @@ function ResponsiveAppBar() {
               </Select>
 
             </FormControl>
+
           </Box>
+
+          <PostButton></PostButton>
+
         </div>
       )}
 
@@ -319,7 +324,11 @@ function ResponsiveAppBar() {
               </Select>
 
             </FormControl>
+
           </Box>
+
+          <PostButton></PostButton>
+
         </div>
       )}
 
@@ -358,6 +367,9 @@ function ResponsiveAppBar() {
 
             </FormControl>
           </Box>
+
+          <PostButton></PostButton>
+
         </div>
       )}
       

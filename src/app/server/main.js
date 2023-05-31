@@ -112,6 +112,17 @@ app.get('/image-mostrar/:nomeArquivo', (req, res) => {
   }
 });
 
+app.post('/input-dados', async (req,res) => {
+  console.log(req.body);
+  try {
+    console.log(req);
+    res.status(200).json({ path: "Tudo certo" });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ error: 'Imagem não encontrada' });
+  }
+});
+
 app.listen(3000, () => {
   console.log('Servidor iniciado na porta 3000');
 });
