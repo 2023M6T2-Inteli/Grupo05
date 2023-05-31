@@ -1,5 +1,3 @@
 <launch>
-  <node pkg="gerbros" exec="test" name="test1"/>
-  <node pkg="gerbros" exec="test" name="test2"/>
-  <node pkg="gerbros" exec="test" name="test3"/>
+  <node pkg="gerbros" exec="server" name="servidor"/>
 </launch>
