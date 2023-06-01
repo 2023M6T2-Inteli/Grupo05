@@ -84,14 +84,15 @@ for i in range(DIV):
 masked_map = cv.bitwise_and(resize, resize, mask=final_mask)
 
 # cv.imshow('Map div', masked_map)
-filename = os.path.join(cur_path, '..', 'app', 'imagens', 'mapa-' + datetime.now().strftime(r"%d-%m-%Y-%H%M%S") + '.jpg')
-print(filename)
-cv.imwrite(filename, masked_map)
+filepath = os.path.join(cur_path, '..', 'app', 'imagens', 'mapa-' + datetime.now().strftime(r"%d-%m-%Y-%H%M%S") + '.jpg')
+filename = filepath.split('\\')[-1]
+print(filename, end='')
+cv.imwrite(filepath, masked_map)
 
-for row in range(DIV):
-    for column in range(DIV):
-        print(Map[column][row], end=' ')
-    print('')
+# for row in range(DIV):
+#     for column in range(DIV):
+#         print(Map[column][row], end=' ')
+#     print('')
 
 Map = np.array(Map)
 

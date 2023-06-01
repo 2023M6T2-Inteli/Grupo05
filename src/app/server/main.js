@@ -4,6 +4,7 @@ const path = require('path');
 const jimp = require('jimp');
 const multer = require('multer');
 const cors = require('cors');
+const {spawn} = require('child_process'); 
 
 const app = express();
 
@@ -122,6 +123,29 @@ app.post('/input-dados', async (req,res) => {
     res.status(404).json({ error: 'Imagem não encontrada' });
   }
 });
+
+app.get('/test', (req, res) => {
+
+  let dataToSend;
+  let pathToFile = path.resolve('') + '\\..\\algorithm\\map_generator.py';
+
+  console.log(pathToFile);
+ // spawn new child process to call the python script
+  const python = spawn('python', [`'${pathToFile}'`]);
+
+  python.stdout.on('data', function (data) {
+    console.log('Pipe data from python script ...');
+    dataToSend = data.toString();
+  });
+
+ // in close event we are sure that stream from child process is closed
+  python.on('close', (code) => {
+    console.log(`child process close all stdio with code ${code}`);
+    console.log(dataToSend);
+  // send data to browser
+    res.status(200).json({filename: dataToSend});
+  })
+})
 
 app.listen(3000, () => {
   console.log('Servidor iniciado na porta 3000');
