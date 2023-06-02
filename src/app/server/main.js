@@ -127,11 +127,12 @@ app.post('/input-dados', async (req,res) => {
 app.get('/test', (req, res) => {
 
   let dataToSend;
-  let pathToFile = path.resolve('') + '\\..\\algorithm\\map_generator.py';
+  const current_path = path.resolve('');
+  const pathToFile = path.join(current_path, '..', 'algorithm', 'map_generator.py');
 
   console.log(pathToFile);
  // spawn new child process to call the python script
-  const python = spawn('python', [`'${pathToFile}'`]);
+  const python = spawn('python', [`${pathToFile}`]);
 
   python.stdout.on('data', function (data) {
     console.log('Pipe data from python script ...');
