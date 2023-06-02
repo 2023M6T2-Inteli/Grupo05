@@ -22,6 +22,7 @@ import Toolbar from '@mui/material/Toolbar';
 import AppBar from '@mui/material/AppBar';
 import ViewWindow from './components/ViewWindow';
 import PostButton from './components/PostButton';
+import Component from './components/InputMap';
 
 function ResponsiveAppBar() {
   const pages = ['Mapas', 'Dados', 'Câmeras'];
@@ -282,6 +283,8 @@ function ResponsiveAppBar() {
             </FormControl>
 
           </Box>
+
+          <Component className='w-full'></Component>
 
           <PostButton></PostButton>
 
