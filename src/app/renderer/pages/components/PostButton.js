@@ -2,12 +2,28 @@ import React from 'react';
 import Button from '@mui/material/Button';
 
 class PostButton extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
   handleClick = () => {
+
+    const divisionsValue = document.getElementById('divisions').value;
+    const xOrigin = document.getElementById('x-origin').value;
+    const yOrigin = document.getElementById('y-origin').value;
+    const xDestiny = document.getElementById('x-destiny').value;
+    const yDestiny = document.getElementById('y-destiny').value;
+
     const postData = {
-      origin: "coordenada de ínicio",
-      points: "pontos que o robo vai passar",
+      origin: `(${xOrigin}, ${yOrigin})`,
+      points: [(xDestiny, yDestiny)],
+      divisions: `${divisionsValue}`,
       maze: "labirinto"
     };
+
+    console.log(postData);
 
     fetch('http://localhost:3000/input-dados', {
       method: 'POST',
