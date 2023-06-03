@@ -112,6 +112,45 @@ function ResponsiveAppBar() {
     setMostrarCamera(true);
     setOpenMap(false);
   };
+
+  const handleFileUpload = (event) => {
+    const files = event.target.files;
+  
+    if (files && files.length > 0) {
+      const file = files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        const encodedImage = reader.result.split(',')[1]; // Extrai apenas a parte base64 da string
+        const formData = new FormData();
+        formData.append('image', encodedImage);
+        const image = {
+          "image": formData.get('image').toString(),
+        }
+
+        axios.post('http://localhost:3000/salvar-imagem', image, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+
+        // fetch('http://localhost:3000/salvar-imagem', {
+        // method: 'POST',
+        // headers: {
+        //   'Content-Type': 'application/json',
+        //   },
+        //   //  body: JSON.stringify({ "image": formData.get('image').toString()}),
+        //   body: JSON.stringify(image),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data); // Resultado da requisição
+        })
+        .catch((error) => {
+          console.error('Erro ao enviar o formulário:', error);
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   
 
   return (
@@ -262,10 +301,12 @@ function ResponsiveAppBar() {
 
             <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={openMap} onClick={handleClickOutside}>
 
-              <div ref={mapRef} className='flex flex-col justify-center items-center bg-slate-600 rounded-lg shadow-md p-4 space-y-3'>
-                <Button variant="link" startIcon={<AddIcon />} disable>Adicionar Mapa</Button>
-                <input type="file" className="w-full h-full border-none" />
-              </div>
+            <div ref={mapRef} className='flex flex-col justify-center items-center bg-slate-600 rounded-lg shadow-md p-4 space-y-3'>
+                  <Button variant="link" startIcon={<AddIcon />} disable>
+                    Adicionar Mapa
+                  </Button>
+                    <input type="file" className="w-full h-full border-none" onChange={handleFileUpload}/>
+            </div>
 
             </Backdrop>
 
