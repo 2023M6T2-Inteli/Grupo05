@@ -22,6 +22,7 @@ class server_node(Node):
         vaisefoder.publish(msg)
 
 app = Flask(__name__)
+CORS(app)
 socket = SocketIO(app, cors_allowed_origins="*")
 rclpy.init()
 RosNode = server_node()
@@ -48,4 +49,4 @@ def handle_messages(data):
 
 def main():
 
-    socket.run(app,debug=True, use_reloader=True, allow_unsafe_werkzeug=True)
+    socket.run(app,debug=True, host="0.0.0.0", use_reloader=True, allow_unsafe_werkzeug=True)

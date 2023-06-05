@@ -4,7 +4,8 @@ const path = require('path');
 const jimp = require('jimp');
 const multer = require('multer');
 const cors = require('cors');
-const {spawn} = require('child_process'); 
+const { spawn } = require('child_process');
+const sqlite3 = require('sqlite3').verbose();
 
 const app = express();
 
@@ -16,6 +17,33 @@ app.use(cors());
 const diretorioDestino_imagens = './imagens/';
 const diretorioDestino_videos = './videos/';
 const diretorioDestino_videos2 = './public/video/';
+
+const caminhoBancoDados = './database';
+
+const db = new sqlite3.Database(caminhoBancoDados, (err) => {
+  if (err) {
+    console.error('Erro ao abrir o banco de dados SQLite:', err.message);
+  } else {
+    console.log('Conexão com o banco de dados SQLite estabelecida com sucesso');
+  }
+});
+
+db.run(
+  `
+  CREATE TABLE IF NOT EXISTS SensorGas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    dataHora DATETIME,
+    valorGas FLOAT
+  );
+`,
+  (err) => {
+    if (err) {
+      console.error('Erro ao criar a tabela SensorGas:', err.message);
+    } else {
+      console.log('Tabela SensorGas criada com sucesso');
+    }
+  }
+);
 
 if (!fs.existsSync(diretorioDestino_imagens)) {
   fs.mkdirSync(diretorioDestino_imagens);
@@ -130,24 +158,65 @@ app.get('/image-mostrar/:nomeArquivo', (req, res) => {
   }
 });
 
-app.post('/input-dados', async (req,res) => {
+app.post('/input-dados', async (req, res) => {
   console.log(req.body);
   try {
     console.log(req);
-    res.status(200).json({ path: "Tudo certo" });
+    res.status(200).json({ path: 'Tudo certo' });
   } catch (error) {
     console.log(error);
     res.status(404).json({ error: 'Imagem não encontrada' });
+  }
+});
+  
+app.post('/sensor-gas', async (req, res) => {
+  try {
+    const { sensorGas } = req.body;
+    const valorGas = parseFloat(sensorGas.replace(',', '.'));
+
+    if (isNaN(valorGas)) {
+      throw new Error('Valor inválido do sensor de gás');
+    }
+
+    const dataHora = new Date().toISOString();
+
+    db.run(
+      `INSERT INTO SensorGas (dataHora, valorGas) VALUES (?, ?)`,
+      [dataHora, valorGas],
+      function (err) {
+        if (err) {
+          console.error(
+            'Erro ao inserir os dados do sensor de gás:',
+            err.message
+          );
+          res
+            .status(500)
+            .json({ error: 'Erro ao inserir os dados do sensor de gás' });
+        } else {
+          console.log('Dados do sensor de gás inseridos com sucesso');
+          res
+            .status(200)
+            .json({ message: 'Dados do sensor de gás inseridos com sucesso' });
+        }
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ error: 'Valor inválido do sensor de gás' });
   }
 });
 
 app.get('/test/:nomeArquivo', (req, res) => {
   
   const nomeArquivo = req.params.nomeArquivo;
-  
   let dataToSend;
   const current_path = path.resolve('');
-  const pathToFile = path.join(current_path, '..', 'algorithm', 'map_generator.py');
+  const pathToFile = path.join(
+    current_path,
+    '..',
+    'algorithm',
+    'map_generator.py'
+  );
 
   console.log(pathToFile);
  // spawn new child process to call the python script
@@ -158,14 +227,14 @@ app.get('/test/:nomeArquivo', (req, res) => {
     dataToSend = data.toString();
   });
 
- // in close event we are sure that stream from child process is closed
+  // in close event we are sure that stream from child process is closed
   python.on('close', (code) => {
     console.log(`child process close all stdio with code ${code}`);
     console.log(dataToSend);
-  // send data to browser
-    res.status(200).json({filename: dataToSend});
-  })
-})
+    // send data to browser
+    res.status(200).json({ filename: dataToSend });
+  });
+});
 
 app.listen(3000, () => {
   console.log('Servidor iniciado na porta 3000');
