@@ -15,6 +15,7 @@ app.use(cors());
 
 const diretorioDestino_imagens = './imagens/';
 const diretorioDestino_videos = './videos/';
+const diretorioDestino_videos2 = './public/video/';
 
 if (!fs.existsSync(diretorioDestino_imagens)) {
   fs.mkdirSync(diretorioDestino_imagens);
@@ -40,6 +41,22 @@ const getFileExtension = (filename) => {
   const ext = path.extname(filename);
   return ext.toLowerCase().replace('.', '');
 };
+//________________________________Em teste_______________________________________________________(Kil)
+app.get('/videos', (req, res) => {
+  try {
+    console.log('Lendo a pasta de vídeos:', diretorioDestino_videos2);
+    const videoFiles = fs.readdirSync(diretorioDestino_videos2);
+    const videos = videoFiles.filter((file) => {
+      const fileExtension = path.extname(file).toLowerCase();
+      return ['.mp4', '.mov', '.avi'].includes(fileExtension);
+    });
+
+    res.status(200).json({ videos });
+  } catch (error) {
+    console.error('Erro ao ler a pasta de vídeos:', error);
+    res.status(500).json({ error: 'Erro ao ler a pasta de vídeos' });
+  }
+});
 
 app.post('/upload-video', upload.single('video'), (req, res) => {
   try {

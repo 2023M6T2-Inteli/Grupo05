@@ -23,8 +23,12 @@ import AppBar from '@mui/material/AppBar';
 import ViewWindow from './components/ViewWindow';
 import PostButton from './components/PostButton';
 import Component from './components/InputMap';
+import CircularProgress from '@mui/material/CircularProgress';
+import axios from 'axios';
+// import MeusVideos from './components/video';
 
 function ResponsiveAppBar() {
+  // const video_1 = require('./aaa.mp4');
   const pages = ['Mapas', 'Dados', 'Câmeras'];
   const settings = ['Logout'];
 
@@ -112,7 +116,7 @@ function ResponsiveAppBar() {
     setMostrarCamera(true);
     setOpenMap(false);
   };
-
+//________________________________________________________Upload de imagem________________________________________________________
   const handleFileUpload = (event) => {
     const files = event.target.files;
   
@@ -122,12 +126,13 @@ function ResponsiveAppBar() {
       reader.onload = () => {
         const encodedImage = reader.result.split(',')[1]; // Extrai apenas a parte base64 da string
         const formData = new FormData();
-        formData.append('image', encodedImage);
-        const image = {
-          "image": formData.get('image').toString(),
+        formData.append('imagem', encodedImage);
+        const imagem = {
+          "imagem": formData.get('imagem').toString(),
         }
+        console.log(imagem);
 
-        axios.post('http://localhost:3000/salvar-imagem', image, {
+        axios.post('http://localhost:3000/salvar-imagem', imagem, {
           headers: {
             'Content-Type': 'application/json',
           },
@@ -150,8 +155,35 @@ function ResponsiveAppBar() {
       };
       reader.readAsDataURL(file);
     }
+    //________________________________________________________Video Dropdown________________________________________________________
+
+    // const YourPage = () => {
+    //   const [videoCount, setVideoCount] = React.useState(0);
+    //   const [selectedVideo, setSelectedVideo] = React.useState('');
+    
+    //   const handleChange = (event) => {
+    //     setSelectedVideo(event.target.value);
+    //   };
+    
+    //   useEffect(() => {
+    //     const fetchVideoCount = async () => {
+    //       try {
+    //         const response = await axios.get('/api/videos');
+    //         setVideoCount(response.data.count);
+    //       } catch (error) {
+    //         console.error('Erro ao buscar a contagem de vídeos:', error);
+    //       }
+    //     };
+    
+    //     fetchVideoCount();
+    //   }, []);
+    
+    //   if (videoCount === 0) {
+    //     return <p>Nenhum vídeo encontrado</p>;
+    //   }
+    // }
   };
-  
+
 
   return (
   <div className='style{{background: #E8F1F2}}'> {/*background central*/}
@@ -319,7 +351,6 @@ function ResponsiveAppBar() {
               <Select labelId="demo-simple-select-label" id="demo-simple-select" value={mapa} label="Mapa" onChange={handleChange}>
                 <MenuItem value={10}>Mapa 1</MenuItem>
                 <MenuItem value={20}>Mapa 2</MenuItem>
-                <MenuItem value={20}>Mapa 3</MenuItem>
               </Select>
 
             </FormControl>
@@ -398,20 +429,25 @@ function ResponsiveAppBar() {
             </Backdrop>
           </div>
 
-
-          <Box sx={{minWidth: 120}}>
+          <MeusVideos></MeusVideos>
+          {/* <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Arquivos</InputLabel>
-
-              <Select labelId="demo-simple-select-label" id="demo-simple-select" value={mapa} label="Mapa" onChange={handleChange}>
-                <MenuItem value={10}>Video1</MenuItem>
-                <MenuItem value={20}>Video2</MenuItem>
-                <MenuItem value={20}>Video3</MenuItem>
-                <MenuItem value={20}>Video4</MenuItem>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={selectedVideo}
+                label="Mapa"
+                onChange={handleChange}
+              >
+                {[...Array(videoCount)].map((_, index) => (
+                  <MenuItem key={index} value={index + 1}>
+                    Video {index + 1}
+                  </MenuItem>
+                ))}
               </Select>
-
             </FormControl>
-          </Box>
+          </Box> */}
 
           <PostButton></PostButton>
 
@@ -419,9 +455,13 @@ function ResponsiveAppBar() {
       )}
       
 
-        <div className='flex flex-col w-full h-full border h-screen border-gray-800 justify-center items-center bg-black rounded-lg shadow-md'>
-          <ViewWindow className='w-full h-full'></ViewWindow>
-        </div> 
+          <div className='flex flex-col w-full h-full border h-screen border-gray-800 justify-center items-center bg-black rounded-lg shadow-md'>
+            {/* <ViewWindow className='w-full h-full'></ViewWindow> */}
+            <video controls autoPlay loop>
+              <source src={"./video/aaa.mp4"} type="video/mp4" />
+              Desculpe, seu navegador não suporta a reprodução de vídeo.
+            </video>
+          </div>
       </div>
   </div>
 
