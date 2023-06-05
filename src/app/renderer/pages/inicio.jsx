@@ -28,6 +28,9 @@ import axios from 'axios';
 // import MeusVideos from './components/video';
 
 function ResponsiveAppBar() {
+
+  let filename = null;
+
   // const video_1 = require('./aaa.mp4');
   const pages = ['Mapas', 'Dados', 'Câmeras'];
   const settings = ['Logout'];
@@ -117,44 +120,55 @@ function ResponsiveAppBar() {
     setOpenMap(false);
   };
 //________________________________________________________Upload de imagem________________________________________________________
-  const handleFileUpload = (event) => {
-    const files = event.target.files;
-  
-    if (files && files.length > 0) {
-      const file = files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        const encodedImage = reader.result.split(',')[1]; // Extrai apenas a parte base64 da string
-        const formData = new FormData();
-        formData.append('imagem', encodedImage);
-        const imagem = {
-          "imagem": formData.get('imagem').toString(),
-        }
-        console.log(imagem);
+const handleFileUpload = (event) => {
 
-        axios.post('http://localhost:3000/salvar-imagem', imagem, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
+  const files = event.target.files;
 
-        // fetch('http://localhost:3000/salvar-imagem', {
-        // method: 'POST',
-        // headers: {
-        //   'Content-Type': 'application/json',
-        //   },
-        //   //  body: JSON.stringify({ "image": formData.get('image').toString()}),
-        //   body: JSON.stringify(image),
-        })
+  if (files && files.length > 0) {
+    
+    const file = files[0];
+    const reader = new FileReader();
+    
+    reader.onload = () => {
+      
+      const encodedImage = reader.result.split(',')[1]; // Extrai apenas a parte base64 da string
+      const formData = new FormData();
+      
+      formData.append('imagem', encodedImage);
+      
+      const imagem = {
+        "imagem": formData.get('imagem').toString(),
+      }
+      
+      console.log(imagem);
+      
+      fetch('http://localhost:3000/salvar-imagem', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(imagem),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        filename = data.file;
+
+        axios.get('http://localhost:3000/test/' + data.file)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data); // Resultado da requisição
+          console.log(data);
+          console.log('Imagem salva com sucesso!');
         })
         .catch((error) => {
-          console.error('Erro ao enviar o formulário:', error);
+          console.error('Erro ao fazer a chamada para a segunda rota:', error);
         });
-      };
-      reader.readAsDataURL(file);
-    }
+      })
+      .catch((error) => {
+        console.error('Erro ao enviar o formulário:', error);
+      });
+    };
+    reader.readAsDataURL(file);
+  }
     //________________________________________________________Video Dropdown________________________________________________________
 
     // const YourPage = () => {
@@ -456,11 +470,11 @@ function ResponsiveAppBar() {
       
 
           <div className='flex flex-col w-full h-full border h-screen border-gray-800 justify-center items-center bg-black rounded-lg shadow-md'>
-            {/* <ViewWindow className='w-full h-full'></ViewWindow> */}
-            <video controls autoPlay loop>
+            <ViewWindow className='w-full h-full' filename={filename}></ViewWindow>
+            {/* <video controls autoPlay loop>
               <source src={"./video/aaa.mp4"} type="video/mp4" />
               Desculpe, seu navegador não suporta a reprodução de vídeo.
-            </video>
+            </video> */}
           </div>
       </div>
   </div>

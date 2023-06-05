@@ -1,10 +1,13 @@
 import cv2 as cv
 import numpy as np
 import os
+import sys
 from datetime import datetime
 
+new_file = sys.argv[1];
+
 cur_path = os.path.dirname(__file__)
-new_path = os.path.join(cur_path, '..\..\docs\img\Mesa.jpg')
+new_path = os.path.join(cur_path, r'..\app\imagens\\' + new_file )
 
 DIV = 18
 AVAILABLE_NODE = [190,150,100] # RGB COLOR FOR AVAILABLE SPACES

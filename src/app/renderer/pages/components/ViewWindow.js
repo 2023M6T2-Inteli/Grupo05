@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react";
 
-function ImageDisplay(){
+function ImageDisplay({ filename }){
     const [imgURL, setImgURL] = useState('');
-    const filename = 'mapa-30-05-2023-164403.jpg';
 
     useEffect(() => {
         fetch('http://localhost:3000/image-mostrar/' + filename)
@@ -16,7 +15,7 @@ function ImageDisplay(){
             reader.readAsDataURL(blob);
         })
         .catch(error => console.log(error));
-    }, []);
+    }, [filename]);
 
     return (
         <div>

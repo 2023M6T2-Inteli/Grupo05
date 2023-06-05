@@ -109,7 +109,7 @@ app.post('/salvar-imagem', async (req, res) => {
     await image.writeAsync(caminhoCompleto);
 
     console.log('Imagem salva com sucesso');
-    res.status(200).json({ message: 'Imagem salva com sucesso' });
+    res.status(200).json({ message: 'Imagem salva com sucesso', file: nomeArquivo });
   } catch (err) {
     console.log('Erro ao salvar a imagem: ', err);
     res.status(500).json({ error: 'Erro ao salvar a imagem' });
@@ -141,15 +141,17 @@ app.post('/input-dados', async (req,res) => {
   }
 });
 
-app.get('/test', (req, res) => {
-
+app.get('/test/:nomeArquivo', (req, res) => {
+  
+  const nomeArquivo = req.params.nomeArquivo;
+  
   let dataToSend;
   const current_path = path.resolve('');
   const pathToFile = path.join(current_path, '..', 'algorithm', 'map_generator.py');
 
   console.log(pathToFile);
  // spawn new child process to call the python script
-  const python = spawn('python', [`${pathToFile}`]);
+  const python = spawn('python', [`${pathToFile}`, nomeArquivo]);
 
   python.stdout.on('data', function (data) {
     console.log('Pipe data from python script ...');
