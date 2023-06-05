@@ -319,6 +319,7 @@ function ResponsiveAppBar() {
               <Select labelId="demo-simple-select-label" id="demo-simple-select" value={mapa} label="Mapa" onChange={handleChange}>
                 <MenuItem value={10}>Mapa 1</MenuItem>
                 <MenuItem value={20}>Mapa 2</MenuItem>
+                <MenuItem value={20}>Mapa 3</MenuItem>
               </Select>
 
             </FormControl>
