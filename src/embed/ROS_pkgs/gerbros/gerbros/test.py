@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_cors import CORS
 import rclpy
 from flask_socketio import SocketIO
+from interfaces.msg import RouteInfo
 
 from .server_files.serverNode import server_node
 
@@ -23,17 +24,15 @@ def hello_world():
 @app.route("/startMovement")
 def startMovement():
     try:
-        # if not request.is_json: return "o corpo da requisição deve ser um json", 400
+    #     if not request.is_json: return "o corpo da requisição deve ser um json", 400
+        
         # data = request.json()
         global ws_started
         #permite a comunicação do websocket
+        ws_started = True
         RosNode.print(" -->  rota '/startMovement' acessada")
-        response = RosNode.startRoute()
-
-        if response == True:
-            ws_started = True
-            #colocar aqui a logica de enviar as infos da run atual via websocket
-            return 'ok', 200
+        RosNode.startRoute()
+        return 'ok', 200
     
     except Exception as e:
         return str(e), 500
@@ -58,5 +57,5 @@ def handle_messages(data):
     RosNode.print(f"-----------mensagem recebida via websocket: {data} ----")
     socket.emit("message", "success")
 
-def maine():
+def main():
     socket.run(app,debug=True, host="0.0.0.0", use_reloader=True, allow_unsafe_werkzeug=True)
