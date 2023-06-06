@@ -24,12 +24,13 @@ import ViewWindow from './components/ViewWindow';
 import PostButton from './components/PostButton';
 import Component from './components/InputMap';
 import CircularProgress from '@mui/material/CircularProgress';
-import axios from 'axios';
+import ImageDisplay from './components/ViewWindow';
+// import axios from 'axios';
 // import MeusVideos from './components/video';
 
 function ResponsiveAppBar() {
 
-  let filename = null;
+  const [filename, setFilename] = React.useState("");
 
   // const video_1 = require('./aaa.mp4');
   const pages = ['Mapas', 'Dados', 'Câmeras'];
@@ -151,12 +152,14 @@ const handleFileUpload = (event) => {
       })
       .then((response) => response.json())
       .then((data) => {
-        filename = data.file;
 
-        axios.get('http://localhost:3000/test/' + data.file)
+        fetch('http://localhost:3000/test/' + data.file)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
+
+          setFilename(data.filename);
+
           console.log('Imagem salva com sucesso!');
         })
         .catch((error) => {
@@ -196,6 +199,10 @@ const handleFileUpload = (event) => {
     //     return <p>Nenhum vídeo encontrado</p>;
     //   }
     // }
+  };
+
+  const updateImage = () => {
+    console.log("filename:", filename);
   };
 
 
@@ -470,7 +477,7 @@ const handleFileUpload = (event) => {
       
 
           <div className='flex flex-col w-full h-full border h-screen border-gray-800 justify-center items-center bg-black rounded-lg shadow-md'>
-            <ViewWindow className='w-full h-full' filename={filename}></ViewWindow>
+            <ImageDisplay className='w-full h-full' filename={filename} updateImage={updateImage}></ImageDisplay>
             {/* <video controls autoPlay loop>
               <source src={"./video/aaa.mp4"} type="video/mp4" />
               Desculpe, seu navegador não suporta a reprodução de vídeo.
