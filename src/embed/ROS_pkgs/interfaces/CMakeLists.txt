@@ -28,9 +28,9 @@ find_package(rosidl_default_generators REQUIRED)
 
  # ----------- COLOCAR AQUI AS MENSAGENS E SERVIÇOS CRIADOS ---------------
 set(msg_files
-  "msg/RouteInfo.msg"
 )
 set(srv_files
+  "srv/RouteInfo.srv"
 )
 
 

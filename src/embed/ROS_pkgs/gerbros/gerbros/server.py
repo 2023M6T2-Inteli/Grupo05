@@ -1,25 +1,13 @@
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS
 import rclpy
 from flask_socketio import SocketIO
-from rclpy.node import Node
 from interfaces.msg import RouteInfo
 
-class server_node(Node):
+from .server_files.serverNode import server_node
 
-    def __init__(self):
-        super().__init__('server')
-
-    def print(self, text):
-        self.get_logger().info(text)
-
-    def startRoute(self):
-        vaisefoder = self.create_publisher(RouteInfo, '/route_info', 10)
-        msg = RouteInfo()
-        msg.maze = "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]"
-        msg.points = "[3,4],[2,7]"
-        msg.origin = "[1,2]"
-        vaisefoder.publish(msg)
+# variavel que indica se o websocket está disponível para receber mensagens
+ws_started = False
 
 app = Flask(__name__)
 CORS(app)
@@ -27,26 +15,48 @@ socket = SocketIO(app, cors_allowed_origins="*")
 rclpy.init()
 RosNode = server_node()
 
+
 @app.route("/")
 def hello_world():
     RosNode.print(" -->  rota '/' acessada")
     return "ok", 200
 
+# Rota responsável por receber as infos necessárias e iniciar a rotina do robo
 @app.route("/startMovement")
 def startMovement():
-    RosNode.startRoute()
-    return 'ok'
+    try:
+    #     if not request.is_json: return "o corpo da requisição deve ser um json", 400
+        
+        # data = request.json()
+        global ws_started
+        #permite a comunicação do websocket
+        ws_started = True
+        RosNode.print(" -->  rota '/startMovement' acessada")
+        RosNode.startRoute()
+        return 'ok', 200
+    
+    except Exception as e:
+        return str(e), 500
+    
 
 @socket.on("connect")
 def connected():
+    global ws_started
+    if not ws_started:
+        RosNode.print("websocket recusou um pedido de conexão")
+        return False
     RosNode.print(" -->  websocket conectado")
     socket.emit("message","sucess")
-    
+
+
 @socket.on("message")
 def handle_messages(data): 
+    global ws_started
+    if not ws_started:
+        RosNode.print("websocket recusou uma mensagem pois está indisponivel")
+        return
     RosNode.print(f"-----------mensagem recebida via websocket: {data} ----")
     socket.emit("message", "success")
 
 def main():
-
     socket.run(app,debug=True, host="0.0.0.0", use_reloader=True, allow_unsafe_werkzeug=True)
