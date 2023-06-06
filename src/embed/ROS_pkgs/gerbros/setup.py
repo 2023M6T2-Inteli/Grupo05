@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import os
 from glob import glob
 
@@ -7,7 +7,7 @@ package_name = 'gerbros'
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[package_name],
+    packages=find_packages(),
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -17,16 +17,14 @@ setup(
     ],
     install_requires=['setuptools', 'glob', 'os'],
     zip_safe=True,
-    maintainer='paulo',
+    maintainer='Gerbros',
     maintainer_email='paulo.evangelista@sou.inteli.edu.br',
-    description='TODO: Package description',
-    license='TODO: License declaration',
-    tests_require=['pytest'],
+    description='Projeto de AGV para a Gerdau',
+    license='The Unlicense',
     entry_points={
         'console_scripts': [
-            
             "server = gerbros.server:main",
-            "simulation = gerbros.simulation:main"
+            "simulation = gerbros.simulation:main",
         ],
     },
 )
