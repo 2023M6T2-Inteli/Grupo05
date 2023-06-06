@@ -58,5 +58,5 @@ def handle_messages(data):
     RosNode.print(f"-----------mensagem recebida via websocket: {data} ----")
     socket.emit("message", "success")
 
-def maine():
+def main():
     socket.run(app,debug=True, host="0.0.0.0", use_reloader=True, allow_unsafe_werkzeug=True)
