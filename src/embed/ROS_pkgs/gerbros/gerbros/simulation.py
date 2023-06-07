@@ -31,7 +31,6 @@ class RobotController(Node):
         self.timer = self.create_timer(1.0, self.timer_callback)
 
         self.request = RouteInfo.Request()
-
         self.maze = None
         self.origin = None
         self.points = None
@@ -52,7 +51,7 @@ class RobotController(Node):
         try:
             response = future.result()
             self.response = response  
-            self.get_logger().info(f'Result: {response.sum}')
+            self.get_logger().info(f'Result: {response}')
     
         except Exception as e:
             self.get_logger().error(f'Service call failed: {e}')
@@ -70,16 +69,32 @@ class RobotController(Node):
         self.path = Algorithm.find_path(astar)
         self.get_logger().info(f'Path: {self.path}')
 
-    def process_path(self):
+    def set_next_position(self):
         if len(self.path) > 0:
-            next_position = self.path.pop(0)
+            next_position = self.path[0]
+            self.path.pop(0)
             self.get_logger().info(f'Next position: {next_position}')
-            msg = MovementInfo()
-            msg.x = next_position[0]
-            msg.y = next_position[1]
+            return next_position
+
+    def process_path(self, msg, next_position):
+        msg = MovementInfo()
+        if next_position == self.origin:
+            self.set_next_position
+        else: 
+            msg.distance_x = next_position[0] - self.current_position[0]
+            msg.distance_y = next_position[1] - self.current_position[1]
+            msg.angle = self.current_position[2]
             self.publisher_.publish(msg)
-        else:
-            self.get_logger().info('Path finished')
+
+        # if len(self.path) > 0:
+        #     next_position = self.path.pop(0)
+        #     self.get_logger().info(f'Next position: {next_position}')
+        #     msg = MovementInfo()
+        #     msg.x = next_position[0]
+        #     msg.y = next_position[1]
+        #     self.publisher_.publish(msg)
+        # else:
+        #     self.get_logger().info('Path finished')
 
     # def publish_data(self):
     #     msg = MovementInfo()
