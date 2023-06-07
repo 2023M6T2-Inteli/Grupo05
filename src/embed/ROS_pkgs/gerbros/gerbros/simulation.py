@@ -86,20 +86,6 @@ class RobotController(Node):
             msg.angle = self.current_position[2]
             self.publisher_.publish(msg)
 
-        # if len(self.path) > 0:
-        #     next_position = self.path.pop(0)
-        #     self.get_logger().info(f'Next position: {next_position}')
-        #     msg = MovementInfo()
-        #     msg.x = next_position[0]
-        #     msg.y = next_position[1]
-        #     self.publisher_.publish(msg)
-        # else:
-        #     self.get_logger().info('Path finished')
-
-    # def publish_data(self):
-    #     msg = MovementInfo()
-    #     self.publisher_.publish(msg)
-
 def main():
     rclpy.init()
 
