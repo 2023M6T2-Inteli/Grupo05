@@ -26,7 +26,7 @@ def startMovement():
         global ws_started
 
         RosNode.print(" -->  rota '/startMovement' acessada")
-        response = RosNode.startRoute()
+        response, _, _, _ = RosNode.startRoute()
 
         if response == True:
             ws_started = True

@@ -32,7 +32,6 @@ class RobotController(Node):
 
         self.request = RouteInfo.Request()
 
-        self.response = None
         self.maze = None
         self.origin = None
         self.points = None
@@ -52,7 +51,9 @@ class RobotController(Node):
     def callback(self, future):
         try:
             response = future.result()
-            self.get_logger().info(f'Result: {response}')
+            self.response = response  
+            self.get_logger().info(f'Result: {response.sum}')
+    
         except Exception as e:
             self.get_logger().error(f'Service call failed: {e}')
 
@@ -64,12 +65,9 @@ class RobotController(Node):
 
         self.current_position = [x, y, theta]
     
-    def process_responses(self, response):
-        self.maze = response.maze
-        self.origin = response.origin
-        self.points = response.points
-
-        self.path = Algorithm.find_path(self.maze, self.origin, self.points)
+    def process_responses(self):
+        astar = Algorithm(self.maze, self.origin, self.points)
+        self.path = Algorithm.find_path(astar)
         self.get_logger().info(f'Path: {self.path}')
 
 
