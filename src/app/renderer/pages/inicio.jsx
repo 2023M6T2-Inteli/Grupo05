@@ -24,7 +24,6 @@ import ViewWindow from './components/ViewWindow';
 import PostButton from './components/PostButton';
 import Component from './components/InputMap';
 import axios from 'axios';
-import MeusVideos from './components/video';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 function ResponsiveAppBar() {
@@ -228,7 +227,7 @@ function ResponsiveAppBar() {
   const videoRef = React.useRef(null);
 
   const handleOpenVideo = () => {
-    setOpenVideo(true);
+    setOpenVideo(!openVideo);
   };
 
   React.useEffect(() => {
@@ -495,12 +494,17 @@ function ResponsiveAppBar() {
                     id="video-select"
                     value={selectedVideo}
                     onChange={Chamada}
+                    onClick={handleOpenVideo}
                   >
-                    {videos.map((video, index) => (
-                      <MenuItem key={index} value={video}>
-                        {video}
-                      </MenuItem>
-                    ))}
+                    {videos.length === 0 ? (
+                      <MenuItem disabled>Nenhum vídeo disponível</MenuItem>
+                    ) : (
+                      videos.map((video, index) => (
+                        <MenuItem key={index} value={video}>
+                          {video}
+                        </MenuItem>
+                      ))
+                    )}
                   </Select>
                 </FormControl>
               </Box>
@@ -548,10 +552,11 @@ function ResponsiveAppBar() {
       
 
           <div className='flex flex-col w-full h-full border h-screen border-gray-800 justify-center items-center bg-black rounded-lg shadow-md'>
-            <ViewWindow className='w-full h-full' filename={filename}></ViewWindow>
-            <video controls autoPlay loop>
-              <source src={selectedVideo} type="video/mp4"/>
-            </video>
+            {/* <ViewWindow className='w-full h-full' filename={filename}></ViewWindow> */}
+            {openVideo ?            
+            <video ref={videoRef} controls autoPlay loop>
+              <source src={selectedVideo}/>
+            </video> : <h1>Loading...</h1>}
           </div>
       </div>
   </div>
