@@ -28,12 +28,11 @@ find_package(rosidl_default_generators REQUIRED)
 
  # ----------- COLOCAR AQUI AS MENSAGENS E SERVIÇOS CRIADOS ---------------
 set(msg_files
+  "msg/MovementInfo.msg"
 )
 set(srv_files
   "srv/RouteInfo.srv"
 )
-
-
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
