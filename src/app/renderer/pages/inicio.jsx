@@ -23,15 +23,13 @@ import AppBar from '@mui/material/AppBar';
 import ViewWindow from './components/ViewWindow';
 import PostButton from './components/PostButton';
 import Component from './components/InputMap';
-import CircularProgress from '@mui/material/CircularProgress';
-import ImageDisplay from './components/ViewWindow';
-// import axios from 'axios';
-// import MeusVideos from './components/video';
+import axios from 'axios';
+import MeusVideos from './components/video';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 function ResponsiveAppBar() {
 
-  const [filename, setFilename] = React.useState("");
-
+  let filename = null;
   // const video_1 = require('./aaa.mp4');
   const pages = ['Mapas', 'Dados', 'Câmeras'];
   const settings = ['Logout'];
@@ -84,6 +82,10 @@ function ResponsiveAppBar() {
     if (mapRef.current && !mapRef.current.contains(event.target)) {
       setOpenMap(false);
     }
+
+    if (videoRef.current && !videoRef.current.contains(event.target)) {
+      setOpenVideo(false);
+    }
   };
 
   React.useEffect(() => {
@@ -121,57 +123,53 @@ function ResponsiveAppBar() {
     setOpenMap(false);
   };
 //________________________________________________________Upload de imagem________________________________________________________
-const handleFileUpload = (event) => {
+  const handleFileUpload = (event) => {
+    const files = event.target.files;
+  
+    if (files && files.length > 0) {
+      const file = files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        const encodedImage = reader.result.split(',')[1]; // Extrai apenas a parte base64 da string
+        const formData = new FormData();
+        formData.append('imagem', encodedImage);
+        const imagem = {
+          "imagem": formData.get('imagem').toString(),
+        }
+        console.log(imagem);
 
-  const files = event.target.files;
-
-  if (files && files.length > 0) {
-    
-    const file = files[0];
-    const reader = new FileReader();
-    
-    reader.onload = () => {
-      
-      const encodedImage = reader.result.split(',')[1]; // Extrai apenas a parte base64 da string
-      const formData = new FormData();
-      
-      formData.append('imagem', encodedImage);
-      
-      const imagem = {
-        "imagem": formData.get('imagem').toString(),
-      }
-      
-      console.log(imagem);
-      
-      fetch('http://localhost:3000/salvar-imagem', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(imagem),
-      })
-      .then((response) => response.json())
-      .then((data) => {
-
-        fetch('http://localhost:3000/test/' + data.file)
+        fetch('http://localhost:3000/salvar-imagem', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          },
+          //  body: JSON.stringify({ "image": formData.get('image').toString()}),
+          body: JSON.stringify(imagem),
+        })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          filename = data.file;
+          console.log(data); // Resultado da requisição
 
-          setFilename(data.filename);
-
-          console.log('Imagem salva com sucesso!');
+          // Após a conclusão da primeira rota, fazer a chamada para a segunda rota
+          axios.get('http://localhost:3000/test/' + data.file)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data); // Resultado da segunda rota
+            console.log('Imagem salva com sucesso!');
+          })
+          .catch((error) => {
+            console.error('Erro ao fazer a chamada para a segunda rota:', error);
+          });
         })
         .catch((error) => {
-          console.error('Erro ao fazer a chamada para a segunda rota:', error);
+          console.error('Erro ao enviar o formulário:', error);
         });
-      })
-      .catch((error) => {
-        console.error('Erro ao enviar o formulário:', error);
-      });
-    };
-    reader.readAsDataURL(file);
-  }
+      };
+      reader.readAsDataURL(file);
+    }
+
+  
     //________________________________________________________Video Dropdown________________________________________________________
 
     // const YourPage = () => {
@@ -200,10 +198,47 @@ const handleFileUpload = (event) => {
     //   }
     // }
   };
+//_____________________________________________________(Kil e Alysson)______________________________________________________
+  const [videos, setVideos] = React.useState([]);
+  const [selectedVideo, setSelectedVideo] = React.useState('');
 
-  const updateImage = () => {
-    console.log("filename:", filename);
+  React.useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/videos');
+        const data = await response.json();
+        setVideos(data.videos);
+        console.log(data.videos);
+      } catch (error) {
+        console.error('Erro ao buscar a lista de vídeos:', error);
+      }
+    };
+
+    fetchVideos();
+  }, []);
+
+  //______________________________________________________BackDrop (Kil e Alysson)______________________________________________________
+
+  const Chamada = (event) => {
+    setSelectedVideo(event.target.value);
+    handleOpenVideo();
   };
+
+  const [openVideo, setOpenVideo] = React.useState(false);
+  const videoRef = React.useRef(null);
+
+  const handleOpenVideo = () => {
+    setOpenVideo(true);
+  };
+
+  React.useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
 
 
   return (
@@ -450,7 +485,43 @@ const handleFileUpload = (event) => {
             </Backdrop>
           </div>
 
-          <MeusVideos></MeusVideos>
+          <div>
+              <p>Selecione um vídeo:</p>
+              <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth>
+                  <InputLabel id="video-select-label">Vídeo</InputLabel>
+                  <Select
+                    labelId="video-select-label"
+                    id="video-select"
+                    value={selectedVideo}
+                    onChange={Chamada}
+                  >
+                    {videos.map((video, index) => (
+                      <MenuItem key={index} value={video}>
+                        {video}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
+
+
+              {/* <div>
+
+                <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={openVideo} onClick={handleClickOutside}>
+                  <div ref={videoRef} className='flex flex-col justify-center items-center bg-slate-600 rounded-lg shadow-md p-4 space-y-3 h-3/4 w-3/4'>
+                    <Button variant="link" startIcon={<PlayArrowIcon />} disable>Videos</Button>
+                    <video controls autoPlay loop>
+                      <source src={'./video/aaa.mp4'}/>
+                      <source src={selectedVideo}/>
+                    </video>
+                  </div>
+                </Backdrop>
+
+              </div> */}
+            </div>
+
+          {/* <MeusVideos></MeusVideos> */}
           {/* <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Arquivos</InputLabel>
@@ -477,11 +548,10 @@ const handleFileUpload = (event) => {
       
 
           <div className='flex flex-col w-full h-full border h-screen border-gray-800 justify-center items-center bg-black rounded-lg shadow-md'>
-            <ImageDisplay className='w-full h-full' filename={filename} updateImage={updateImage}></ImageDisplay>
-            {/* <video controls autoPlay loop>
-              <source src={"./video/aaa.mp4"} type="video/mp4" />
-              Desculpe, seu navegador não suporta a reprodução de vídeo.
-            </video> */}
+            <ViewWindow className='w-full h-full' filename={filename}></ViewWindow>
+            <video controls autoPlay loop>
+              <source src={selectedVideo} type="video/mp4"/>
+            </video>
           </div>
       </div>
   </div>
