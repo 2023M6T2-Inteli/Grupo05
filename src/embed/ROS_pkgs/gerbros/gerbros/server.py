@@ -23,10 +23,8 @@ def hello_world():
 @app.route("/startMovement")
 def startMovement():
     try:
-        # if not request.is_json: return "o corpo da requisição deve ser um json", 400
-        # data = request.json()
         global ws_started
-        #permite a comunicação do websocket
+
         RosNode.print(" -->  rota '/startMovement' acessada")
         response = RosNode.startRoute()
 

@@ -3,3 +3,7 @@ string points
 string origin
 ---
 string status
+int32 maze[][]
+int32 points[]
+int32 origin[]
+```
