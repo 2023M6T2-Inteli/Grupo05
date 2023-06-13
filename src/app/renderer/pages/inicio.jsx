@@ -24,9 +24,52 @@ import ViewWindow from './components/ViewWindow';
 import PostButton from './components/PostButton';
 import Component from './components/InputMap';
 import axios from 'axios';
+import Chart from "chart.js/auto";
+import { CategoryScale } from "chart.js";
+import LineChart from "./components/LineChart";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import {Data} from '../utils/Data';
+
+Chart.register(CategoryScale);
 
 function ResponsiveAppBar() {
+
+  function loadComponent(){
+    if (mostrarCamera) {
+      return <div>CAMERA</div>;
+    }
+
+    else if (mostrarDados){
+      return <LineChart chartData={chartData} />;
+    }
+
+    else if (mostrarMapa){
+      return <ViewWindow className='w-full h-full' filename={filename} />;
+    }
+
+    else {
+      return <div>Escolha uma aba</div>
+    }
+  };
+
+  const [chartData, setChartData] = React.useState({
+    labels: Data.map((data) => data.year), 
+    datasets: [
+      {
+        label: "Users Gained ",
+        data: Data.map((data) => data.userGain),
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0"
+        ],
+        borderColor: "white",
+        borderWidth: 1
+      }
+    ]
+  });
 
   let filename = null;
   // const video_1 = require('./aaa.mp4');
@@ -552,11 +595,7 @@ function ResponsiveAppBar() {
       
 
           <div className='flex flex-col w-full h-full border h-screen border-gray-800 justify-center items-center bg-black rounded-lg shadow-md'>
-            {/* <ViewWindow className='w-full h-full' filename={filename}></ViewWindow> */}
-            {openVideo ?            
-            <video ref={videoRef} controls autoPlay loop>
-              <source src={selectedVideo}/>
-            </video> : <h1>Loading...</h1>}
+            {loadComponent()}
           </div>
       </div>
   </div>
