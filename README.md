@@ -33,6 +33,8 @@
 
 <a  href="https://www.linkedin.com/in/kil-matheus-gomes-teixeira-78257020a">Henrique Schilder</a><br>
 
+---
+
 ## Descrição
 
 
@@ -46,6 +48,7 @@ Para viabilizar o desenvolvimento dessa solução, o INTELI disponibilizou robô
 
 <p  align="center">
 <img  src="docs/img/robo.jpg"  alt="Robô">
+<i>Imagem 1: robô</i>
 </p>
 <p  align="center">
 Fonte: TurtleBot3 Robotis, Disponibilizado pelo Inteli.
@@ -56,6 +59,8 @@ O nosso robô será equipado com sensores avançados, capazes de detectar as con
 Com essa solução, visamos proporcionar uma avaliação prévia do ambiente confinado, permitindo que o técnico tenha acesso a informações essenciais para tomar decisões seguras e bem informadas. Dessa forma, aumentaremos a segurança e reduziremos os riscos associados às atividades em espaços confinados.
 
 <br>
+
+---
 
 ## 🛠 Estrutura de pastas
 ```bash
@@ -95,7 +100,8 @@ Com essa solução, visamos proporcionar uma avaliação prévia do ambiente con
 ```
  Todas as nossa pastas importantes estão declaradas acima. Vale ressaltar que quando utilizamos algumas tecnologias de desenvolvimento como Backend, Frontend e Bibliotecas para o funcionamento da solução como todo, elas geram inúmeros diretórios que não cabem a serem declarados acima, pois é de uso e funcionamento interno do sistema. 
 
-## 🛠 Instalação
+---
+## 🛠 **INSTALAÇÃO**.
 
 
 ## 📈 Exemplo de uso
@@ -108,32 +114,74 @@ Este modelo pode ser copiado e utilizado à vontade.
 
 Através da cópia/clone/ download do repositório, altere os dados do readme.md e carregue os arquivos de seu projeto.
 
-## 💻 Configuração para Desenvolvimento
+---
 
-### Front-End
+## 💻 **MANUAL DE CONFIGURAÇÃO**.
+<br></br>
+### **Como usar o programa?**
+Inicialmente, para podermos utilizar a nossa aplicação, devemos primeiramente baixar os diretórios diretamente do GitHub no link a seguir:
 
-O Front-end foi desenvolvido em cima do Framework Next.js, ele é baseado no React onde oferece recursos e funcionalidades avançadas para facilitar a criação de aplicativos web escaláveis e de alto desempenho.
+* Diretório - https://github.com/2023M6T2-Inteli/Grupo05
 
-Bibliotecas Utilizadas:
+Para fazer o download do repostório, deve-se seguir conforme a imagem abaixo:
+
+<img  src="docs/img/git_download.png"  alt="diretório">
+<i>Imagem 2: diretório</i>
+<br></br>
+Vale ressaltar que você poderá baixar de duas maneiras:
+
+1. Através do *Open with GitHub Desktop*. Por aqui poderá crar um clone para sua máquina.
+2. Ou através do *Download ZIP*.
+
+Em seguida, abra seu editor de código - usamos o Visual Code para execução. E vá para a pasta destino do programa.
+
+**Pasta destino: src>app>renderer>pages>inicio**
+
+<img  src="docs/img/vs_inicial.png"  alt="VS Code aberto">
+<i>Imagem 3: VS Code aberto</i>
+
+<br></br>
+
+Agora, nessa pasta, baixe o framework React.js. Aqui está comando para baixar o React usando o npm:
+
+<b>npm install react</b>
+
+E também o Next.js. Aqui estão os comandos para baixar o Next.js usando o npm:
+
+<b>npm install next</b>
+
+Logo depois, instale as bibliotecas pedentes. aqui estão as bibliotecas Utilizadas:
+
 * MUI, Material UI - https://mui.com
 * MUI, Icons Material - https://mui.com/material-ui/getting-started/installation/
 * React-Boostrap - https://react-bootstrap.github.io/docs/getting-started/introduction
 * Axios - https://axios-http.com/docs/intro
 * Tailwindcss - https://tailwindcss.com/docs/installation
-
-Todas as bibliotecas utilizadas a seguir, desde de que o projeto esteja baixado direto do Github e esteja aberto no terminal do VSCode ,podem ser instaladas pelo comando:
+* 
+Todas as bibliotecas utilizadas a seguir, desde de que o projeto esteja baixado direto do Github e esteja aberto no terminal do VSCode, podem ser instaladas pelo comando:
 
 <b>npm i</b>
 
 Caso ainda não consiga instalar tudo, você pode instalar separadamente utilizando os comandos <b>npm install</b> e suas respectivas bibliotecas ou visitando os sites indicados de cada uma acima.
 
+<img  src="docs/img/npm_i.png"  alt="npm install">
+<i>Imagem 4: instalação das bibliotecas</i>
+
+<br></br>
+Agora com nosso ambiente configurado, você já pode executar o programa usando "<b>npm run dev</b>". Lembre-se que, para executá-lo, você precisa estar na pasta destino do código principal que é "**pages**". Aqui está o direcionamento: **src>app>renderer>pages>inicio**.
+
+<img  src="docs/img/npm_run.png"  alt="npm run dev">
+<i>Imagem 5: aplicação rodando.</i>
+
+<br></br>
+Prontinho! O front-end está funcionando em sua máquina!
+
+<img  src="docs/img/app_run.png"  alt="aplicação rodando">
+<i>Imagem 6: aplicação rodando</i>
 
 
-
-
-Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
-
-Para abrir este projeto você necessita das seguintes ferramentas:
+___
+---
 
 ## 🗃 Histórico de lançamentos
 
