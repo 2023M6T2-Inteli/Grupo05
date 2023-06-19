@@ -27,7 +27,6 @@ import axios from 'axios';
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import LineChart from "./components/LineChart";
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import {Data} from '../utils/Data';
 
 Chart.register(CategoryScale);
@@ -210,37 +209,8 @@ function ResponsiveAppBar() {
       };
       reader.readAsDataURL(file);
     }
-
-  
-    //________________________________________________________Video Dropdown________________________________________________________
-
-    // const YourPage = () => {
-    //   const [videoCount, setVideoCount] = React.useState(0);
-    //   const [selectedVideo, setSelectedVideo] = React.useState('');
-    
-    //   const handleChange = (event) => {
-    //     setSelectedVideo(event.target.value);
-    //   };
-    
-    //   useEffect(() => {
-    //     const fetchVideoCount = async () => {
-    //       try {
-    //         const response = await axios.get('/api/videos');
-    //         setVideoCount(response.data.count);
-    //       } catch (error) {
-    //         console.error('Erro ao buscar a contagem de vídeos:', error);
-    //       }
-    //     };
-    
-    //     fetchVideoCount();
-    //   }, []);
-    
-    //   if (videoCount === 0) {
-    //     return <p>Nenhum vídeo encontrado</p>;
-    //   }
-    // }
   };
-//_____________________________________________________(Kil e Alysson)______________________________________________________
+
   const [videos, setVideos] = React.useState([]);
   const [selectedVideo, setSelectedVideo] = React.useState('');
 
@@ -552,41 +522,7 @@ function ResponsiveAppBar() {
                 </FormControl>
               </Box>
 
-
-              {/* <div>
-
-                <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={openVideo} onClick={handleClickOutside}>
-                  <div ref={videoRef} className='flex flex-col justify-center items-center bg-slate-600 rounded-lg shadow-md p-4 space-y-3 h-3/4 w-3/4'>
-                    <Button variant="link" startIcon={<PlayArrowIcon />} disable>Videos</Button>
-                    <video controls autoPlay loop>
-                      <source src={'./video/aaa.mp4'}/>
-                      <source src={selectedVideo}/>
-                    </video>
-                  </div>
-                </Backdrop>
-
-              </div> */}
             </div>
-
-          {/* <MeusVideos></MeusVideos> */}
-          {/* <Box sx={{ minWidth: 120 }}>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Arquivos</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={selectedVideo}
-                label="Mapa"
-                onChange={handleChange}
-              >
-                {[...Array(videoCount)].map((_, index) => (
-                  <MenuItem key={index} value={index + 1}>
-                    Video {index + 1}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Box> */}
 
           <PostButton></PostButton>
 
