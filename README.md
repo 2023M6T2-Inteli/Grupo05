@@ -1,6 +1,8 @@
 
 <table>
+
 <tr>
+
 <td>
 
 <a  href= "https://www2.gerdau.com.br/"><img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Gerdau_logo_%282011%29.svg/1200px-Gerdau_logo_%282011%29.svg.png"  alt="Gerdau"  border="0"  width="20%"></a>
@@ -10,7 +12,9 @@
 <td><a  href= "https://www.inteli.edu.br/"><img  src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png"  alt="Inteli - Instituto de Tecnologia e Liderança"  border="0"  width="30%"></a>
 
 </td>
+
 </tr>
+
 </table>
 
 # Simulações de Robôs para aplicações diversas
@@ -36,7 +40,7 @@
 ---
 
 ## Descrição
-
+  
 
 O Instituto de Tecnologia e Liderança (INTELI) estabeleceu uma parceria com a GERDAU, uma das maiores empresas produtoras de aço, com o objetivo de criar uma solução tecnológica inovadora. Essa colaboração envolveu alunos do curso de Engenharia da Computação, que desenvolveram um sistema capaz de analisar as condições atmosféricas de forma precisa utilizando dispositivos de Internet das Coisas (IoT) e um robô capaz de se locomover em espaços confinados.
 
@@ -47,11 +51,17 @@ Para viabilizar o desenvolvimento dessa solução, o INTELI disponibilizou robô
 <br><br>
 
 <p  align="center">
+
 <img  src="docs/img/robo.jpg"  alt="Robô">
+
 <i>Imagem 1: robô</i>
+
 </p>
+
 <p  align="center">
+
 Fonte: TurtleBot3 Robotis, Disponibilizado pelo Inteli.
+
 </p>O nosso projeto tem como objetivo principal auxiliar os colaboradores da GERDAU a terem um controle mais efetivo em situações em que é necessário que um ser humano adentre um espaço confinado para realizar uma manutenção. O objetivo é reduzir significativamente a probabilidade de exposição a riscos, especialmente os relacionados às condições atmosféricas.
 
 O nosso robô será equipado com sensores avançados, capazes de detectar as condições atmosféricas presentes no ambiente, incluindo o nível de oxigênio e a presença de gases tóxicos e/ou inflamáveis. Além disso, o robô será capaz de capturar imagens do local utilizando uma câmera integrada, permitindo uma análise visual precisa. Todas essas informações serão transmitidas para uma plataforma de interface intuitiva, onde o técnico terá acesso às informações coletadas antes de tomar qualquer decisão.
@@ -63,46 +73,81 @@ Com essa solução, visamos proporcionar uma avaliação prévia do ambiente con
 ---
 
 ## 🛠 Estrutura de pastas
-```bash
-.
-├── LICENSE
-├── README.md
-├── docs
-│   ├── README.md
-│   ├── _config.yml
-│   ├── index.md
-│   ├── img
-│   └── pdf
-├── media
-│   └── README.md
-└── src
-    ├── README.md
-    ├── algorithm
-    │   ├── battery.py
-    │   ├── initial.py
-    │   ├── map_generator.py
-    │   └── simulation.py
-    ├── app
-    │   ├── pages
-    │   ├── components
-    │   ├── styles
-    │   ├── utils
-    │   ├── api
-    │   └── ... outros arquivos e pastas relevantes para o projeto Next.js
-    ├── embed
-    │   └── ROS_pkgs
-    │       └── ...outros arquivos e pastas relevantes para o pacote ROS
-    └── img_detection
-        ├── model.pt
-        └── pipeline.ipynb
 
-12 directories, 18 files
+```bash
+
+.
+
+├──  LICENSE
+
+├──  README.md
+
+├──  docs
+
+│  ├──  README.md
+
+│  ├──  _config.yml
+
+│  ├──  index.md
+
+│  ├──  img
+
+│  └──  pdf
+
+├──  media
+
+│  └──  README.md
+
+└──  src
+
+├──  README.md
+
+├──  algorithm
+
+│  ├──  battery.py
+
+│  ├──  initial.py
+
+│  ├──  map_generator.py
+
+│  └──  simulation.py
+
+├──  app
+
+│  ├──  pages
+
+│  ├──  components
+
+│  ├──  styles
+
+│  ├──  utils
+
+│  ├──  api
+
+│  └──  ...  outros  arquivos  e  pastas  relevantes  para  o  projeto  Next.js
+
+├──  embed
+
+│  └──  ROS_pkgs
+
+│  └──  ...outros  arquivos  e  pastas  relevantes  para  o  pacote  ROS
+
+└──  img_detection
+
+├──  model.pt
+
+└──  pipeline.ipynb
+
+12  directories,  18  files
+
 ```
- Todas as nossa pastas importantes estão declaradas acima. Vale ressaltar que quando utilizamos algumas tecnologias de desenvolvimento como Backend, Frontend e Bibliotecas para o funcionamento da solução como todo, elas geram inúmeros diretórios que não cabem a serem declarados acima, pois é de uso e funcionamento interno do sistema. 
+
+Todas as nossa pastas importantes estão declaradas acima. Vale ressaltar que quando utilizamos algumas tecnologias de desenvolvimento como Backend, Frontend e Bibliotecas para o funcionamento da solução como todo, elas geram inúmeros diretórios que não cabem a serem declarados acima, pois é de uso e funcionamento interno do sistema.
 
 ---
-## 🛠 **INSTALAÇÃO**.
 
+## 🛠 **INSTALAÇÃO**.
+  
 
 ## 📈 Exemplo de uso
 
@@ -117,20 +162,27 @@ Através da cópia/clone/ download do repositório, altere os dados do readme.md
 ---
 
 ## 💻 **MANUAL DE CONFIGURAÇÃO**.
+
 <br></br>
+
 ### **Como usar o programa?**
-Inicialmente, para podermos utilizar a nossa aplicação, devemos primeiramente baixar os diretórios diretamente do GitHub no link a seguir:
+
+Inicialmente para podermos utilizar a nossa aplicação, devemos primeiramente baixar os diretórios diretamente do GitHub no link a seguir:
 
 * Diretório - https://github.com/2023M6T2-Inteli/Grupo05
 
-Para fazer o download do repostório, deve-se seguir conforme a imagem abaixo:
+Para fazer o download do repositório, deve-se seguir conforme a imagem abaixo:
 
 <img  src="docs/img/git_download.png"  alt="diretório">
+
 <i>Imagem 2: diretório</i>
+
 <br></br>
+
 Vale ressaltar que você poderá baixar de duas maneiras:
 
 1. Através do *Open with GitHub Desktop*. Por aqui poderá crar um clone para sua máquina.
+
 2. Ou através do *Download ZIP*.
 
 Em seguida, abra seu editor de código - usamos o Visual Code para execução. E vá para a pasta destino do programa.
@@ -138,6 +190,7 @@ Em seguida, abra seu editor de código - usamos o Visual Code para execução. E
 **Pasta destino: src>app>renderer>pages>inicio**
 
 <img  src="docs/img/vs_inicial.png"  alt="VS Code aberto">
+
 <i>Imagem 3: VS Code aberto</i>
 
 <br></br>
@@ -153,11 +206,16 @@ E também o Next.js. Aqui estão os comandos para baixar o Next.js usando o npm:
 Logo depois, instale as bibliotecas pedentes. aqui estão as bibliotecas Utilizadas:
 
 * MUI, Material UI - https://mui.com
+
 * MUI, Icons Material - https://mui.com/material-ui/getting-started/installation/
+
 * React-Boostrap - https://react-bootstrap.github.io/docs/getting-started/introduction
+
 * Axios - https://axios-http.com/docs/intro
+
 * Tailwindcss - https://tailwindcss.com/docs/installation
-* 
+
+
 Todas as bibliotecas utilizadas a seguir, desde de que o projeto esteja baixado direto do Github e esteja aberto no terminal do VSCode, podem ser instaladas pelo comando:
 
 <b>npm i</b>
@@ -165,51 +223,61 @@ Todas as bibliotecas utilizadas a seguir, desde de que o projeto esteja baixado 
 Caso ainda não consiga instalar tudo, você pode instalar separadamente utilizando os comandos <b>npm install</b> e suas respectivas bibliotecas ou visitando os sites indicados de cada uma acima.
 
 <img  src="docs/img/npm_i.png"  alt="npm install">
+
 <i>Imagem 4: instalação das bibliotecas</i>
 
 <br></br>
+
 Agora com nosso ambiente configurado, você já pode executar o programa usando "<b>npm run dev</b>". Lembre-se que, para executá-lo, você precisa estar na pasta destino do código principal que é "**pages**". Aqui está o direcionamento: **src>app>renderer>pages>inicio**.
 
 <img  src="docs/img/npm_run.png"  alt="npm run dev">
+
 <i>Imagem 5: aplicação rodando.</i>
 
 <br></br>
+
 Prontinho! O front-end está funcionando em sua máquina!
 
 <img  src="docs/img/app_run.png"  alt="aplicação rodando">
-<i>Imagem 6: aplicação rodando</i>
 
+<i>Imagem 6: aplicação rodando</i>
+  
 
 ___
+
 ---
 
 ## 🗃 Histórico de lançamentos
 
 A cada atualização os detalhes devem ser lançados aqui.
 
-* 0.2.1 - 25/01/2022
+* <b>1° Sprint</b>:
+ 17/04/2023 ~ 28/04/2023
+ -Desenvolvimento (Criação da versão 1.0 da Arquitetura da Solução Robô, Front e Back, Criação da versão 1.0 do Mockup do Front-End, Instalações dos Ambientes de Desenvolvimento, Documentação).
 
-* MUDANÇA: Atualização de docs (código do módulo permanece inalterado)
+* <b>2° Sprint</b>:
+01/05/2023 ~ 12/05/2023 
+-Desenvolvimento (Desenvolvimento Inicial do Back-End, Desenvolvimento Inicial das Rotas, Desenvolvimento Inicial do Front-End v1.0).
+-Atualização/Revisão (Versão 2.0 da Arquitetura do Sistema, Versão 2.0 do Front-End, Atualização de Documentação).* <b>3° Sprint</b>:
 
-* 0.2.0 - 15/01/2022
+* <b>3° Sprint</b>:
+15/05/2023 ~ 26/05/2023 
+-Desenvolvimento (Desenvolvimento do Front v2.0, Desenvolvimento das Rotas Back/Robô, 1° Interação do o Turtlebot3, Desenvolvimento para Detecção dos Sensores.)
+-Atualização/Revisão (Documentação)
 
-* MUDANÇA: Remove `setDefaultXYZ()`
+* <b>4° Sprint</b>:
+ 29/05/2023 ~ 07/06/2023
+-Desenvolvimento (Integrações Front, Back e Robô, Teste das Rotas do Back-End)- Atualização/Revisão (Revisão da Arquitetura da Solução v2.0, Documentação, Manual da Solução)
 
-* ADD: Adiciona `init()`
+* <b>5° Sprint</b>:
+12/06/2023 ~ 23/06/2023
+-Desenvolvimento (Integração Front, Back e Robô)
+-Atualização/Revisão (Manual da Solução, Documentação)
 
-* 0.1.1 - 11/01/2022
+## Atualizações Futuras
 
-* CONSERTADO: Crash quando chama `baz()` (Obrigado @NomeDoContribuidorGeneroso!)
-
-* 0.1.0 - 10/01/2022
-
-* O primeiro lançamento adequado
-
-* MUDANÇA: Renomeia `foo()` para `bar()`
-
-* 0.0.1 - 01/01/2022
-
-* Trabalho em andamento
+### Front-End
+Na página inicial, uma feature prevista é possibilidade de conseguir interagir com a tela de mapeamento, na qual será possível marcar quais serão os pontos por onde o robô deve passar, pontos de partidas e de chegadas. Esse valores marcados seriam retornados para o Back-end que enviariam para o Robô, visando o mesmo ter a capacidade de locomover no espaço programado.
 
 ## 📋 Licença/License
 
