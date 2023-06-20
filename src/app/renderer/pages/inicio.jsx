@@ -29,6 +29,7 @@ import { CategoryScale } from "chart.js";
 import LineChart from "./components/LineChart";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import {Data} from '../utils/Data';
+import WebSocket from './components/Websocket';
 
 Chart.register(CategoryScale);
 
@@ -36,7 +37,7 @@ function ResponsiveAppBar() {
 
   function loadComponent(){
     if (mostrarCamera) {
-      return <div>CAMERA</div>;
+      return <WebSocket />;
     }
 
     else if (mostrarDados){
