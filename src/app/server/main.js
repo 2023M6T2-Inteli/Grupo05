@@ -70,18 +70,19 @@ const getFileExtension = (filename) => {
   return ext.toLowerCase().replace('.', '');
 };
 
-
 app.get('/videos', (req, res) => {
   try {
     console.log('Lendo a pasta de videos:', diretorioDestino_videos_2);
     const videoFiles = fs.readdirSync(diretorioDestino_videos_2);
-    const videos = videoFiles.filter((file) => {
-      const fileExtension = path.extname(file).toLowerCase();
-      return ['.mp4', '.mov', '.avi'].includes(fileExtension);
-    }).map((videoFile) => {
-      // return `${req.protocol}://${req.get('host')}/videos/${videoFile}`;
+    const videos = videoFiles
+      .filter((file) => {
+        const fileExtension = path.extname(file).toLowerCase();
+        return ['.mp4', '.mov', '.avi'].includes(fileExtension);
+      })
+      .map((videoFile) => {
+        // return `${req.protocol}://${req.get('host')}/videos/${videoFile}`;
         return `./video/${videoFile}`;
-    });
+      });
 
     console.log('Videos carregados com sucesso');
     res.status(200).json({ videos });
@@ -91,7 +92,6 @@ app.get('/videos', (req, res) => {
   }
 });
 
-
 app.post('/upload-video', upload.single('video'), (req, res) => {
   try {
     if (!req.file) {
@@ -99,8 +99,17 @@ app.post('/upload-video', upload.single('video'), (req, res) => {
       return;
     }
 
-    console.log('Vídeo salvo com sucesso:', req.file.filename);
-    res.status(200).json({ message: 'Vídeo salvo com sucesso' });
+    const filePath = path.join(diretorioDestino_videos, req.file.originalname);
+
+    fs.writeFile(filePath, req.file.path, (err) => {
+      if (err) {
+        console.log('Erro ao salvar o vídeo:', err);
+        res.status(500).json({ error: 'Erro ao salvar o vídeo' });
+      } else {
+        console.log('Vídeo salvo com sucesso:', req.file.filename);
+        res.status(200).json({ message: 'Vídeo salvo com sucesso' });
+      }
+    });
   } catch (err) {
     console.log('Erro ao salvar o vídeo:', err);
     res.status(500).json({ error: 'Erro ao salvar o vídeo' });
@@ -143,7 +152,9 @@ app.post('/salvar-imagem', async (req, res) => {
     await image.writeAsync(caminhoCompleto);
 
     console.log('Imagem salva com sucesso');
-    res.status(200).json({ message: 'Imagem salva com sucesso', file: nomeArquivo });
+    res
+      .status(200)
+      .json({ message: 'Imagem salva com sucesso', file: nomeArquivo });
   } catch (err) {
     console.log('Erro ao salvar a imagem: ', err);
     res.status(500).json({ error: 'Erro ao salvar a imagem' });
@@ -174,7 +185,7 @@ app.post('/input-dados', async (req, res) => {
     res.status(404).json({ error: 'Imagem não encontrada' });
   }
 });
-  
+
 app.post('/sensor-gas', async (req, res) => {
   try {
     const { sensorGas } = req.body;
@@ -213,7 +224,6 @@ app.post('/sensor-gas', async (req, res) => {
 });
 
 app.get('/test/:nomeArquivo', (req, res) => {
-  
   const nomeArquivo = req.params.nomeArquivo;
   let dataToSend;
   const current_path = path.resolve('');
@@ -225,7 +235,7 @@ app.get('/test/:nomeArquivo', (req, res) => {
   );
 
   console.log(pathToFile);
- // spawn new child process to call the python script
+  // spawn new child process to call the python script
   const python = spawn('python', [`${pathToFile}`, nomeArquivo]);
 
   python.stdout.on('data', function (data) {
