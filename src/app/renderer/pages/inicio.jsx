@@ -28,6 +28,7 @@ import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import LineChart from "./components/LineChart";
 import {Data} from '../utils/Data';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 Chart.register(CategoryScale);
 
@@ -521,6 +522,20 @@ function ResponsiveAppBar() {
                   </Select>
                 </FormControl>
               </Box>
+              <div>
+
+                <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={openVideo} onClick={handleClickOutside}>
+                  <div ref={videoRef} className='flex flex-col justify-center items-center bg-slate-600 rounded-lg shadow-md p-4 space-y-3 h-3/4 w-3/4'>
+                    <Button variant="link" startIcon={<PlayArrowIcon />} disable>Videos</Button>
+                    {openVideo ?(
+                      <video controls autoPlay loop>
+                      <source src={selectedVideo}/>
+                    </video>):
+                    (<h1>Loading...</h1>)}
+                  </div>
+                </Backdrop>
+
+              </div>
 
             </div>
 
