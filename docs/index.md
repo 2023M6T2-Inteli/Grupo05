@@ -590,46 +590,28 @@ Os requisitos funcionais descrevem o que o sistema deve fazer e quais são as su
 
 - Requisitos funcionais:
 
-
-* O robô deve ser capaz de se mover em ambientes de espaço confinado de forma segura e eficiente.
-
-  
-
-* O robô deve ser equipado com sensores para coletar dados da atmosfera, incluindo a concentração de oxigênio e outros gases.
-
-  
-
-* O robô deve ser capaz de transmitir esses dados em tempo real para os operadores que estão fora do espaço confinado.
-
-  
-
-* O robô deve ser capaz de realizar inspeções prévias da estrutura usando filmagens.
+  - O robô deve ser capaz de se mover em ambientes de espaço confinado de forma segura e eficiente.
+    
+  - O robô deve ser equipado com sensores para coletar dados da atmosfera, incluindo a concentração de oxigênio e outros gases.
+    
+  - O robô deve ser capaz de transmitir esses dados em tempo real para os operadores que estão fora do espaço confinado.
+    
+  - O robô deve ser capaz de realizar inspeções prévias da estrutura usando filmagens.
 
 
 - Requisitos não funcionais:
 
-
-* O robô deve ser projetado e construído de acordo com as normas regulamentadoras (NR33).
-
+  - O robô deve ser projetado e construído de acordo com as normas regulamentadoras (NR33).
   
+  - O robô deve ser seguro para ser usado em espaços confinados e não apresentar riscos adicionais à saúde dos operadores.
 
-* O robô deve ser seguro para ser usado em espaços confinados e não apresentar riscos adicionais à saúde dos operadores.
-
+  - O robô deve ser fácil de operar e manter, com uma interface amigável para o usuário.
   
+  - O robô deve ser capaz de operar em condições adversas, como pouca iluminação, alta umidade e eventuais problemas de conexão.
 
-* O robô deve ser fácil de operar e manter, com uma interface amigável para o usuário.
+  - O robô deve ser capaz de operar continuamente por um período mínimo de tempo, garantindo a cobertura completa do ambiente.
 
-  
-
-* O robô deve ser capaz de operar em condições adversas, como pouca iluminação, alta umidade e eventuais problemas de conexão.
-
-  
-
-* O robô deve ser capaz de operar continuamente por um período mínimo de tempo, garantindo a cobertura completa do ambiente.
-
-  
-
-* O robô deve ser capaz de se comunicar com outros sistemas de segurança da empresa para uma resposta rápida em caso de emergência.
+  - O robô deve ser capaz de se comunicar com outros sistemas de segurança da empresa para uma resposta rápida em caso de emergência.
 
 
 ## Personas
