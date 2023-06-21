@@ -345,7 +345,7 @@ Presente em mais de 10 países, a GERDAU é a maior empresa Brasileira produtora
 Um dos valores que a GERDAU mais preza é a segurança e a construção de um ambiente seguro em suas operações. Isso ligado a um grande desafio: acidente zero.
 
 
-Um dos seus maiores riscos críticos já mapeados está relacionado a operações de colaboradores em Espaços Confinados, locais onde não foram projetados para ocupação humana contínua. Esses lugares podem apresentar um risco a integridade e a saúde dos mesmos sem a capacitação e equipamento adequados como exigem as normas regulamentadoras (NR33). Além disso, espaços confinados apresentam meios limitados de entrada e saída, uma ventilação insuficiente para remover contaminantes e tambem podendo contem uma deficiência (< 19,5%) ou enriquecimento (< 23%) de oxigênio
+Um dos seus maiores riscos críticos já mapeados está relacionado a operações de colaboradores em Espaços Confinados, locais onde não foram projetados para ocupação humana contínua. Esses lugares podem apresentar um risco a integridade e a saúde dos mesmos sem a capacitação e equipamento adequados como exigem as normas regulamentadoras (NR33). Além disso, espaços confinados apresentam meios limitados de entrada e saída, uma ventilação insuficiente para remover contaminantes e tambem podendo contem uma deficiência (< 19,5%) ou enriquecimento (< 23%) de oxigênio.
 
 
 ## Objetivos
@@ -460,12 +460,6 @@ Seguindo a ideia da matriz de oceano azul, foi feita uma avaliação de valor da
 
 
 >  _Observação: A escala do gráfico refere-se ao quanto uma solução prioriza mais ou menos certo aspecto que foi elencado no eixo "x"_.
-
-
-## Análise do cenário: Matriz SWOT
-
-
-_Matriz_SWOT_
 
 
 ## Proposta de Valor: Value Proposition Canvas
@@ -590,46 +584,28 @@ Os requisitos funcionais descrevem o que o sistema deve fazer e quais são as su
 
 - Requisitos funcionais:
 
-
-* O robô deve ser capaz de se mover em ambientes de espaço confinado de forma segura e eficiente.
-
-  
-
-* O robô deve ser equipado com sensores para coletar dados da atmosfera, incluindo a concentração de oxigênio e outros gases.
-
-  
-
-* O robô deve ser capaz de transmitir esses dados em tempo real para os operadores que estão fora do espaço confinado.
-
-  
-
-* O robô deve ser capaz de realizar inspeções prévias da estrutura usando filmagens.
+  - O robô deve ser capaz de se mover em ambientes de espaço confinado de forma segura e eficiente.
+    
+  - O robô deve ser equipado com sensores para coletar dados da atmosfera, incluindo a concentração de oxigênio e outros gases.
+    
+  - O robô deve ser capaz de transmitir esses dados em tempo real para os operadores que estão fora do espaço confinado.
+    
+  - O robô deve ser capaz de realizar inspeções prévias da estrutura usando filmagens.
 
 
 - Requisitos não funcionais:
 
-
-* O robô deve ser projetado e construído de acordo com as normas regulamentadoras (NR33).
-
+  - O robô deve ser projetado e construído de acordo com as normas regulamentadoras (NR33).
   
+  - O robô deve ser seguro para ser usado em espaços confinados e não apresentar riscos adicionais à saúde dos operadores.
 
-* O robô deve ser seguro para ser usado em espaços confinados e não apresentar riscos adicionais à saúde dos operadores.
-
+  - O robô deve ser fácil de operar e manter, com uma interface amigável para o usuário.
   
+  - O robô deve ser capaz de operar em condições adversas, como pouca iluminação, alta umidade e eventuais problemas de conexão.
 
-* O robô deve ser fácil de operar e manter, com uma interface amigável para o usuário.
+  - O robô deve ser capaz de operar continuamente por um período mínimo de tempo, garantindo a cobertura completa do ambiente.
 
-  
-
-* O robô deve ser capaz de operar em condições adversas, como pouca iluminação, alta umidade e eventuais problemas de conexão.
-
-  
-
-* O robô deve ser capaz de operar continuamente por um período mínimo de tempo, garantindo a cobertura completa do ambiente.
-
-  
-
-* O robô deve ser capaz de se comunicar com outros sistemas de segurança da empresa para uma resposta rápida em caso de emergência.
+  - O robô deve ser capaz de se comunicar com outros sistemas de segurança da empresa para uma resposta rápida em caso de emergência.
 
 
 ## Personas
@@ -717,10 +693,25 @@ A arquitetura do sistema foi feito de forma particionada, separando o sistema op
 ## Versão 1.0
 <img  src="img/Arquitetura do Sistema.jpg"  alt="Arquitetura">
 
+Devido a novos desafios encontrados pelo grupo, a arquitetura foi alterada para melhor vestir a solução que queriamos.
+As deficiências que precisavam ser corrigidas em uma segunda versão da arquitetura são:
+- Streaming: A arquitetura não permitia o streaming de vídeos e informações do robõ.
+- Estabilidade de conexão: A arquitetura falhava em garantir uma conexão estável com o robô e controlar erros de comunicação
+- Dependencia total de uma conexão com a internet
+
+Com esses pontos em mente, elaboramos a versão 2 da arquitetura.
 ## Versão 2.0 
 <img  src="img/Arquiteturav2.png"  alt="Arquitetura">
 
 </p>
+
+Houve uma mudança da arquitetura da solução em relação às tecnologias que utilizamos, bem como a forma com que elas interagem e se comunicam entre si. Em um primeiro momento, não tinhamos certeza sobre quais tecnologias seriam empregadas, mas havia uma ideia vaga sobre como seria a estruturação do projeto como um todo, então foi decidido que manteríamos uma ideia genérica para depois evoluí-la conforme o andamento do projeto. Neste diagrama da segunda versão, há a definição efetiva das tecnologias referentes à cada escopo, bem como os protocólos utilizados e uma explicação mais concisa de cada módulo.
+
+### Mudanças em relação à versão 1.0
+
+Frontend: Definição das tecnologias (Next.js, React.js e Electron).
+Backend: Definição das tecnologias (Node.js e FastAPI) e protocolo de comunicação com o robô (websocket).
+Robô: Clarificação dos sistemas empregados (Raspberry Pi, ROS), bem como a definição de algumas features.
 
 
 ## **Interface do Usuário**
@@ -808,6 +799,54 @@ A página principal foi totalmente reformulada, acrescentando algumas funcionali
 
 
 Como pode-se ver, a arquitetura do backend estará responsável por processar as informações que serão enviadas pelo robô, via wi-fi, para uma API servida em Node.js. As informações em questão serão o nível de oxigênio no espaço confinado, a imagens do espaço em que o robô se encontra, possibilitando assim a visualização prévia do espaço ou para uma eventual reavaliação da operação quando necessário e a rota que foi ou será executado pelo equipamento, assegurando desta forma que a realização das atividades esperadas foi ou está sendo executada de forma correta.
+
+## Detalhamento e descrição das rotas disponíveis
+
+1. GET /videos: Retorna a lista de vídeos disponíveis no diretório ./renderer/public/video/.
+
+2. POST /upload-video: Realiza o upload de um vídeo para o diretório ./videos/.
+
+3. GET /video-caminho/:nomeArquivo: Retorna o caminho completo de um vídeo específico com base no nome do arquivo fornecido.
+
+4. GET /imagem-caminho/:nomeArquivo: Retorna o caminho completo de uma imagem específica com base no nome do arquivo fornecido.
+
+5. POST /salvar-imagem: Salva uma imagem no diretório ./imagens/. A imagem deve ser enviada como base64 no corpo da requisição.
+
+6. GET /image-mostrar/:nomeArquivo: Retorna a imagem solicitada com base no nome do arquivo fornecido.
+
+7. POST /input-dados: Recebe dados no corpo da requisição.
+
+8. POST /sensor-gas: Insere dados do sensor de gás no banco de dados SQLite.
+
+9. GET /test/:nomeArquivo: Executa um script Python chamado "map_generator.py" passando o nome do arquivo como parâmetro.
+
+## Detalhamento e descrição das requisições HTTP possíveis
+
+1. GET: Obtém informações ou recursos do servidor.
+   
+2. POST: Envia dados para o servidor para serem processados ou armazenados.
+
+## Detalhamento de implementação da API
+
+A API utiliza o framework Express.js para criar um servidor web. Através do Express.js, são definidas as rotas e os handlers de requisição para cada rota. A API permite o upload e o gerenciamento de vídeos e imagens, além de realizar a inserção de dados de um sensor de gás em um banco de dados SQLite.
+Este servidor não está em nuvem, e sim local, diretamente no computador do usuário. O servidor é iniciado junto à aplicação.
+Isso nos permite, por exemplo, salvar imagens facilmente no sistema local do usuário e fazer operações sem dependencia completa de conexão à internet.
+
+A rota '/videos' retorna a lista de vídeos disponíveis no diretório ./renderer/public/video/. Os vídeos são filtrados por extensão e o resultado é enviado como resposta em formato JSON.
+
+A rota '/upload-video' recebe uma requisição POST contendo um arquivo de vídeo, que é salvo no diretório ./videos/. O nome do arquivo é gerado com base no timestamp atual.
+
+As rotas '/video-caminho/:nomeArquivo' e '/imagem-caminho/:nomeArquivo' retornam o caminho completo de um vídeo ou imagem específica com base no nome do arquivo fornecido.
+
+A rota '/salvar-imagem' recebe uma requisição POST com uma imagem em formato base64 no corpo da requisição. A imagem é convertida para um buffer e salva no diretório ./imagens/. O nome do arquivo é gerado com base no timestamp atual.
+
+A rota '/image-mostrar/:nomeArquivo' retorna a imagem solicitada com base no nome do arquivo fornecido. O caminho completo da imagem é retornado como resposta e o conteúdo é transmitido como um stream.
+
+A rota '/input-dados' recebe dados no corpo da requisição e retorna uma resposta de sucesso.
+
+A rota '/sensor-gas' recebe dados do sensor de gás no corpo da requisição, valida e insere esses dados em uma tabela chamada "SensorGas" do banco de dados SQLite.
+
+A rota '/test/:nomeArquivo' executa um script Python chamado "map_generator.py" passando o nome do arquivo como parâmetro. O script Python é executado como um processo filho e o resultado é retornado como resposta da requisição.
 
 
 ## **Sistema Embarcado**
