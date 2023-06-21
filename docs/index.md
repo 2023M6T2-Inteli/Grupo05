@@ -792,6 +792,52 @@ A página principal foi totalmente reformulada, acrescentando algumas funcionali
 
 Como pode-se ver, a arquitetura do backend estará responsável por processar as informações que serão enviadas pelo robô, via wi-fi, para uma API servida em Node.js. As informações em questão serão o nível de oxigênio no espaço confinado, a imagens do espaço em que o robô se encontra, possibilitando assim a visualização prévia do espaço ou para uma eventual reavaliação da operação quando necessário e a rota que foi ou será executado pelo equipamento, assegurando desta forma que a realização das atividades esperadas foi ou está sendo executada de forma correta.
 
+## Detalhamento e descrição das rotas disponíveis
+
+1. GET /videos: Retorna a lista de vídeos disponíveis no diretório ./renderer/public/video/.
+
+2. POST /upload-video: Realiza o upload de um vídeo para o diretório ./videos/.
+
+3. GET /video-caminho/:nomeArquivo: Retorna o caminho completo de um vídeo específico com base no nome do arquivo fornecido.
+
+4. GET /imagem-caminho/:nomeArquivo: Retorna o caminho completo de uma imagem específica com base no nome do arquivo fornecido.
+
+5. POST /salvar-imagem: Salva uma imagem no diretório ./imagens/. A imagem deve ser enviada como base64 no corpo da requisição.
+
+6. GET /image-mostrar/:nomeArquivo: Retorna a imagem solicitada com base no nome do arquivo fornecido.
+
+7. POST /input-dados: Recebe dados no corpo da requisição.
+
+8. POST /sensor-gas: Insere dados do sensor de gás no banco de dados SQLite.
+
+9. GET /test/:nomeArquivo: Executa um script Python chamado "map_generator.py" passando o nome do arquivo como parâmetro.
+
+## Detalhamento e descrição das requisições HTTP possíveis
+
+1. GET: Obtém informações ou recursos do servidor.
+   
+2. POST: Envia dados para o servidor para serem processados ou armazenados.
+
+## Detalhamento de implementação da API
+
+A API utiliza o framework Express.js para criar um servidor web. Através do Express.js, são definidas as rotas e os handlers de requisição para cada rota. A API permite o upload e o gerenciamento de vídeos e imagens, além de realizar a inserção de dados de um sensor de gás em um banco de dados SQLite.
+
+A rota '/videos' retorna a lista de vídeos disponíveis no diretório ./renderer/public/video/. Os vídeos são filtrados por extensão e o resultado é enviado como resposta em formato JSON.
+
+A rota '/upload-video' recebe uma requisição POST contendo um arquivo de vídeo, que é salvo no diretório ./videos/. O nome do arquivo é gerado com base no timestamp atual.
+
+As rotas '/video-caminho/:nomeArquivo' e '/imagem-caminho/:nomeArquivo' retornam o caminho completo de um vídeo ou imagem específica com base no nome do arquivo fornecido.
+
+A rota '/salvar-imagem' recebe uma requisição POST com uma imagem em formato base64 no corpo da requisição. A imagem é convertida para um buffer e salva no diretório ./imagens/. O nome do arquivo é gerado com base no timestamp atual.
+
+A rota '/image-mostrar/:nomeArquivo' retorna a imagem solicitada com base no nome do arquivo fornecido. O caminho completo da imagem é retornado como resposta e o conteúdo é transmitido como um stream.
+
+A rota '/input-dados' recebe dados no corpo da requisição e retorna uma resposta de sucesso.
+
+A rota '/sensor-gas' recebe dados do sensor de gás no corpo da requisição, valida e insere esses dados em uma tabela chamada "SensorGas" do banco de dados SQLite.
+
+A rota '/test/:nomeArquivo' executa um script Python chamado "map_generator.py" passando o nome do arquivo como parâmetro. O script Python é executado como um processo filho e o resultado é retornado como resposta da requisição.
+
 
 ## **Sistema Embarcado**
 
