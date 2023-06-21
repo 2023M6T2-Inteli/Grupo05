@@ -723,7 +723,7 @@ A desenvolvimento desta solução é viável mediante a contratação de uma equ
 
 | Nome    | Utilização | Linguagem |
 | ------- | ---------- | --------- |
-| FastAPI | API        | Python    |
+| Flask | API        | Python    |
 
 ---
 # Arquitetura do Sistema
@@ -754,7 +754,7 @@ Houve uma mudança da arquitetura da solução em relação às tecnologias que 
 ### Mudanças em relação à versão 1.0
 
 Frontend: Definição das tecnologias (Next.js, React.js e Electron).
-Backend: Definição das tecnologias (Node.js e FastAPI) e protocolo de comunicação com o robô (websocket).
+Backend: Definição das tecnologias (Node.js e Flask) e protocolo de comunicação com o robô (websocket).
 Robô: Clarificação dos sistemas empregados (Raspberry Pi, ROS), bem como a definição de algumas features.
 
 
