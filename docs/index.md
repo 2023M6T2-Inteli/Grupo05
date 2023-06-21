@@ -699,6 +699,13 @@ A arquitetura do sistema foi feito de forma particionada, separando o sistema op
 ## Versão 1.0
 <img  src="img/Arquitetura do Sistema.jpg"  alt="Arquitetura">
 
+Devido a novos desafios encontrados pelo grupo, a arquitetura foi alterada para melhor vestir a solução que queriamos.
+As deficiências que precisavam ser corrigidas em uma segunda versão da arquitetura são:
+- Streaming: A arquitetura não permitia o streaming de vídeos e informações do robõ.
+- Estabilidade de conexão: A arquitetura falhava em garantir uma conexão estável com o robô e controlar erros de comunicação
+- Dependencia total de uma conexão com a internet
+
+Com esses pontos em mente, elaboramos a versão 2 da arquitetura.
 ## Versão 2.0 
 <img  src="img/Arquiteturav2.png"  alt="Arquitetura">
 
