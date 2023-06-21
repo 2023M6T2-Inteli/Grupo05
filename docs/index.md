@@ -821,6 +821,8 @@ Como pode-se ver, a arquitetura do backend estará responsável por processar as
 ## Detalhamento de implementação da API
 
 A API utiliza o framework Express.js para criar um servidor web. Através do Express.js, são definidas as rotas e os handlers de requisição para cada rota. A API permite o upload e o gerenciamento de vídeos e imagens, além de realizar a inserção de dados de um sensor de gás em um banco de dados SQLite.
+Este servidor não está em nuvem, e sim local, diretamente no computador do usuário. O servidor é iniciado junto à aplicação.
+Isso nos permite, por exemplo, salvar imagens facilmente no sistema local do usuário e fazer operações sem dependencia completa de conexão à internet.
 
 A rota '/videos' retorna a lista de vídeos disponíveis no diretório ./renderer/public/video/. Os vídeos são filtrados por extensão e o resultado é enviado como resposta em formato JSON.
 
