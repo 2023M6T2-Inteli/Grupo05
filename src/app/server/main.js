@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 const diretorioDestino_imagens = './imagens/';
-const diretorioDestino_videos = './videos/';
-const diretorioDestino_videos_2 = './renderer/public/video/';
+const diretorioDestino_videos = './renderer/public/video/';
+// const diretorioDestino_videos_2 = './renderer/public/video/';
 
 const caminhoBancoDados = './database';
 
@@ -72,8 +72,8 @@ const getFileExtension = (filename) => {
 
 app.get('/videos', (req, res) => {
   try {
-    console.log('Lendo a pasta de videos:', diretorioDestino_videos_2);
-    const videoFiles = fs.readdirSync(diretorioDestino_videos_2);
+    console.log('Lendo a pasta de videos:', diretorioDestino_videos);
+    const videoFiles = fs.readdirSync(diretorioDestino_videos);
     const videos = videoFiles
       .filter((file) => {
         const fileExtension = path.extname(file).toLowerCase();

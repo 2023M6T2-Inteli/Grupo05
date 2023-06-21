@@ -222,7 +222,6 @@ function ResponsiveAppBar() {
         const response = await fetch('http://localhost:3000/videos');
         const data = await response.json();
         setVideos(data.videos);
-        console.log(data.videos);
       } catch (error) {
         console.error('Erro ao buscar a lista de vídeos:', error);
       }
@@ -532,7 +531,11 @@ function ResponsiveAppBar() {
                       <video controls autoPlay loop>
                       <source src={selectedVideo}/>
                     </video>):
-                    (<h1>Loading...</h1>)}
+                    (
+                    <div>
+                      <h1>Loading...</h1>
+                    </div>
+                    )};
                   </div>
                 </Backdrop>
 
