@@ -705,6 +705,14 @@ Com esses pontos em mente, elaboramos a versão 2 da arquitetura.
 
 </p>
 
+Houve uma mudança da arquitetura da solução em relação às tecnologias que utilizamos, bem como a forma com que elas interagem e se comunicam entre si. Em um primeiro momento, não tinhamos certeza sobre quais tecnologias seriam empregadas, mas havia uma ideia vaga sobre como seria a estruturação do projeto como um todo, então foi decidido que manteríamos uma ideia genérica para depois evoluí-la conforme o andamento do projeto. Neste diagrama da segunda versão, há a definição efetiva das tecnologias referentes à cada escopo, bem como os protocólos utilizados e uma explicação mais concisa de cada módulo.
+
+### Mudanças em relação à versão 1.0
+
+Frontend: Definição das tecnologias (Next.js, React.js e Electron).
+Backend: Definição das tecnologias (Node.js e FastAPI) e protocolo de comunicação com o robô (websocket).
+Robô: Clarificação dos sistemas empregados (Raspberry Pi, ROS), bem como a definição de algumas features.
+
 
 ## **Interface do Usuário**
 
