@@ -55,18 +55,13 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
 **Conteúdo**
 
+- [**Autores**](#autores)
 
-- [Autores](#autores)
-
-  
-
-- [Visão Geral do Projeto](#visão-geral-do-projeto)
+- [**Visão Geral do Projeto**](#visão-geral-do-projeto)
   
   - [Empresa](#empresa)
 
   - [O Problema](#o-problema)
-
-  
 
   - [Objetivos](#objetivos)
 
@@ -76,23 +71,21 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
   - [Partes interessadas](#partes-interessadas)
 
-  
-
-- [Análise do Problema](#análise-do-problema)
+- [**Análise do Problema**](#análise-do-problema)
 
   - [Análise da área de atuação](#análise-da-área-de-atuação)
 
   - [Matriz de Oceano Azul](#matriz-de-oceano-azul)
 
-    - [**Eliminar**](#eliminar)
+    - [Eliminar](#eliminar)
 
-    - [**Reduzir**](#reduzir)
+    - [Reduzir](#reduzir)
 
-    - [**Criar**](#criar)
+    - [Criar](#criar)
 
-    - [**Elevar**](#elevar)
+    - [Elevar](#elevar)
     
-    - [**Avaliação de valor**](#avaliação-de-valor)  
+    - [Avaliação de valor](#avaliação-de-valor)  
 
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
 
@@ -106,8 +99,7 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
     - [ROI - Return Over Investment](#roi---return-over-investment)
 
-  
-- [Requisitos do Sistema](#requisitos-do-sistema)
+- [**Requisitos do Sistema**](#requisitos-do-sistema)
 
   - [Personas](#personas)
 
@@ -123,17 +115,25 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
   - [Viabilidade Técnica](#viabilidade-técnica)
 
-- [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
+- [**Módulos do Sistema e Visão Geral (Big Picture)**](#módulos-do-sistema-e-visão-geral-big-picture)
 
   - [Diagrama de Implementação do Sistema](#diagrama-de-implementação-do-sistema)
 
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 
-- [Arquitetura do Sistema](#arquitetura-do-sistema)
+    - [Linguagens](#linguagens)
+
+    - [Database](#database)
+
+    - [frameworks](#frameworks)
+
+- [**Arquitetura do Sistema**](#arquitetura-do-sistema)
 
   - [Versão 1.0](#versão-1.0)
 
   - [Versão 2.0](#versão-2.0)
+
+    - [Mudanças em relação à versão 1.0](#mudanças-em-relação-à-versão-10)
 
 - [**Interface do Usuário**](#interface-do-usuário)
 
@@ -157,7 +157,15 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
     - [Arquitetura do Sistema de Simulação](#arquitetura-do-sistema-de-simulação)
 
-- [Módulo de Visão Computacional](#módulo-de-visão-computacional)
+- [**Módulo de Detecção de Gases**](#módulo-de-detecção-de-gases)
+
+  - [Sensor](#sensor)
+
+  - [Microcontrolador](#microcontrolador)
+
+  - [Saída do Sistema](#saída-do-sistema)
+
+- [**Módulo de Visão Computacional**](#módulo-de-visão-computacional)
 
   - [Rede Neural YOLO para Detecção de Objetos](#rede-neural-yolo-para-detecção-de-objetos)
 
@@ -174,29 +182,29 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
     - [Implementação do sistema de proteção contra comandos indesejados](#implementação-do-sistema-de-proteção-contra-comandos-indesejados)
     - [Validação da eficácia dos sistemas de segurança](#validação-da-eficácia-dos-sistemas-de-segurança)
 
-- [Integração](#integração)
+- [**Integração**](#integração)
 
-- [METADESIGN](#metadesign)
+- [**Metadesign**](#metadesign)
 
-  - [**FATORES MERCADOLÓGICOS**](#fatores-mercadológico)
+  - [Fatores Mercadológicos](#fatores-mercadológico)
 
-    - [**CENÁRIO DO MERCADO**](#cenário-do-mercado)
+    - [Cenário de Mercado](#cenário-do-mercado)
 
-    - [**VISÃO**](#visão)
+    - [Visão](#visão)
 
-  - [**SISTEMA PRODUTO/DESIGN**](#sistema-produtodesign)
+  - [Sistema Produto/Design](#sistema-produtodesign)
 
-    - [**MISSÃO**](#missão)
+    - [Missão](#missão)
 
-    - [**DESIGN**](#design)
+    - [Design](#design)
 
-  - [**SUSTENTABILIDADE AMBIENTAL**](#sustentabilidade-ambiental)
+  - [Sustentabilidade Ambiental](#sustentabilidade-ambiental)
 
-  - [_Referências:_](#referências)
+  - [Referências](#referências)
 
-- [Wireframe + Storyboard](#wireframe--storyboard)
+- [**Wireframe + Storyboard**](#wireframe--storyboard)
 
-  -[Componentes](#componentes)
+  - [Componentes](#componentes)
 
 
 
@@ -722,7 +730,7 @@ Pensando na arquitetura do Frontend, foram pensadas 3 telas distintas, sendo uma
 
   
 
-### Versão 1.0
+## Versão 1.0
 
 <p  align="center">
 
@@ -734,7 +742,7 @@ Pensando na arquitetura do Frontend, foram pensadas 3 telas distintas, sendo uma
 
 
 
-### Versão 2.0
+## Versão 2.0
 
 
 
@@ -923,7 +931,7 @@ Para tal, utilizando o senso Mq135, fazemos a detecção de gases dentro do ambi
 ## Saída do Sistema: 
 Utilizando uma biblioteca que padroniza a detecçao desses gases para tipos específicos, partes por milhão, obtemos a seguinte saída do código, que será enviada para o banco de dados. 
 
-| ********************************************************************MQ-13*********************************************************************|
+| ********************************************************************MQ-13********************************************************************|
 | ADC_In | Equation_V_ADC       | Voltage_ADC | Equation_RS                      | Resistance_RS | EQ_Ratio     | Ratio (RS/R0) | Equation_PPM  | PPM   |
 |--------|----------------------|-------------|----------------------------------|----------------|--------------|---------------|---------------|-------|
 | 133.00 | v = ADC*5.00/1023.00 | 0.65        | RS = ((5.00*RL)/Voltage) - RL   | 67.21          | Ratio = RS/R0 | 3.61          | ratio*a + b   | 3.85  |
@@ -996,9 +1004,9 @@ A simulação, como mencionado anteriormente, servirá como uma demonstração d
 
 <p>Fonte: Figma, Autoria Própria</p>
 
-# METADESIGN
+# Metadesign
 
-## FATORES MERCADOLÓGICO
+## Fatores Mercadológicas
 
 
 ---
@@ -1016,7 +1024,7 @@ Vale ressaltar também que a custo do produto é resultante do serviço gerado p
 ---
 
 
-#### **CENÁRIO DO MERCADO**
+#### **Cenário do Mercado**
 
 
 ---
@@ -1031,7 +1039,7 @@ No Brasil, apesar dos avanços em robótica e automação, tecnologias destinada
 ---
 
 
-#### **VISÃO**
+#### **Visão**
 
 
 ---
@@ -1043,13 +1051,13 @@ A visão do projeto proposto é de oferecer um serviço inovador e sustentável 
 ---
 
 
-## SISTEMA PRODUTO/DESIGN:
+## Sistema Produto/Design:
 
 
 ---
 
 
-#### **MISSÃO**
+#### **Missão**
 
 
 ---
@@ -1061,7 +1069,7 @@ A missão do projeto proposto é antecipar a segurança de ambientes confinados 
 ---
 
 
-#### **DESIGN**
+#### **Design**
 
 
 ---
@@ -1077,7 +1085,7 @@ Além disso, é essencial que a forma de divulgação e venda do produto esteja 
 ---
 
 
-## SUSTENTABILIDADE AMBIENTAL:
+## Sustentabilidade Ambiental
 
 
 ---
@@ -1140,7 +1148,7 @@ Para o desenvolvimento do Wireframe, optamos pela utilização da ferramenta Fig
 
   
 
-### Componentes
+## Componentes
 
   
 
