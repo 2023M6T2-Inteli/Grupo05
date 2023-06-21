@@ -150,25 +150,31 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
 - [Requisitos do Sistema](#requisitos-do-sistema)
 
-  
+  - [Personas](#personas)
 
-- [Personas](#personas)
+  - [Jornada do Usuário](#jornada-do-usuário)
 
-  
+  - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)  
 
-- [Jornada do Usuário](#jornada-do-usuário)
+  - [Análise de Requisitos](#análise-de-requisitos)
 
-  
+  - [Requisitos de Software](#requisitos-de-software)
 
-- [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
+  - [Requisitos Físicos](#requisitos-físicos)
 
-  
+  - [Viabilidade Técnica](#viabilidade-técnica)
+
+- [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
+
+  - [Diagrama de Implementação do Sistema](#diagrama-de-implementação-do-sistema)
+
+  - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
 
-- - [Versão 1.0](#versão-1.0)
+  - [Versão 1.0](#versão-1.0)
 
-- - [Versão 2.0](#versão-2.0)
+  - [Versão 2.0](#versão-2.0)
 
 - [**Interface do Usuário**](#interface-do-usuário)
 
@@ -200,20 +206,6 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
     - [Validação da eficácia dos sistemas de segurança](#validação-da-eficácia-dos-sistemas-de-segurança)
 
 - [Integração](#integração)
-
-- [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
-
-- [Análise de Requisitos](#análise-de-requisitos)
-
-- [Requisitos de Software](#requisitos-de-software)
-
-- [Requisitos Físicos](#requisitos-físicos)
-
-- [Viabilidade Técnica](#viabilidade-técnica)
-
-- [Diagrama de Implementação do Sistema](#diagrama-de-implementação-do-sistema)
-
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
 
 - [METADESIGN.](#metadesign)
 
@@ -682,6 +674,104 @@ Segundo a entrevista com a empresa Gerdau, foi concluído como requisitos do sis
 • Eu Douglas, Técnico de Segurança, quero ver no Dashboard, se o robô está pareado com o mesmo, a fim de observar a funcionalidade dos sensores.<br>
 
 
+## Análise de Requisitos
+
+Para o funcionamento correto do sistema que se pretende implementar pode-se enumerar alguns elementos, sendo estes requisitos mínimos e ideais:
+
+  
+
+## Requisitos de Software:
+
+  
+
+1. O código depende da instalação e configuração corretas do ROS 2 e das bibliotecas Python necessárias, como rclpy, geometry_msgs, nav_msgs e tf_transformations.
+
+  
+
+2. O ambiente ROS 2 precisa estar configurado corretamente antes de executar o código. Isso pode necessitar da configuração de variáveis de ambiente, como ROS_DOMAIN_ID e ROS_MASTER_URI, para garantir a comunicação correta com outros nós e tópicos.
+
+  
+
+3. Os tópicos utilizados, 'odom' e cmd_vel', precisam estar corretamente configurados no sistema ROS 2 para sua correta utilização, de modo que as informações recebidas e enviadas possam ser lidas sem problemas. O nó deve ser capaz de se inscrever no tópico "odom" para receber atualizações de odometria e publicar no tópico "cmd_vel" para enviar comandos de velocidade.
+
+  
+
+4. O código depende de receber mensagens de odometria contendo a pose atual do robô. Verifição se o sistema está publicando as mensagens de odometria corretamente no tópico "odom" e se os dados estão no formato esperado pela função position_callback.
+
+  
+
+5. O código utiliza um 'timer' para chamar a função 'updated_vertex_callback' em intervalos regulares. Verificar se o valor do timer está adequado para a taxa de atualização desejada e que o sistema seja capaz de executar as operações.
+
+  
+
+6. Verifição das mensagens sendo publicadas e assinadas pelo nó estão no formato correto, conforme especificado pelos tipos de mensagem importados, odometria e de velocidade.
+
+  
+
+7. O sistema deve ser capaz de realizar uma conexão via websocket através do Raspberry Pi 4, de forma a enviar as informações dos sensores, da câmera e do robô para uma API conectada ao frontend, trazendo desta forma a possibilidade de visualização em tempo real das imagens e transmissão dos dados.
+
+8. O sistema deve ser capaz de fazer a filmagem do espaço que está percorrendo, de modo a salvar um arquivo no formato **`mp4`** para que o operador possa realizar a análise da inspeção realizada e possa tomar decisões sobre a manutenção que será realizada 
+
+## Requisitos Físicos:
+
+  
+
+1. Módulo de conectividade wifi, ou 5G, fazendo cobertura da planta do local de implementação. Tendo em vista a necessidade de visualização dos espaços através de uma câmera acoplada no equipamento, esta transmissão de dados necessita de conexão contínua para que possa ser realizada. Este requisito é mínimo no que tange a operabilidade à distância do equipamento e ideal para a utilizar a câmera do robô.
+
+  
+
+2. Planta baixa do local de inserção do equipamento previamente tratada via software. Este requisito é um requisito mínimo para realizar a operação com o equipamento de forma devida, é necessário cálcular as melhores rotas para a movimentação do veículo anteriormente a sua operação, pois apenas com o conhecimento ou estimativa dos pontos do em uma matriz podemos movimentá-lo corretamente e fazer correções ao nos depararmos com situações imprevistas, tal como obstáculos.
+
+  
+
+3. Sensores de alta precisão para assegurar as medição correta dos níveis de oxigênio dentro dos espaços confinados e produzir um mapa calor referente à concetração deste, de modo a facilitar a visualização pelo operador local que realizará uma manutenção ou vistoria. Este requisito é mínimo no que tange o uso efetivo da solução proposta, imprecisões nas medições podem gerar distorções nos relatórios sobre o espaço e gerar risco de vida para os colaboradores da Gerdau.
+
+  
+
+4. Avaliação dos níveis de bateria do equipamento em tempo real ou em intervalos pré-definidos. Este requisito é essencial para o funcionamento do equipamento, pois há o risco do equipamento ficar inoperável por falta de alimentação caso seja utilizado para uma operação com baixos níveis de bateria.
+
+5. Dispositivo de vídeo, câmera, webcam, etc, capaz de fazer o registro das imagens referentes a rotina de inspeção do robô 
+
+## Viabilidade Técnica
+
+A desenvolvimento desta solução é viável mediante a contratação de uma equipe técnica com expertise no setor de AGV's, ainda que os custos de pesquisa se demonstrem altos, tendo em vista a complexidade de se analisar os ambientes em que o equipamento estará inserido e a precisão na qualidade das medidas realizadas. Contudo, cabe um adendo a capacidade física do equipamento, tendo em vista que o robô não apresenta uma capacidade alimentação alta nem uma velocidade de locomoção alta, seria de suma importância averiguar com atencedência se é possível fazê-lo navegar em espaços longos ou realizar rotas que necessitem de um tempo de operação alto, tal como verificar diversas regiões dentro de uma única operação.
+
+
+# Módulos do Sistema e Visão Geral (Big Picture)
+
+## Diagrama de Implementação do Sistema
+
+  
+
+![Diagrama_do_sistema](https://github.com/2023M6T2-Inteli/Grupo05/assets/99201276/22b3a0f1-ee6d-40f2-a86b-e9535a99f321)
+
+  
+
+## Tecnologias Utilizadas
+
+### Linguagens
+
+| Linguagem | Utilização                  | Ícone                                                                                               |
+| --------- | --------------------------- | --------------------------------------------------------------------------------------------------- |
+| Python    | Backend, Sistema Embarcado | ![Icon](https://skills.thijs.gg/icons?i=python)                                                    |
+| Next.js   | FrontEnd                    | ![Icon](https://skills.thijs.gg/icons?i=nextjs)                                                    |
+| TailWind  | FrontEnd                    | ![Icon](https://skills.thijs.gg/icons?i=tailwind)                                                   |
+
+### Database
+
+| Nome  | Utilização                | Tipo          |
+| ----- | ------------------------- | ------------- |
+| MySQL | Dados: Sensores e Relatórios | Relacional    |
+| Neo4j | Dados: Grafos             | Não Relacional |
+  
+
+### Frameworks
+
+| Nome    | Utilização | Linguagem |
+| ------- | ---------- | --------- |
+| FastAPI | API        | Python    |
+
+---
 # Arquitetura do Sistema
 
 
@@ -972,109 +1062,6 @@ A simulação, como mencionado anteriormente, servirá como uma demonstração d
 </p>
 
 <p>Fonte: Figma, Autoria Própria</p>
-
-# Módulos do Sistema e Visão Geral (Big Picture)
-
-  
-
-## Análise de Requisitos
-
-Para o funcionamento correto do sistema que se pretende implementar pode-se enumerar alguns elementos, sendo estes requisitos mínimos e ideais:
-
-  
-
-## Requisitos de Software:
-
-  
-
-1. O código depende da instalação e configuração corretas do ROS 2 e das bibliotecas Python necessárias, como rclpy, geometry_msgs, nav_msgs e tf_transformations.
-
-  
-
-2. O ambiente ROS 2 precisa estar configurado corretamente antes de executar o código. Isso pode necessitar da configuração de variáveis de ambiente, como ROS_DOMAIN_ID e ROS_MASTER_URI, para garantir a comunicação correta com outros nós e tópicos.
-
-  
-
-3. Os tópicos utilizados, 'odom' e cmd_vel', precisam estar corretamente configurados no sistema ROS 2 para sua correta utilização, de modo que as informações recebidas e enviadas possam ser lidas sem problemas. O nó deve ser capaz de se inscrever no tópico "odom" para receber atualizações de odometria e publicar no tópico "cmd_vel" para enviar comandos de velocidade.
-
-  
-
-4. O código depende de receber mensagens de odometria contendo a pose atual do robô. Verifição se o sistema está publicando as mensagens de odometria corretamente no tópico "odom" e se os dados estão no formato esperado pela função position_callback.
-
-  
-
-5. O código utiliza um 'timer' para chamar a função 'updated_vertex_callback' em intervalos regulares. Verificar se o valor do timer está adequado para a taxa de atualização desejada e que o sistema seja capaz de executar as operações.
-
-  
-
-6. Verifição das mensagens sendo publicadas e assinadas pelo nó estão no formato correto, conforme especificado pelos tipos de mensagem importados, odometria e de velocidade.
-
-  
-
-7. O sistema deve ser capaz de realizar uma conexão via websocket através do Raspberry Pi 4, de forma a enviar as informações dos sensores, da câmera e do robô para uma API conectada ao frontend, trazendo desta forma a possibilidade de visualização em tempo real das imagens e transmissão dos dados.
-
-8. O sistema deve ser capaz de fazer a filmagem do espaço que está percorrendo, de modo a salvar um arquivo no formato **`mp4`** para que o operador possa realizar a análise da inspeção realizada e possa tomar decisões sobre a manutenção que será realizada 
-
-## Requisitos Físicos:
-
-  
-
-1. Módulo de conectividade wifi, ou 5G, fazendo cobertura da planta do local de implementação. Tendo em vista a necessidade de visualização dos espaços através de uma câmera acoplada no equipamento, esta transmissão de dados necessita de conexão contínua para que possa ser realizada. Este requisito é mínimo no que tange a operabilidade à distância do equipamento e ideal para a utilizar a câmera do robô.
-
-  
-
-2. Planta baixa do local de inserção do equipamento previamente tratada via software. Este requisito é um requisito mínimo para realizar a operação com o equipamento de forma devida, é necessário cálcular as melhores rotas para a movimentação do veículo anteriormente a sua operação, pois apenas com o conhecimento ou estimativa dos pontos do em uma matriz podemos movimentá-lo corretamente e fazer correções ao nos depararmos com situações imprevistas, tal como obstáculos.
-
-  
-
-3. Sensores de alta precisão para assegurar as medição correta dos níveis de oxigênio dentro dos espaços confinados e produzir um mapa calor referente à concetração deste, de modo a facilitar a visualização pelo operador local que realizará uma manutenção ou vistoria. Este requisito é mínimo no que tange o uso efetivo da solução proposta, imprecisões nas medições podem gerar distorções nos relatórios sobre o espaço e gerar risco de vida para os colaboradores da Gerdau.
-
-  
-
-4. Avaliação dos níveis de bateria do equipamento em tempo real ou em intervalos pré-definidos. Este requisito é essencial para o funcionamento do equipamento, pois há o risco do equipamento ficar inoperável por falta de alimentação caso seja utilizado para uma operação com baixos níveis de bateria.
-
-5. Dispositivo de vídeo, câmera, webcam, etc, capaz de fazer o registro das imagens referentes a rotina de inspeção do robô 
-
-## Viabilidade Técnica
-
-A desenvolvimento desta solução é viável mediante a contratação de uma equipe técnica com expertise no setor de AGV's, ainda que os custos de pesquisa se demonstrem altos, tendo em vista a complexidade de se analisar os ambientes em que o equipamento estará inserido e a precisão na qualidade das medidas realizadas. Contudo, cabe um adendo a capacidade física do equipamento, tendo em vista que o robô não apresenta uma capacidade alimentação alta nem uma velocidade de locomoção alta, seria de suma importância averiguar com atencedência se é possível fazê-lo navegar em espaços longos ou realizar rotas que necessitem de um tempo de operação alto, tal como verificar diversas regiões dentro de uma única operação.
-
-  
-
-## Diagrama de Implementação do Sistema
-
-  
-
-![Diagrama_do_sistema](https://github.com/2023M6T2-Inteli/Grupo05/assets/99201276/22b3a0f1-ee6d-40f2-a86b-e9535a99f321)
-
-  
-
-## Tecnologias Utilizadas
-
-### Linguagens
-
-| Linguagem | Utilização                  | Ícone                                                                                               |
-| --------- | --------------------------- | --------------------------------------------------------------------------------------------------- |
-| Python    | Backend, Sistema Embarcado | ![Icon](https://skills.thijs.gg/icons?i=python)                                                    |
-| Next.js   | FrontEnd                    | ![Icon](https://skills.thijs.gg/icons?i=nextjs)                                                    |
-| TailWind  | FrontEnd                    | ![Icon](https://skills.thijs.gg/icons?i=tailwind)                                                   |
-
-### Database
-
-| Nome  | Utilização                | Tipo          |
-| ----- | ------------------------- | ------------- |
-| MySQL | Dados: Sensores e Relatórios | Relacional    |
-| Neo4j | Dados: Grafos             | Não Relacional |
-  
-
-### Frameworks
-
-| Nome    | Utilização | Linguagem |
-| ------- | ---------- | --------- |
-| FastAPI | API        | Python    |
-
----
-
 
 # METADESIGN.
 
