@@ -676,7 +676,7 @@ A desenvolvimento desta solução é viável mediante a contratação de uma equ
 
 | Nome    | Utilização | Linguagem |
 | ------- | ---------- | --------- |
-| FastAPI | API        | Python    |
+| Flask | API        | Python    |
 
 ---
 # Arquitetura do Sistema
@@ -707,7 +707,7 @@ Houve uma mudança da arquitetura da solução em relação às tecnologias que 
 ### Mudanças em relação à versão 1.0
 
 Frontend: Definição das tecnologias (Next.js, React.js e Electron).
-Backend: Definição das tecnologias (Node.js e FastAPI) e protocolo de comunicação com o robô (websocket).
+Backend: Definição das tecnologias (Node.js e Flask) e protocolo de comunicação com o robô (websocket).
 Robô: Clarificação dos sistemas empregados (Raspberry Pi, ROS), bem como a definição de algumas features.
 
 
@@ -910,8 +910,36 @@ Para fazer o Robô andar, um script Python é necessário rodar durante a simula
 
 O programa está montado de forma que o usuário dirá para o robô para qual coordenada ele deve ir, e o mesmo corresponder.
 
+# Módulo de Detecção de Gases 
+Como pretendido pelo projeto, havia a necessidade de fazer a detecção de gases nos ambientes confinados em que os operadores estariam operando, de modo que pudessemos fazer o controle do ambiente e predizer quando o ambiente é nocivo ou não. 
+Para tal, utilizando o senso Mq135, fazemos a detecção de gases dentro do ambiente, gravamos estas informações em um banco de dados através do endpoint **`/sensor-gas`**. Assim, é feita a média móvel da presença dos gases no ambiente e então retornamos estas informações diretamente para o dashboard que fora requisitado pelo cliente. 
+
+## Sensor:
+<img  src="img/mq135.jpg"  alt="sensor">
+
+## Microcontrolador: 
+<img  src="img/arduino.jpg"  alt="microcontrolador">
+
+## Saída do Sistema: 
+Utilizando uma biblioteca que padroniza a detecçao desses gases para tipos específicos, partes por milhão, obtemos a seguinte saída do código, que será enviada para o banco de dados. 
+
+| ********************************************************************MQ-13*********************************************************************|
+| ADC_In | Equation_V_ADC       | Voltage_ADC | Equation_RS                      | Resistance_RS | EQ_Ratio     | Ratio (RS/R0) | Equation_PPM  | PPM   |
+|--------|----------------------|-------------|----------------------------------|----------------|--------------|---------------|---------------|-------|
+| 133.00 | v = ADC*5.00/1023.00 | 0.65        | RS = ((5.00*RL)/Voltage) - RL   | 67.21          | Ratio = RS/R0 | 3.61          | ratio*a + b   | 3.85  |
+| 133.00 | v = ADC*5.00/1023.00 | 0.65        | RS = ((5.00*RL)/Voltage) - RL   | 66.92          | Ratio = RS/R0 | 3.60          | ratio*a + b   | 3.91  |
+| 133.00 | v = ADC*5.00/1023.00 | 0.65        | RS = ((5.00*RL)/Voltage) - RL   | 66.92          | Ratio = RS/R0 | 3.60          | ratio*a + b   | 3.91  |
+| 133.00 | v = ADC*5.00/1023.00 | 0.65        | RS = ((5.00*RL)/Voltage) - RL   | 67.21          | Ratio = RS/R0 | 3.61          | ratio*a + b   | 3.85  |
+| 133.00 | v = ADC*5.00/1023.00 | 0.65        | RS = ((5.00*RL)/Voltage) - RL   | 67.21          | Ratio = RS/R0 | 3.61          | ratio*a + b   | 3.85  |
+| 132.00 | v = ADC*5.00/1023.00 | 0.65        | RS = ((5.00*RL)/Voltage) - RL   | 67.50          | Ratio = RS/R0 | 3.63          | ratio*a + b   | 3.78  |
+| 132.00 | v = ADC*5.00/1023.00 | 0.65        | RS = ((5.00*RL)/Voltage) - RL   | 67.50          | Ratio = RS/R0 | 3.63          | ratio*a + b   | 3.78  |
+
+
+
 # Módulo de Visão Computacional
-Como pretendido pelo projeto em sua conjuntura, foi desenvolvido um módulo de visão computacional com objetivo de fazer detecção de eventuais rachaduras na estrutura, de forma a indicar para o operador quais regiões necessitam de manutenção. Desta forma, segue a explicação sobre implementação do módulo e seu funcionamento. 
+Como pretendido pelo projeto em sua conjuntura, foi desenvolvido um módulo de visão computacional com objetivo de fazer detecção de eventuais rachaduras na estrutura, de forma a indicar para o operador quais regiões necessitam de manutenção. Desta forma, segue a explicação sobre implementação do módulo e seu funcionamento. Abaixo vê-se a câmera implementa no componente físico. 
+
+<img  src="img/camera.jpg"  alt="camera-robo">
 
 ## Rede Neural YOLO para Detecção de Objetos
 O sistema utiliza um modelo de rede neural chamado YOLO (You Only Look Once), que é uma técnica popular para detecção de objetos em tempo real. O modelo foi treinado usando um conjunto de dados de rachaduras disponibilizado pela plataforma Roboflow. Através do treinamento, o modelo aprendeu a reconhecer e localizar rachaduras em imagens e vídeos.
