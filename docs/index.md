@@ -475,6 +475,8 @@ Logo a baixo segue o desenvolvimento do <b>Value Proposition Canvas</b>
 
 ## Matriz de Risco
 
+A Matriz de Risco é uma ferramenta fundamental para auxiliar na identificação, avaliação e gestão dos riscos em um projeto. Ela permite visualizar de forma estruturada e organizada os diferentes tipos de riscos que podem afetar o sucesso do projeto, bem como sua probabilidade de ocorrência e impacto caso ocorram. Nesse sentido, apresentaremos a seguir a Matriz de Risco do nosso projeto, que nos proporcionará uma visão clara dos riscos envolvidos e auxiliará na tomada de decisões estratégicas para o gerenciamento adequado desses riscos.
+
 
 <img  src="img/Matriz de risco - ameacas.png"  alt="Matriz de risco - ameacas">
 
@@ -1230,43 +1232,3 @@ Para o desenvolvimento do Wireframe, optamos pela utilização da ferramenta Fig
   
 
 [Link para o Figma do projeto](https://www.figma.com/file/NT74VsB5HdgBSnPgJt1ZLa/Mockup-Gerbros?type=design&node-id=0%3A1&t=Di1Dg68gJrnNrs9I-1)
-
-  
-
-## Design de Interface - Guia de Estilos
-
-
-# Projeto de Banco de Dados
-
-
-## Modelo Conceitual
-
-
-## Modelo Lógico
-
-
-# Teste de Software
-
-
-## Testes Unitários
-
-
-## Teste de Usabilidade
-
-
-# Análise de Dados
-
-
-# Manuais
-
-
-## Manual de Implantação
-
-
-## Manual do Usuário
-
-
-## Manual do Administrador
-
-
-# Referências
