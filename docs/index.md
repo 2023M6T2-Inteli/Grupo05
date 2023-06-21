@@ -483,6 +483,8 @@ Logo a baixo segue o desenvolvimento do <b>Value Proposition Canvas</b>
 
 ## Matriz de Risco
 
+A Matriz de Risco é uma ferramenta fundamental para auxiliar na identificação, avaliação e gestão dos riscos em um projeto. Ela permite visualizar de forma estruturada e organizada os diferentes tipos de riscos que podem afetar o sucesso do projeto, bem como sua probabilidade de ocorrência e impacto caso ocorram. Nesse sentido, apresentaremos a seguir a Matriz de Risco do nosso projeto, que nos proporcionará uma visão clara dos riscos envolvidos e auxiliará na tomada de decisões estratégicas para o gerenciamento adequado desses riscos.
+
 
 <img  src="img/Matriz de risco - ameacas.png"  alt="Matriz de risco - ameacas">
 
