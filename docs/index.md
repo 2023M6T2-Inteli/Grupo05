@@ -143,11 +143,11 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
 - [**Backend**](#backend)
 
-  -[**Detalhamento e descrição das rotas disponíveis**] (#detalhamento-e-descrição-das-rotas-disponíveis)
+  - [Detalhamento e descrição das rotas disponíveis](#detalhamento-e-descrição-das-rotas-disponíveis)
 
-  -[**Detalhamento e descrição das requisições HTTP possíveis**] (#detalhamento-e-descrição-das-rotas-disponíveis)
+  - [Detalhamento e descrição das requisições HTTP possíveis](#detalhamento-e-descrição-das-requisições-http-possíveis)
 
-  -[**Detalhamento de implementação da API**] (#detalhamento-e-descrição-das-rotas-disponíveis)
+  - [Detalhamento de implementação da API](#detalhamento-de-implementação-da-api)
 
 - [**Sistema Embarcado**](#sistema-embarcado)
 
@@ -178,9 +178,9 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
 - [METADESIGN](#metadesign)
 
-  - [**FATORES MERCADOLÓGICO:**](#fatores-mercadológico)
+  - [**FATORES MERCADOLÓGICOS**](#fatores-mercadológico)
 
-    - [**CENÁRIO DO MERCADO.**](#cenário-do-mercado)
+    - [**CENÁRIO DO MERCADO**](#cenário-do-mercado)
 
     - [**VISÃO**](#visão)
 
