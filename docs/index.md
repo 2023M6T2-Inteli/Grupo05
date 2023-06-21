@@ -462,12 +462,6 @@ Seguindo a ideia da matriz de oceano azul, foi feita uma avaliação de valor da
 >  _Observação: A escala do gráfico refere-se ao quanto uma solução prioriza mais ou menos certo aspecto que foi elencado no eixo "x"_.
 
 
-## Análise do cenário: Matriz SWOT
-
-
-_Matriz_SWOT_
-
-
 ## Proposta de Valor: Value Proposition Canvas
 
 
