@@ -1,9 +1,13 @@
 import cv2 as cv
 import numpy as np
 import os
+import sys
+from datetime import datetime
+
+new_file = sys.argv[1];
 
 cur_path = os.path.dirname(__file__)
-new_path = os.path.join(cur_path, '..\..\docs\img\Mesa.jpg')
+new_path = os.path.join(cur_path, r'..\app\imagens\\' + new_file )
 
 DIV = 18
 AVAILABLE_NODE = [190,150,100] # RGB COLOR FOR AVAILABLE SPACES
@@ -82,12 +86,16 @@ for i in range(DIV):
 
 masked_map = cv.bitwise_and(resize, resize, mask=final_mask)
 
-cv.imshow('Map div', masked_map)
+# cv.imshow('Map div', masked_map)
+filepath = os.path.join(cur_path, '..', 'app', 'imagens', 'mapa-' + datetime.now().strftime(r"%d-%m-%Y-%H%M%S") + '.jpg')
+filename = filepath.split('\\')[-1]
+print(filename, end='')
+cv.imwrite(filepath, masked_map)
 
-for row in range(DIV):
-    for column in range(DIV):
-        print(Map[column][row], end=' ')
-    print('')
+# for row in range(DIV):
+#     for column in range(DIV):
+#         print(Map[column][row], end=' ')
+#     print('')
 
 Map = np.array(Map)
 
