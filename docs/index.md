@@ -1014,38 +1014,25 @@ A desenvolvimento desta solução é viável mediante a contratação de uma equ
 
 ### Linguagens
 
-| Linguagem | Utilização | Ícone |
-
-|----------|----------|----------|
-
-| Python | Backend, Sistema Embarcado | ![Icon](https://skills.thijs.gg/icons?i=python) |
-
-| Next.js | FrontEnd | ![Icon](https://skills.thijs.gg/icons?i=nextjs) |
-
-| TailWind | FrontEnd | ![Icon](https://skills.thijs.gg/icons?i=tailwind) |
-
-  
+| Linguagem | Utilização                  | Ícone                                                                                               |
+| --------- | --------------------------- | --------------------------------------------------------------------------------------------------- |
+| Python    | Backend, Sistema Embarcado | ![Icon](https://skills.thijs.gg/icons?i=python)                                                    |
+| Next.js   | FrontEnd                    | ![Icon](https://skills.thijs.gg/icons?i=nextjs)                                                    |
+| TailWind  | FrontEnd                    | ![Icon](https://skills.thijs.gg/icons?i=tailwind)                                                   |
 
 ### Database
 
-| Nome | Utilização | Tipo |
-
-|----------|----------|----------|
-
-| MySQL | Dados: Sensores e Relatórios | Relacional |
-
-| Neo4j | Dados: Grafos | Não Relacional |
-
+| Nome  | Utilização                | Tipo          |
+| ----- | ------------------------- | ------------- |
+| MySQL | Dados: Sensores e Relatórios | Relacional    |
+| Neo4j | Dados: Grafos             | Não Relacional |
   
 
 ### Frameworks
 
-| Nome | Utilização | Linguagem |
-
-|----------|----------|----------|
-
-| FastAPI | API | Python |
-
+| Nome    | Utilização | Linguagem |
+| ------- | ---------- | --------- |
+| FastAPI | API        | Python    |
 
 ---
 
