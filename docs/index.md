@@ -61,93 +61,52 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
   
 
 - [Visão Geral do Projeto](#visão-geral-do-projeto)
+  
+  - [Empresa](#empresa)
+
+  - [O Problema](#o-problema)
 
   
 
-- [Empresa](#empresa)
+  - [Objetivos](#objetivos)
 
-  
+    - [Objetivos gerais](#objetivos-gerais)
 
-- [O Problema](#o-problema)
+    - [Objetivos específicos](#objetivos-específicos)
 
-  
-
-- [Objetivos](#objetivos)
-
-  
-
-- [Objetivos gerais](#objetivos-gerais)
-
-  
-
-- [Objetivos específicos](#objetivos-específicos)
-
-  
-
-- [Partes interessadas](#partes-interessadas)
+  - [Partes interessadas](#partes-interessadas)
 
   
 
 - [Análise do Problema](#análise-do-problema)
 
-  
+  - [Análise da área de atuação](#análise-da-área-de-atuação)
 
-- [Análise da área de atuação](#análise-da-área-de-atuação)
+  - [Matriz de Oceano Azul](#matriz-de-oceano-azul)
 
-  
+    - [**Eliminar**](#eliminar)
 
-- [Matriz de Oceano Azul](#matriz-de-oceano-azul)
+    - [**Reduzir**](#reduzir)
 
-  
+    - [**Criar**](#criar)
 
-- [**Eliminar**](#eliminar)
+    - [**Elevar**](#elevar)
+    
+    - [**Avaliação de valor**](#avaliação-de-valor)  
 
-  
+  - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
 
-- [**Reduzir**](#reduzir)
+  - [Matriz de Risco](#matriz-de-risco)
 
-  
+  - [Análise Financeira](#análise-financeira)
 
-- [**Criar**](#criar)
+    - [Análise de custo do processo atual](#análise-de-custo-do-processo-atual)
 
-  
+    - [Análise de custo da solução](#análise-de-custo-da-solução)
 
-- [**Elevar**](#elevar)
-
-  
-
-- [**Avaliação de valor**](#avaliação-de-valor)
+    - [ROI - Return Over Investment](#roi---return-over-investment)
 
   
-
-- [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
-
-  
-
-- [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
-
-  
-
-- [Matriz de Risco](#matriz-de-risco)
-
-  
-
-- [Análise Financeira](#análise-financeira)
-
-  
-
-- [Análise de custo do processo atual](#análise-de-custo-do-processo-atual)
-
-  
-
-- [Análise de custo da solução](#análise-de-custo-da-solução)
-
-  
-
-- [ROI - Return Over Investment](#roi---return-over-investment)
-
-  
-
 - [Requisitos do Sistema](#requisitos-do-sistema)
 
   - [Personas](#personas)
@@ -158,9 +117,9 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
   - [Análise de Requisitos](#análise-de-requisitos)
 
-  - [Requisitos de Software](#requisitos-de-software)
+    - [Requisitos de Software](#requisitos-de-software)
 
-  - [Requisitos Físicos](#requisitos-físicos)
+    - [Requisitos Físicos](#requisitos-físicos)
 
   - [Viabilidade Técnica](#viabilidade-técnica)
 
@@ -178,25 +137,35 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
 - [**Interface do Usuário**](#interface-do-usuário)
 
+  - [Versão 1.0](#versão-1.0)
+
+  - [Versão 2.0](#versão-2.0)
+
 - [**Backend**](#backend)
+
+  -[**Detalhamento e descrição das rotas disponíveis**] (#detalhamento-e-descrição-das-rotas-disponíveis)
+
+  -[**Detalhamento e descrição das requisições HTTP possíveis**] (#detalhamento-e-descrição-das-rotas-disponíveis)
+
+  -[**Detalhamento de implementação da API**] (#detalhamento-e-descrição-das-rotas-disponíveis)
 
 - [**Sistema Embarcado**](#sistema-embarcado)
 
-- [Controle da Plataforma Robótica](#controle-da-plataforma-robótica)
+  - [Controle da Plataforma Robótica](#controle-da-plataforma-robótica)
 
-- [Algoritmo de otimização de Rota](#algoritmo-de-otimização-de-rota)
+    - [Algoritmo de otimização de Rota](#algoritmo-de-otimização-de-rota)
 
-- [Arquitetura do Sistema de Simulação](#arquitetura-do-sistema-de-simulação)
+    - [Arquitetura do Sistema de Simulação](#arquitetura-do-sistema-de-simulação)
 
 - [Módulo de Visão Computacional](#módulo-de-visão-computacional)
 
-- - [Rede Neural YOLO para Detecção de Objetos](#rede-neural-yolo-para-detecção-de-objetos)
+  - [Rede Neural YOLO para Detecção de Objetos](#rede-neural-yolo-para-detecção-de-objetos)
 
-- - [Integração de uma Câmera ao Robô Turtlebot3](#integração-de-uma-câmera-ao-robô-turtlebot3)
+  - [Integração de uma Câmera ao Robô Turtlebot3](#integração-de-uma-câmera-ao-robô-turtlebot3)
 
-- - [Gravação de Vídeo com Detecção de Rachaduras](#gravação-de-vídeo-com-detecção-de-rachaduras)
+  - [Gravação de Vídeo com Detecção de Rachaduras](#gravação-de-vídeo-com-detecção-de-rachaduras)
 
-- - [Eficiência e Benefícios](#eficiência-e-benefícios)
+  - [Eficiência e Benefícios](#eficiência-e-benefícios)
 
   - [Sistemas de segurança](#sistemas-de-segurança)
 
@@ -207,43 +176,27 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
 
 - [Integração](#integração)
 
-- [METADESIGN.](#metadesign)
+- [METADESIGN](#metadesign)
 
-  
+  - [**FATORES MERCADOLÓGICO:**](#fatores-mercadológico)
 
-- [FATORES MERCADOLÓGICO:](#fatores-mercadológico)
+    - [**CENÁRIO DO MERCADO.**](#cenário-do-mercado)
 
-  
+    - [**VISÃO**](#visão)
 
-- [**CENÁRIO DO MERCADO.**](#cenário-do-mercado)
+  - [**SISTEMA PRODUTO/DESIGN**](#sistema-produtodesign)
 
-  
+    - [**MISSÃO**](#missão)
 
-- [**VISÃO.**](#visão)
+    - [**DESIGN**](#design)
 
-  
+  - [**SUSTENTABILIDADE AMBIENTAL**](#sustentabilidade-ambiental)
 
-- [SISTEMA PRODUTO/DESIGN:](#sistema-produtodesign)
-
-  
-
-- [**MISSÃO.**](#missão)
-
-  
-
-- [**DESIGN.**](#design)
-
-  
-
-- [SUSTENTABILIDADE AMBIENTAL:](#sustentabilidade-ambiental)
-
-  
-
-- [_Referências:_](#referências)
-
-  
+  - [_Referências:_](#referências)
 
 - [Wireframe + Storyboard](#wireframe--storyboard)
+
+  -[Componentes](#componentes)
 
 
 
@@ -634,7 +587,7 @@ Para o funcionamento correto do sistema que se pretende implementar pode-se enum
 
   
 
-## Requisitos de Software:
+### Requisitos de Software:
 
   
 
@@ -666,7 +619,7 @@ Para o funcionamento correto do sistema que se pretende implementar pode-se enum
 
 8. O sistema deve ser capaz de fazer a filmagem do espaço que está percorrendo, de modo a salvar um arquivo no formato **`mp4`** para que o operador possa realizar a análise da inspeção realizada e possa tomar decisões sobre a manutenção que será realizada 
 
-## Requisitos Físicos:
+### Requisitos Físicos:
 
   
 
@@ -758,10 +711,8 @@ Backend: Definição das tecnologias (Node.js e FastAPI) e protocolo de comunica
 Robô: Clarificação dos sistemas empregados (Raspberry Pi, ROS), bem como a definição de algumas features.
 
 
-## **Interface do Usuário**
+# **Interface do Usuário**
 
-  
-  
 
 Durante o planejamento e processo de design da interface do usuário, foram levadas em consideração as necessidades dos clientes e os requisitos do sistema elencados. Para validação desses elementos, fizemos validações com os parceiros e se esses atendiam às user stories.
 
@@ -839,7 +790,7 @@ A página principal foi totalmente reformulada, acrescentando algumas funcionali
 
 
 
-## **Backend**
+# **Backend**
 
 
 Como pode-se ver, a arquitetura do backend estará responsável por processar as informações que serão enviadas pelo robô, via wi-fi, para uma API servida em Node.js. As informações em questão serão o nível de oxigênio no espaço confinado, a imagens do espaço em que o robô se encontra, possibilitando assim a visualização prévia do espaço ou para uma eventual reavaliação da operação quando necessário e a rota que foi ou será executado pelo equipamento, assegurando desta forma que a realização das atividades esperadas foi ou está sendo executada de forma correta.
@@ -893,7 +844,7 @@ A rota '/sensor-gas' recebe dados do sensor de gás no corpo da requisição, va
 A rota '/test/:nomeArquivo' executa um script Python chamado "map_generator.py" passando o nome do arquivo como parâmetro. O script Python é executado como um processo filho e o resultado é retornado como resposta da requisição.
 
 
-## **Sistema Embarcado**
+# **Sistema Embarcado**
 
 
 Como pode-se ver, a arquitetura pensada para o sistema embarcado está sumariamente atrelada ao Robot Operating System, o ROS, através do qual, fundamentando-os na estrutura de Nodes, nós, de comunicação, faremos a conexão do robô com o servidor e desta forma poderemos operá-lo ou captar as informações solicitadas como padrão pelo backend.
@@ -904,7 +855,7 @@ Como pode-se ver, a arquitetura pensada para o sistema embarcado está sumariame
   
   
 
-# Controle da Plataforma Robótica
+## Controle da Plataforma Robótica
 
   
 
@@ -912,7 +863,7 @@ O controle da Plataforma Robótica será feita pelo código em Python que será 
 
   
 
-## Algoritmo de otimização de Rota
+### Algoritmo de otimização de Rota
 
   
 
@@ -937,7 +888,7 @@ Segue a baixo, um exemplo de seu funcionamento:
 
   
 
-## Arquitetura do Sistema de Simulação
+### Arquitetura do Sistema de Simulação
 
 A simulação do sistema é feita na plataforma Gazebo 3D, ela é simulada no ambiente do Linux instalada no Windows em conjunto com programas de renderização. É baseada no TurtleSim onde o sistema funciona na base de pacotes ROS2 (Robot Operating System). Ele permite a simulação de movimentos de uma tartaruga em um ambiente virtual bidimensional, onde é possível controlar a tartaruga através de comandos de movimento, como girar e avançar em uma direção específica. A tartaruga representa o robô, logo o esperado que se aconteça na simulação, seja replicado na realidade.
 
@@ -1001,7 +952,7 @@ A fim de evitar o envio de instruções inválidas ao robô, as solicitações s
 
 ### Validação da eficácia dos sistemas de segurança
 Ainda não foram feitos testes quantitativos em relação à eficiência dos sistemas de segurança.
-## Integração
+# Integração
 
 A integração será realizada da seguinte maneira: o backend irá fornecer o frontend, que é a página que será utilizada pelo usuário. Essa página exibirá informações sobre o status do Robô, as condições atmosféricas, permitirá a geração de relatórios e fornecerá uma visualização em tempo real do que o Robô está fazendo. Além disso, o backend executará um script Python otimizado com o algoritmo de otimização de rota A*.
 
@@ -1017,10 +968,9 @@ A simulação, como mencionado anteriormente, servirá como uma demonstração d
 
 <p>Fonte: Figma, Autoria Própria</p>
 
-# METADESIGN.
+# METADESIGN
 
-
-## FATORES MERCADOLÓGICO:
+## FATORES MERCADOLÓGICO
 
 
 ---
@@ -1038,7 +988,7 @@ Vale ressaltar também que a custo do produto é resultante do serviço gerado p
 ---
 
 
-#### **CENÁRIO DO MERCADO.**
+#### **CENÁRIO DO MERCADO**
 
 
 ---
@@ -1053,7 +1003,7 @@ No Brasil, apesar dos avanços em robótica e automação, tecnologias destinada
 ---
 
 
-#### **VISÃO.**
+#### **VISÃO**
 
 
 ---
@@ -1071,7 +1021,7 @@ A visão do projeto proposto é de oferecer um serviço inovador e sustentável 
 ---
 
 
-#### **MISSÃO.**
+#### **MISSÃO**
 
 
 ---
@@ -1083,7 +1033,7 @@ A missão do projeto proposto é antecipar a segurança de ambientes confinados 
 ---
 
 
-#### **DESIGN.**
+#### **DESIGN**
 
 
 ---
@@ -1146,7 +1096,7 @@ O serviço do projeto poderá trazer benefícios significativos em termos de eco
 ---
 
 
-## Wireframe + Storyboard
+# Wireframe + Storyboard
 
   
 
