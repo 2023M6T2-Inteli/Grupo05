@@ -599,11 +599,14 @@ A solução desenvolvida tem como foco de assegurar que as condições atmosfér
 ## Histórias dos usuários (user stories)
 
 
-As User Stories tem como objetivo mostrar para os desenvolvedores quais são as funcionalidades (Requisitos dos Sistema) que o usuário final deseja na solução. São pequenas histórias que ajudam no desenvolvimento com a finalidade de não perder o foco das necessidades do cliente.
+As User Stories tem como propósito fornecer aos desenvolvedores uma visão clara das funcionalidades desejadas pelo usuário final na solução. As User Stories são mais do que meros requisitos do sistema; elas são pequenas narrativas que desempenham um papel crucial no desenvolvimento, garantindo que as necessidades do cliente não sejam perdidas de vista.
 
-  
+Essas histórias do usuário oferecem uma abordagem contextualizada e orientada para o usuário, permitindo que a equipe de desenvolvimento compreenda as metas, motivações e desejos dos usuários finais. Em vez de se concentrarem apenas nos aspectos técnicos e funcionais, as User Stories trazem à tona a experiência e a perspectiva do usuário, destacando as principais interações, fluxos de trabalho e tarefas desejadas.
 
-Segundo a entrevista com a empresa Gerdau, foi concluído como requisitos do sistema os seguinte User Stories:
+Ao adotar as User Stories, os desenvolvedores são incentivados a pensar além dos requisitos superficiais e a considerar o impacto real que suas soluções terão nos usuários. Essas histórias capturam as nuances e detalhes que podem influenciar o design, a usabilidade e a experiência geral do usuário. Ao entender as necessidades dos usuários por meio das User Stories, os desenvolvedores podem criar soluções mais alinhadas com as expectativas do cliente e, assim, entregar produtos que atendam de forma mais precisa e efetiva às demandas do mercado.
+
+
+A partir da entrevista com a empresa Gerdau e do levantamento dos requisitos, foram concebidas as seguintes User Stories:
 
 
 • Eu, Douglas, Técnico de Segurança, quero ter um Dashboard, para que consiga ter acesso as informações vinda do robô que se encontra no ambiente de espaço confinado.<br>
