@@ -62,8 +62,15 @@ def handle_messages(data):
     socket.emit("message", "success")
 
 def send_ppm():
-    ppm = ser.readline().strip().decode('utf-8')
-    RosNode.print(f"ppm recebido: {ppm}")
+    while True:
+        ppm = ser.readline().strip().decode('utf-8')
+        try:
+            ppm = float(ppm)
+            RosNode.print(f"ppm recebido: {ppm}")
+            break
+        except:
+            RosNode.print(f"erro ppm")
+            continue
     # socket.emit("ppm", ppm)
 
 def main():
