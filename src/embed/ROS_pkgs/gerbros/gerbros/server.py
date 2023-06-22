@@ -14,7 +14,7 @@ socket = SocketIO(app, cors_allowed_origins="*")
 rclpy.init()
 RosNode = server_node()
 
-serial_port = 'COM3'
+serial_port = '/dev/ttyACM0'
 ser = serial.Serial(serial_port, 9600)
 
 @app.route("/")
