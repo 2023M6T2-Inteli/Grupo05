@@ -1246,4 +1246,13 @@ O funcionamento do arquivo 'mq_135_detection.ino' se dá pelo o uso de uma bibli
 
 [Link de referência da biblioteca utilizada](https://github.com/miguel5612/MQSensorsLib)
 
+## Front-End
+
+O Front-end foi construído em base de Next.js, onde concentra todas as funcionalidades visíveis da nossa solução.
+São duas páginas, a primeira é o Login da aplicação, exigindo um usuário e uma senha para acessar a aplicação. 
+A segunda página possui todas as funcionalidades da aplicação, divididas em três temas. O primeiro tema é Mapas, que tem a responsabilidade de permitir que o usuário insira imagens (Resolução Full HD). Essas imagens são enviadas para o back-end e depois para um programa em Python, capaz de filtrar a imagem e criar uma matriz que detecta possíveis pontos de trajetórias pelos quais o robô pode passar. Após o processamento, o programa retorna a imagem com um filtro de grade, que permite visualizar os pontos onde foram identificados trajetos. Essa imagem é enviada de volta para o back-end e depois para o front-end. Na mesma guia, é possível identificar um botão de configurações, presente em todas as abas. Ao acessá-lo, é possível fazer alterações na solução. Também há um dropdown que mostra a quantidade de mapas disponíveis inseridos pelo usuário.
+
+Na aba de Dados, são exibidas informações sobre os níveis de gases detectados no local pelo qual o robô está passando, retornando para o front-end. Na aba de vídeos, há um dropdown para buscar os vídeos salvos gerados pelo robô durante o processo de análise. Quando um vídeo é selecionado, um backdrop é aberto e o vídeo é reproduzido no front-end.
+
+
 --------------[Link para o Figma do projeto](https://www.figma.com/file/NT74VsB5HdgBSnPgJt1ZLa/Mockup-Gerbros?type=design&node-id=0%3A1&t=Di1Dg68gJrnNrs9I-1)
