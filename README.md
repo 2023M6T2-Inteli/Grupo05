@@ -147,6 +147,17 @@ Prontinho! O front-end está funcionando em sua máquina!
 <img  src="docs/img/app_run.png"  alt="aplicação rodando">
 <i>Imagem 6: aplicação rodando</i>
 
+## LISTA DE COMPONENTES DO SISTEMA:
+
+| Item             | Descrição                  |
+|------------------|----------------------------|
+| 1. Robô TurtleBot3   | Um robô programável usado em aplicações de robótica educacional e pesquisa.    |
+| 2. DashBoard     | Uma interface gráfica que exibe informações e controles para um sistema específico. |
+| 3. Câmera         | Um dispositivo que captura imagens ou vídeos.                                 |
+| 4. Sensor de gás | Um sensor que detecta a presença e concentração de gases no ambiente.           |
+| 5. MQ-135        | Um tipo específico de sensor de gás utilizado para detectar substâncias como amônia, óxido nítrico, dióxido de enxofre, etc. |
+
+
 ## Robô
 
 Após o Robô já estiver montado, o mesmo necessita de um sistema operacional que administre os seus recursos disponíveis para possa ler, processar e rodar os comandos enviados pela rede.
