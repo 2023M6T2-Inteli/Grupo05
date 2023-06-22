@@ -65,8 +65,14 @@ void setup() {
 }
 
 void loop() {
-  MQ135.update(); // Update data, the arduino will read the voltage from the analog pin
-  float ppm = MQ135.readSensor(); // Sensor will read PPM concentration using the model, a and b values set previously or from the setup
-  Serial.println(ppm);
-  delay(100); // Sampling frequency
+  while true {
+    if (Serial.available() > 0) {
+      int incomingByte = Serial.read();
+      if (incomingByte == 's') {
+        MQ135.update(); // Update data, the arduino will read the voltage from the analog pin
+        float ppm = MQ135.readSensor(); // Sensor will read PPM concentration using the model, a and b values set previously or from the setup
+        Serial.println(ppm);
+      }
+    }
+  }
 }
