@@ -95,6 +95,7 @@ acima, pois é de uso e funcionamento interno do sistema.
 ## 💻 **MANUAL DE CONFIGURAÇÃO E DE INSTALAÇÃO DO USUÁRIO**.
 <br></br>
 
+Este manual serve para orientação de aprendizagem e executação da aplicação, a fim de facilitar a usabilidade do usuário
 ### **Como usar o programa?**
 Inicialmente para podermos utilizar a nossa aplicação, devemos primeiramente baixar os diretórios diretamente do GitHub no link a seguir:
 * Diretório - https://github.com/2023M6T2-Inteli/Grupo05
