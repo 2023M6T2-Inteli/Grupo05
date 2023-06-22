@@ -33,13 +33,9 @@ def startMovement():
         ser.flushInput()
         ser.flushOutput()
         ser.write(b's')
-        send_ppm()
-        # response = RosNode.startRoute()
-
-        # if response == True:
-        #     ws_started = True
-        #     #colocar aqui a logica de enviar as infos da run atual via websocket
-        #     return 'ok', 200
+        ppm = read_ppm()
+        socket.emit("ppm", ppm)
+        return "ok", 200
     
     except Exception as e:
         return str(e), 500
@@ -64,17 +60,16 @@ def handle_messages(data):
     RosNode.print(f"-----------mensagem recebida via websocket: {data} ----")
     socket.emit("message", "success")
 
-def send_ppm():
+def read_ppm():
     while True:
         ppm = ser.readline().strip().decode('utf-8')
         try:
             ppm = float(ppm)
             RosNode.print(f"ppm recebido: {ppm}")
-            break
+            return ppm
         except:
             RosNode.print(f"erro ppm")
             continue
-    # socket.emit("ppm", ppm)
 
 def main():
     socket.run(app,debug=True, host="0.0.0.0", use_reloader=True, allow_unsafe_werkzeug=True)
