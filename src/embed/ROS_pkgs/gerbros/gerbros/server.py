@@ -3,7 +3,6 @@ from flask_cors import CORS
 import rclpy
 from flask_socketio import SocketIO
 import serial 
-import jsonify
 
 from .server_files.serverNode import server_node
 
@@ -32,12 +31,13 @@ def startMovement():
         global ws_started
         #permite a comunicação do websocket
         RosNode.print(" -->  rota '/startMovement' acessada")
-        response = RosNode.startRoute()
+        send_ppm()
+        # response = RosNode.startRoute()
 
-        if response == True:
-            ws_started = True
-            #colocar aqui a logica de enviar as infos da run atual via websocket
-            return 'ok', 200
+        # if response == True:
+        #     ws_started = True
+        #     #colocar aqui a logica de enviar as infos da run atual via websocket
+        #     return 'ok', 200
     
     except Exception as e:
         return str(e), 500
@@ -64,7 +64,8 @@ def handle_messages(data):
 
 def send_ppm():
     ppm = float(ser.readline().strip().decode('utf-8'))
-    socket.emit("ppm", ppm)
+    RosNode.print(f"ppm recebido: {ppm}")
+    # socket.emit("ppm", ppm)
 
 def main():
     socket.run(app,debug=True, host="0.0.0.0", use_reloader=True, allow_unsafe_werkzeug=True)
