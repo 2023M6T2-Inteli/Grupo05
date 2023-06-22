@@ -30,6 +30,9 @@ def startMovement():
         global ws_started
         #permite a comunicação do websocket
         RosNode.print(" -->  rota '/startMovement' acessada")
+        ser.flushInput()
+        ser.flushOutput()
+        ser.write(b's')
         send_ppm()
         # response = RosNode.startRoute()
 
