@@ -25,9 +25,6 @@ def hello_world():
 @app.route("/startMovement")
 def startMovement():
     try:
-        # if not request.is_json: return "o corpo da requisição deve ser um json", 400
-        # data = request.json()
-        global ws_started
         #permite a comunicação do websocket
         RosNode.print(" -->  rota '/startMovement' acessada")
         ser.flushInput()
@@ -43,10 +40,7 @@ def startMovement():
 
 @socket.on("connect")
 def connected():
-    global ws_started
-    if not ws_started:
-        RosNode.print("websocket recusou um pedido de conexão")
-        return False
+    RosNode.print("websocket recusou um pedido de conexão")
     RosNode.print(" -->  websocket conectado")
     socket.emit("message","sucess")
 
