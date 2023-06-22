@@ -92,7 +92,7 @@ Todas as nossa pastas importantes estão declaradas acima. Vale ressaltar que qu
 acima, pois é de uso e funcionamento interno do sistema.
 
 ---
-## 💻 **MANUAL DE CONFIGURAÇÃO E DE INSTALAÇÃO**.
+## 💻 **MANUAL DE CONFIGURAÇÃO E DE INSTALAÇÃO DO USUÁRIO**.
 <br></br>
 
 ### **Como usar o programa?**
@@ -146,6 +146,30 @@ Prontinho! O front-end está funcionando em sua máquina!
 <img  src="docs/img/app_run.png"  alt="aplicação rodando">
 <i>Imagem 6: aplicação rodando</i>
 
+## Robô
+
+Após o Robô já estiver montado, o mesmo necessita de um sistema operacional que administre os seus recursos disponíveis para possa ler, processar e rodar os comandos enviados pela rede.
+
+O link do repositório abaixo é um tutorial feito pelo Professor de Programação Rodrigo Mangoni Nicola, na qual explica passo a passo como é feita essa configuração de um microSD antes de ele ser plugado no próprio Robô.
+Ainda no mesmo link, é necessário fazer uma configuração específica no Sistema Operacional (uma distribuição do Linux), para que ele consiga acessar uma rede específica por exemplo.
+
+[https://github.com/rmnicola/m6-ec-encontro7](https://github.com/rmnicola/m6-ec-encontro7)
+
+O Sistema Operacional pronto no microSD é uma base para que o Robô possar interpretar informações. Para que a nossa solução funcione, é necessário fazer o Download do nosso repositório dentro do microSD; há duas maneiras de fazer esse clone.
+
+* 1°: Plugar o MicroSD no computador e baixar os arquivos de maneira manual.
+* 2°: Conectar em um televisor, um cabo HDMI na qual sai do Robô, e utilizar o Git para clonar o Repositório.
+
+Após o repositório clonado, é necessário fazer a instalação do ROS2 dentro do sistema operacional. Essa configuração já está disponibilizado no mesmo link dito anteriormente.
+
+Dentro do diretório correspondente ao projeto, no caminho <b>./Grupo05/src/embed/ROS_pkgs</b> temos os pacotes pertencentes ao ROS2. Ainda dentro desse diretório, existe uma pasta chamada <b>GERBROS</b> na qual é responsável pela comunicação e controle do Robô e outro pasta chamada <b>interfaces</b> na qual possui a interface de mensageria que defini os tipos de mensagens e serviços que serão utilizados pelo pacote <b>GERBROS</b> para funcionar.
+
+Pacotes ROS- `interfaces`: Pacote C++ que contém as interfaces (tipagens das mensagens e serviços) ROS  
+- `gerbros`: Pacote Python que contém todos os nós ROS### Instalando o pacote:  
+Na pasta ROS_pkgs, execute `colcon build --packages-up-to gerbros interfaces --symlink-install` para buildar os pacotesinstale-os com `source install/setup.sh` (`setup.zsh` caso use ZSH)### rodando os pacotes  
+Para executar todos os nós ROS, rode `ros2 launch gerbros launch.xml`> Para deixar o terminal do ROS mais legível, execute: `export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} | {name}]> {message}"`
+
+Após seguir esse passos, o Robô está pronto.
 ___
 
   ## 🐛Troubleshooting
