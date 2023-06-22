@@ -21,9 +21,9 @@ function ImageDisplay({ filename, updateImage }){
         .catch(error => console.log(error));
     }, [filename]);
 
-    // useEffect(() => {
-    //     updateImage(filename);
-    //   }, [filename, updateImage]);
+    useEffect(() => {
+        updateImage(filename);
+      }, [filename, updateImage]);
 
     return (
         <div>
