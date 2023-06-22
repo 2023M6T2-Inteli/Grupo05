@@ -55,159 +55,86 @@ SIMULAÇÃO DE ROBÔS PARA APLICAÇÃO DIVERSAS.
   
 **Conteúdo**
 
-- [**Autores**](#autores)
-
-- [**Visão Geral do Projeto**](#visão-geral-do-projeto)
-
-- [Empresa](#empresa)
-
-- [O Problema](#o-problema)
-
-- [Objetivos](#objetivos)
-
-- [Objetivos gerais](#objetivos-gerais)
-
-- [Objetivos específicos](#objetivos-específicos)
-
-- [Partes interessadas](#partes-interessadas)
-
-- [**Análise do Problema**](#análise-do-problema)
-
-- [Análise da área de atuação](#análise-da-área-de-atuação)
-
-- [Matriz de Oceano Azul](#matriz-de-oceano-azul)
-
-- [Eliminar](#eliminar)
-
-- [Reduzir](#reduzir)
-
-- [Criar](#criar)
-
-- [Elevar](#elevar)
-
-- [Avaliação de valor](#avaliação-de-valor)
-
-- [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
-
-- [Matriz de Risco](#matriz-de-risco)
-
-- [Análise Financeira](#análise-financeira)
-
-- [Análise de custo do processo atual](#análise-de-custo-do-processo-atual)
-
-- [Análise de custo da solução](#análise-de-custo-da-solução)
-
-- [ROI - Return Over Investment](#roi---return-over-investment)
-
-- [**Requisitos do Sistema**](#requisitos-do-sistema)
-
-- [Personas](#personas)
-
-- [Jornada do Usuário](#jornada-do-usuário)
-
-- [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
-
-- [Análise de Requisitos](#análise-de-requisitos)
-
-- [Requisitos de Software](#requisitos-de-software)
-
-- [Requisitos Físicos](#requisitos-físicos)
-
-- [Viabilidade Técnica](#viabilidade-técnica)
-
-- [**Módulos do Sistema e Visão Geral (Big Picture)**](#módulos-do-sistema-e-visão-geral-big-picture)
-
-- [Diagrama de Implementação do Sistema](#diagrama-de-implementação-do-sistema)
-
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-
-- [Linguagens](#linguagens)
-
-- [Database](#database)
-
-- [frameworks](#frameworks)
-
-- [**Arquitetura do Sistema**](#arquitetura-do-sistema)
-
-- [Versão 1.0](#versão-1.0)
-
-- [Versão 2.0](#versão-2.0)
-
-- [Mudanças em relação à versão 1.0](#mudanças-em-relação-à-versão-10)
-
+- [Autores](#autores)
+- [Visão Geral do Projeto](#visão-geral-do-projeto)
+  - [Empresa](#empresa)
+  - [O Problema](#o-problema)
+  - [Objetivos](#objetivos)
+    - [Objetivos gerais](#objetivos-gerais)
+    - [Objetivos específicos](#objetivos-específicos)
+  - [Partes interessadas](#partes-interessadas)
+- [Análise do Problema](#análise-do-problema)
+  - [Análise da área de atuação](#análise-da-área-de-atuação)
+  - [Matriz de Oceano Azul](#matriz-de-oceano-azul)
+    - [**Eliminar**](#eliminar)
+    - [**Reduzir**](#reduzir)
+    - [**Criar**](#criar)
+    - [**Elevar**](#elevar)
+    - [**Avaliação de valor**](#avaliação-de-valor)
+  - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
+  - [Matriz de Risco](#matriz-de-risco)
+  - [Análise Financeira](#análise-financeira)
+    - [Análise de custo do processo atual](#análise-de-custo-do-processo-atual)
+    - [Análise de custo da solução](#análise-de-custo-da-solução)
+    - [ROI - Return Over Investment](#roi---return-over-investment)
+- [Requisitos do Sistema](#requisitos-do-sistema)
+  - [Personas](#personas)
+  - [Jornada do Usuário](#jornada-do-usuário)
+  - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
+  - [Análise de Requisitos](#análise-de-requisitos)
+    - [Requisitos de Software:](#requisitos-de-software)
+    - [Requisitos Físicos:](#requisitos-físicos)
+  - [Viabilidade Técnica](#viabilidade-técnica)
+- [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
+  - [Diagrama de Implementação do Sistema](#diagrama-de-implementação-do-sistema)
+  - [Tecnologias Utilizadas](#tecnologias-utilizadas)
+    - [Linguagens](#linguagens)
+    - [Database](#database)
+    - [Frameworks](#frameworks)
+- [Arquitetura do Sistema](#arquitetura-do-sistema)
+  - [Versão 1.0](#versão-10)
+  - [Versão 2.0](#versão-20)
+    - [Mudanças em relação à versão 1.0](#mudanças-em-relação-à-versão-10)
 - [**Interface do Usuário**](#interface-do-usuário)
-
-- [Versão 1.0](#versão-1.0)
-
-- [Versão 2.0](#versão-2.0)
-
+  - [Versão 1.0](#versão-10-1)
+  - [Versão 2.0](#versão-20-1)
 - [**Backend**](#backend)
-
-- [Detalhamento e descrição das rotas disponíveis](#detalhamento-e-descrição-das-rotas-disponíveis)
-
-- [Detalhamento e descrição das requisições HTTP possíveis](#detalhamento-e-descrição-das-requisições-http-possíveis)
-
-- [Detalhamento de implementação da API](#detalhamento-de-implementação-da-api)
-
+  - [Detalhamento e descrição das rotas disponíveis](#detalhamento-e-descrição-das-rotas-disponíveis)
+  - [Detalhamento e descrição das requisições HTTP possíveis](#detalhamento-e-descrição-das-requisições-http-possíveis)
+  - [Detalhamento de implementação da API](#detalhamento-de-implementação-da-api)
 - [**Sistema Embarcado**](#sistema-embarcado)
-
-- [Controle da Plataforma Robótica](#controle-da-plataforma-robótica)
-
-- [Algoritmo de otimização de Rota](#algoritmo-de-otimização-de-rota)
-
-- [Arquitetura do Sistema de Simulação](#arquitetura-do-sistema-de-simulação)
-
-- [**Módulo de Detecção de Gases**](#módulo-de-detecção-de-gases)
-
-- [Sensor](#sensor)
-
-- [Microcontrolador](#microcontrolador)
-
-- [Saída do Sistema](#saída-do-sistema)
-
-- [**Módulo de Visão Computacional**](#módulo-de-visão-computacional)
-
-- [Rede Neural YOLO para Detecção de Objetos](#rede-neural-yolo-para-detecção-de-objetos)
-
-- [Integração de uma Câmera ao Robô Turtlebot3](#integração-de-uma-câmera-ao-robô-turtlebot3)
-
-- [Gravação de Vídeo com Detecção de Rachaduras](#gravação-de-vídeo-com-detecção-de-rachaduras)
-
-- [Eficiência e Benefícios](#eficiência-e-benefícios)
-
-- [Sistemas de segurança](#sistemas-de-segurança)
-
-- [Implementação do sistema anticolisão](#implementação-do-sistema-anticolisão)
-
-- [Dispositivos de segurança](#dispositivos-de-segurança)
-
-- [Implementação do sistema de proteção contra comandos indesejados](#implementação-do-sistema-de-proteção-contra-comandos-indesejados)
-
-- [Validação da eficácia dos sistemas de segurança](#validação-da-eficácia-dos-sistemas-de-segurança)
-
-- [**Integração**](#integração)
-
-- [**Metadesign**](#metadesign)
-
-- [Fatores Mercadológicos](#fatores-mercadológico)
-
-- [Cenário de Mercado](#cenário-do-mercado)
-
-- [Visão](#visão)
-
-- [Sistema Produto/Design](#sistema-produtodesign)
-
-- [Missão](#missão)
-
-- [Design](#design)
-
-- [Sustentabilidade Ambiental](#sustentabilidade-ambiental)
-
-- [Referências](#referências)
-
-- [**Wireframe + Storyboard**](#wireframe--storyboard)
-
-- [Componentes](#componentes)
+  - [Controle da Plataforma Robótica](#controle-da-plataforma-robótica)
+    - [Algoritmo de otimização de Rota](#algoritmo-de-otimização-de-rota)
+    - [Arquitetura do Sistema de Simulação](#arquitetura-do-sistema-de-simulação)
+- [Módulo de Detecção de Gases](#módulo-de-detecção-de-gases)
+  - [Sensor:](#sensor)
+  - [Microcontrolador:](#microcontrolador)
+  - [Saída do Sistema:](#saída-do-sistema)
+- [Módulo de Visão Computacional](#módulo-de-visão-computacional)
+  - [Rede Neural YOLO para Detecção de Objetos](#rede-neural-yolo-para-detecção-de-objetos)
+  - [Integração de uma Câmera ao Robô Turtlebot3](#integração-de-uma-câmera-ao-robô-turtlebot3)
+  - [Gravação de Vídeo com Detecção de Rachaduras](#gravação-de-vídeo-com-detecção-de-rachaduras)
+  - [Eficiência e Benefícios](#eficiência-e-benefícios)
+  - [Sistemas de segurança](#sistemas-de-segurança)
+    - [Implementação do sistema anticolisão](#implementação-do-sistema-anticolisão)
+    - [Dispositivos de segurança](#dispositivos-de-segurança)
+    - [Implementação do sistema de proteção contra comandos indesejados](#implementação-do-sistema-de-proteção-contra-comandos-indesejados)
+    - [Validação da eficácia dos sistemas de segurança](#validação-da-eficácia-dos-sistemas-de-segurança)
+- [Integração](#integração)
+- [Metadesign](#metadesign)
+  - [Fatores Mercadológicas](#fatores-mercadológicas)
+      - [**Cenário do Mercado**](#cenário-do-mercado)
+      - [**Visão**](#visão)
+  - [Sistema Produto/Design:](#sistema-produtodesign)
+      - [**Missão**](#missão)
+      - [**Design**](#design)
+  - [Sustentabilidade Ambiental](#sustentabilidade-ambiental)
+  - [_Referências:_](#referências)
+- [Wireframe + Storyboard](#wireframe--storyboard)
+  - [Componentes](#componentes)
+  - [Manual Operacional](#manual-operacional)
+  - [Robô](#robô)
+  - [Front-End](#front-end)
 
   
   
@@ -1050,7 +977,7 @@ A simulação, como mencionado anteriormente, servirá como uma demonstração d
 ---
 
   
-O produto é protagonizado pelo serviço destinado para em ambientes confinados, o qual coleta dados a partir de sensores, sobretudo de gases. O produto provém da combinação de componetes tecnológicos, como o robô TurtleBot 3 - fabricado pela empresa Open Source Robotics Foudation em colaboração com ROBOTIS - para a detecção de problemas em tubulações; e um Dashborad em tempo real para visualização de filmagens desse ambiente.
+O produto é protagonizado pelo serviço destinado para em ambientes confinados, o qual coleta dados a partir de sensores, sobretudo de gases. O produto provém da combinação de componetes tecnológicos, como o robô TurtleBot 3 - fabricado pela empresa Open Source Robotics Foudation em colaboração com ROBOTIS - para a detecção de problemas em tubulações; e um Dashboard em tempo real para visualização de filmagens desse ambiente.
 
   
 Nesse sentido, o produto se orienta no mercado como uma solução inovadora e ecoeficiente (detalhes no tópico seguinte: "Sustentabilidade Ambiental"), o qual se posiciona no mesmo como uma solução de alta qualidade em custo/benefício, visto que, além da resolução do problema da coorperativa, traz segurança de trabalho para técnicos que operam nos setores dos condutos gaseficados e áreas afins, auxiliando na eficiência e produtividade desses.

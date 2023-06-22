@@ -95,6 +95,7 @@ acima, pois é de uso e funcionamento interno do sistema.
 ## 💻 **MANUAL DE CONFIGURAÇÃO E DE INSTALAÇÃO DO USUÁRIO**.
 <br></br>
 
+Este manual serve para orientação de aprendizagem e executação da aplicação, a fim de facilitar a usabilidade do usuário
 ### **Como usar o programa?**
 Inicialmente para podermos utilizar a nossa aplicação, devemos primeiramente baixar os diretórios diretamente do GitHub no link a seguir:
 * Diretório - https://github.com/2023M6T2-Inteli/Grupo05
@@ -145,6 +146,17 @@ Prontinho! O front-end está funcionando em sua máquina!
 
 <img  src="docs/img/app_run.png"  alt="aplicação rodando">
 <i>Imagem 6: aplicação rodando</i>
+
+## LISTA DE COMPONENTES DO SISTEMA:
+
+| Item             | Descrição                  |
+|------------------|----------------------------|
+| 1. Robô TurtleBot3   | Um robô programável usado em aplicações de robótica educacional e pesquisa.    |
+| 2. DashBoard     | Uma interface gráfica que exibe informações e controles para um sistema específico. |
+| 3. Câmera         | Um dispositivo que captura imagens ou vídeos.                                 |
+| 4. Sensor de gás | Um sensor que detecta a presença e concentração de gases no ambiente.           |
+| 5. MQ-135        | Um tipo específico de sensor de gás utilizado para detectar substâncias como amônia, óxido nítrico, dióxido de enxofre, etc. |
+
 
 ## Robô
 
