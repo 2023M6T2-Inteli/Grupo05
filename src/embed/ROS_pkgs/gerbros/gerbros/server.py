@@ -2,6 +2,8 @@ from flask import Flask, request
 from flask_cors import CORS
 import rclpy
 from flask_socketio import SocketIO
+import serial 
+import jsonify
 
 from .server_files.serverNode import server_node
 
@@ -13,6 +15,8 @@ socket = SocketIO(app, cors_allowed_origins="*")
 rclpy.init()
 RosNode = server_node()
 
+serial_port = 'COM3'
+ser = serial.Serial(serial_port, 9600)
 
 @app.route("/")
 def hello_world():
@@ -57,6 +61,10 @@ def handle_messages(data):
         return
     RosNode.print(f"-----------mensagem recebida via websocket: {data} ----")
     socket.emit("message", "success")
+
+def send_ppm():
+    ppm = float(ser.readline().strip().decode('utf-8'))
+    socket.emit("ppm", ppm)
 
 def main():
     socket.run(app,debug=True, host="0.0.0.0", use_reloader=True, allow_unsafe_werkzeug=True)
