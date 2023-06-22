@@ -3,7 +3,6 @@ from flask_cors import CORS
 import rclpy
 from flask_socketio import SocketIO
 import serial 
-
 from .server_files.serverNode import server_node
 
 # variavel que indica se o websocket está disponível para receber mensagens
@@ -63,7 +62,7 @@ def handle_messages(data):
     socket.emit("message", "success")
 
 def send_ppm():
-    ppm = float(ser.readline().strip().decode('utf-8'))
+    ppm = ser.readline().strip().decode('utf-8')
     RosNode.print(f"ppm recebido: {ppm}")
     # socket.emit("ppm", ppm)
 
