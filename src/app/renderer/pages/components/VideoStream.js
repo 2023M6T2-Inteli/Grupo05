@@ -39,7 +39,7 @@ const VideoStream = () => {
     return (
         <>
         <img ref={videoRef} alt="Video Stream" />
-        <p className="pt-4">{"gás carbônico (PPM):"}</p>
+        <p className="pt-4">{"concentração gasosa (PPM):"}</p>
         <p className="text-xl">{ppm || "Dados de gases ainda não recebidos!"}</p>
         <p className="pt-6">Bateria:</p>
         <p className="text-xl">{bateria || "Dados de bateria ainda não recebidos!"}</p>
