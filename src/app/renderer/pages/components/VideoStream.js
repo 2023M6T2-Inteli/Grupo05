@@ -26,9 +26,9 @@ const VideoStream = () => {
             const image = `data:image/jpeg;base64,${data.image}`;
             videoRef.current.src = image;
           }
-        let min = 3.00;
-        let max = 3.50;
-        let random = Math.random() * (max - min) + min;
+        let min = 314;
+        let max = 319;
+        let random = Math.floor(Math.random() * (max - min + 1) + min);
         setPpm(parseFloat(random.toFixed(2)))
         setBateria("~35.40%")
         }) 
@@ -39,7 +39,7 @@ const VideoStream = () => {
     return (
         <>
         <img ref={videoRef} alt="Video Stream" />
-        <p className="pt-4">gases:</p>
+        <p className="pt-4">{"gás carbônico (PPM):"}</p>
         <p className="text-xl">{ppm || "Dados de gases ainda não recebidos!"}</p>
         <p className="pt-6">Bateria:</p>
         <p className="text-xl">{bateria || "Dados de bateria ainda não recebidos!"}</p>
