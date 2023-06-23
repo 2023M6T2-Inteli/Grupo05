@@ -2,7 +2,7 @@ import { set } from "express/lib/application";
 import { useState, useRef, useEffect } from "react";
 import { io } from 'socket.io-client';
 
-const socketUrl = "http://10.128.1.236:5000/";
+const socketUrl = "http://10.128.68.190:5000";
 
 
 const VideoStream = () => {
