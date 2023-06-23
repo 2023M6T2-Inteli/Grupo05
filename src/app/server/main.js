@@ -211,6 +211,36 @@ app.post('/sensor-gas', async (req, res) => {
             .json({ error: 'Erro ao inserir os dados do sensor de gás' });
         } else {
           console.log('Dados do sensor de gás inseridos com sucesso');
+
+          try{
+
+            const current_path = path.resolve('');
+            const pathToFile = path.join(
+              current_path,
+              '..',
+              'algorithm',
+              'moving_average.py'
+            );
+            let dataToSend;
+
+            console.log(valorGas);
+
+            const python = spawn('python', [`${pathToFile}`, valorGas]);
+
+            python.stdout.on('data', function (data) {
+              console.log('Pipe data from python script ...');
+              dataToSend = data.toString();
+            });
+
+            python.on('close', (code) => {
+              console.log(`child process close all stdio with code ${code}`);
+              console.log(dataToSend);
+            });
+        }
+        catch(error) {
+          console.log(error)
+        };
+
           res
             .status(200)
             .json({ message: 'Dados do sensor de gás inseridos com sucesso' });
