@@ -9,7 +9,7 @@ new_file = sys.argv[1];
 cur_path = os.path.dirname(__file__)
 new_path = os.path.join(cur_path, r'..\app\imagens\\' + new_file )
 
-DIV = 18
+DIV = 6
 AVAILABLE_NODE = [190,150,100] # RGB COLOR FOR AVAILABLE SPACES
 MAX_DIFF = [60, 100, 40]
 

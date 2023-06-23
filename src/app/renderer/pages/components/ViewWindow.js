@@ -21,13 +21,13 @@ function ImageDisplay({ filename, updateImage }){
         .catch(error => console.log(error));
     }, [filename]);
 
-    // useEffect(() => {
-    //     updateImage(filename);
-    //   }, [filename, updateImage]);
+    useEffect(() => {
+        updateImage(filename);
+      }, [filename, updateImage]);
 
     return (
         <div>
-            {imgURL && <img src={imgURL} alt="Teste"/>}
+            {imgURL !== null ? <img src={imgURL} alt="Imagem carregando..."/> : <div>Esperando imagem...</div>}
         </div>
     );
 }

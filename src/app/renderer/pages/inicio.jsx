@@ -20,7 +20,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import Toolbar from '@mui/material/Toolbar';
 import AppBar from '@mui/material/AppBar';
-import ViewWindow from './components/ViewWindow';
+import ImageDisplay from './components/ViewWindow';
 import PostButton from './components/PostButton';
 import Component from './components/InputMap';
 import axios from 'axios';
@@ -39,7 +39,9 @@ function ResponsiveAppBar() {
 
   function loadComponent(){
     if (mostrarCamera) {
-      return <WebSocket />;
+      if (videoPageState){
+        return <VideoPage></VideoPage>;
+      }
     }
 
     else if (mostrarDados){
@@ -47,7 +49,7 @@ function ResponsiveAppBar() {
     }
 
     else if (mostrarMapa){
-      return <ViewWindow className='w-full h-full' filename={filename} />;
+      return <ImageDisplay className='w-full h-full' filename={filename} updateImage={updateImage} />;
     }
 
     else {
@@ -74,7 +76,7 @@ function ResponsiveAppBar() {
     ]
   });
 
-  let filename = null;
+  const [filename, setFilename] = React.useState("");
   // const video_1 = require('./aaa.mp4');
   const pages = ['Mapas', 'Dados', 'Câmeras'];
   const settings = ['Logout'];
@@ -169,52 +171,62 @@ function ResponsiveAppBar() {
     setOpenMap(false);
   };
 //________________________________________________________Upload de imagem________________________________________________________
-  const handleFileUpload = (event) => {
-    const files = event.target.files;
-  
-    if (files && files.length > 0) {
-      const file = files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        const encodedImage = reader.result.split(',')[1]; // Extrai apenas a parte base64 da string
-        const formData = new FormData();
-        formData.append('imagem', encodedImage);
-        const imagem = {
-          "imagem": formData.get('imagem').toString(),
-        }
-        console.log(imagem);
+const handleFileUpload = (event) => {
 
-        fetch('http://localhost:3000/salvar-imagem', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          },
-          //  body: JSON.stringify({ "image": formData.get('image').toString()}),
-          body: JSON.stringify(imagem),
-        })
+  const files = event.target.files;
+
+  if (files && files.length > 0) {
+    
+    const file = files[0];
+    const reader = new FileReader();
+    
+    reader.onload = () => {
+      
+      const encodedImage = reader.result.split(',')[1]; // Extrai apenas a parte base64 da string
+      const formData = new FormData();
+      
+      formData.append('imagem', encodedImage);
+      
+      const imagem = {
+        "imagem": formData.get('imagem').toString(),
+      }
+      
+      console.log(imagem);
+      
+      fetch('http://localhost:3000/salvar-imagem', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(imagem),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+
+        fetch('http://localhost:3000/test/' + data.file)
         .then((response) => response.json())
         .then((data) => {
-          filename = data.file;
-          console.log(data); // Resultado da requisição
+          console.log(data);
 
-          // Após a conclusão da primeira rota, fazer a chamada para a segunda rota
-          axios.get('http://localhost:3000/test/' + data.file)
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data); // Resultado da segunda rota
-            console.log('Imagem salva com sucesso!');
-          })
-          .catch((error) => {
-            console.error('Erro ao fazer a chamada para a segunda rota:', error);
-          });
+          setFilename(data.filename);
+
+          console.log('Imagem salva com sucesso!');
         })
         .catch((error) => {
-          console.error('Erro ao enviar o formulário:', error);
+          console.error('Erro ao fazer a chamada para a segunda rota:', error);
         });
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+      })
+      .catch((error) => {
+        console.error('Erro ao enviar o formulário:', error);
+      });
+    };
+    reader.readAsDataURL(file);
+  }
+};
+
+const updateImage = () => {
+  console.log("filename:", filename);
+};
 
   const [videos, setVideos] = React.useState([]);
   const [selectedVideo, setSelectedVideo] = React.useState('');
@@ -555,7 +567,7 @@ function ResponsiveAppBar() {
       
 
           <div className='flex flex-col w-full h-full border h-screen border-gray-800 justify-center items-center bg-black rounded-lg shadow-md'>
-            {videoPageState ? <VideoPage></VideoPage> : null}
+            {loadComponent()}
           </div>
       </div>
   </div>

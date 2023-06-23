@@ -59,7 +59,8 @@ class Component extends React.Component {
                     <Grid container spacing={1}></Grid>
 
                     <Grid item xs={3}>
-                    <img src="../../../images/turtlebot3-simulation3.png" alt="Robot"/>
+                        <div>Origem</div>
+                    {/* <img src="../../../images/turtlebot3-simulation3.png" alt="Robot"/> */}
                     </Grid>
 
                 
@@ -69,7 +70,8 @@ class Component extends React.Component {
                     </Grid>
 
                     <Grid item xs={3}>
-                       <img src='C:\Users\filip\OneDrive\Documentos\Inteli\Grupo05\media\delivery.png' alt='Target icon' />
+                        <div>Destino</div>
+                       {/* <img src='C:\Users\filip\OneDrive\Documentos\Inteli\Grupo05\media\delivery.png' alt='Target icon' /> */}
                     </Grid>
 
                     <Grid item xs={3}>
