@@ -15,8 +15,8 @@ socket = SocketIO(app, cors_allowed_origins="*")
 rclpy.init()
 RosNode = server_node()
 
-# serial_port = '/dev/ttyACM0'
-# ser = serial.Serial(serial_port, 9600)
+serial_port = '/dev/ttyACM0'
+ser = serial.Serial(serial_port, 9600)
 
 @app.route("/")
 def hello_world():
@@ -80,5 +80,5 @@ def read_ppm():
             RosNode.print(f"erro ppm")
             continue
 
-# def main():
-socket.run(app,debug=True, host="0.0.0.0", use_reloader=True, allow_unsafe_werkzeug=True)
+def main():
+    socket.run(app,debug=True, host="0.0.0.0", use_reloader=True, allow_unsafe_werkzeug=True)
