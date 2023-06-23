@@ -15,7 +15,11 @@ const VideoStream = () => {
     useEffect(() => {
         const socket = io(socketUrl)
         socket.connect()
-        socket.on('connect', ()=>console.log("connected"));
+        socket.on('connect', ()=>{
+            console.log("connected")
+            alert("Atenção! O robô foi conectado. A rotina iniciará em breve...")
+
+        });
         socket.on('disconnect', ()=>console.log("disconnected"))
         socket.on("stream_response", data => {
           if (videoRef.current) {
