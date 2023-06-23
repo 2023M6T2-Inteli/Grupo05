@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from interfaces.srv import RouteInfo
+# from interfaces.srv import RouteInfo
 
 
 class server_node(Node):

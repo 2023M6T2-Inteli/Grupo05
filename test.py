@@ -100,7 +100,6 @@ class AStar:
     
         print(open_list)
 
-
 class RobotController(Node):
     def __init__(self):
         super().__init__('robot_controller')

@@ -31,6 +31,8 @@ import {Data} from '../utils/Data';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import WebSocket from './components/Websocket';
 
+import VideoPage from './components/videoPage';
+
 Chart.register(CategoryScale);
 
 function ResponsiveAppBar() {
@@ -85,6 +87,7 @@ function ResponsiveAppBar() {
   const [mapa, setMapa] = React.useState('');
   const [openSettings, setOpenSettings] = React.useState(false);
   const [openMap, setOpenMap] = React.useState(false);
+  const [videoPageState, setVideoPage] = React.useState(false);
 
   const settingsRef = React.useRef(null);
   const mapRef = React.useRef(null);
@@ -543,14 +546,16 @@ function ResponsiveAppBar() {
 
             </div>
 
-          <PostButton></PostButton>
+          <button onClick={() => setVideoPage(true)} className='bg-blue-400 rounded p-4 hover:bg-blue-600 transition-all'>
+            Iniciar Rotina
+          </button>
 
         </div>
       )}
       
 
           <div className='flex flex-col w-full h-full border h-screen border-gray-800 justify-center items-center bg-black rounded-lg shadow-md'>
-            {loadComponent()}
+            {videoPageState ? <VideoPage></VideoPage> : null}
           </div>
       </div>
   </div>
